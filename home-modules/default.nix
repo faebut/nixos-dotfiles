@@ -9,6 +9,10 @@
     createDirectories = true;
   };
 
+  programs.gpg = {
+    enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

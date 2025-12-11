@@ -120,6 +120,11 @@
     };
   };
 
+  programs.lazygit = {
+    enable = true;
+    settings.enableZshIntegration = true;
+  };
+
   # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;

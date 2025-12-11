@@ -13,6 +13,12 @@
     enable = true;
   };
 
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    enableZshIntegration = true;
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

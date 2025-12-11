@@ -9,15 +9,16 @@
     createDirectories = true;
   };
 
-  programs.gpg = {
-    enable = true;
-  };
-
-  services.gpg-agent = {
-    enable = true;
-    enableSshSupport = true;
-    enableZshIntegration = true;
-  };
+  # programs.gpg = {
+  #   enable = true;
+  # };
+  #
+  # services.gpg-agent = {
+  #   enable = true;
+  #   enableSshSupport = true;
+  #   enableZshIntegration = true;
+  #
+  # };
 
   programs.zsh = {
     enable = true;
@@ -98,6 +99,10 @@
     # devtools
     beekeeper-studio
     posting # API client
+    gh
+
+    # auth
+    # gcr
 
     # proglang
     nodejs

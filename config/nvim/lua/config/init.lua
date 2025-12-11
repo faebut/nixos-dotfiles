@@ -1,0 +1,7 @@
+require("config.options")
+require("config.lazy")
+require("config.keymaps")
+require("config.highlight_yank")
+require("config.toggle_diagnostics")
+require("config.autocmd")
+require("config.prefs")

@@ -1,0 +1,323 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "height": 34,
+  "margin-top": 7,
+  "margin-left": 12,
+  "margin-right": 12,
+  "margin-bot": 5,
+  "modules-left": [
+    "cpu",
+    "memory",
+    "disk",
+    "custom/updates",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "custom/media",
+    "custom/sonixd",
+    "tray",
+    "custom/thunderbird",
+    "bluetooth",
+    "custom/wl-mirror",
+    // "custom/wl-gammarelay-temperature",
+    "backlight",
+    "group/audio",
+    // "temperature",
+    "inhibitor",
+    "battery",
+    "clock",
+    "custom/notifications"
+    // "custom/powermenu"
+  ],
+  "tray": {
+    "icon-size": 22,
+    "spacing": 8
+    // "show-passive-items": true, // show icons with "passive" status
+    // "icons": {
+    //   "filen": "/home/faebut/.icons/Tokyonight-Dark-Bluegrey/panel/48/filen.png"
+    // }
+  },
+  "custom/media": {
+    "exec": "/usr/bin/python3 /home/faebu/.config/waybar/scripts/mediaplayer.py --player spotify",
+    "format": "{} ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "escape": true
+  },
+  "custom/wl-mirror": {
+    "format": "{} 󰍺 ",
+    "on-click": "~/.config/rofi/scripts/wl-present.sh"
+  },
+  "custom/thunderbird": {
+    "format": "󰺻 {}",
+    "exec": "~/.config/waybar/scripts/waybar_thunderbird",
+    "on-click": "thunderbird",
+    "return-type": "json",
+    "interval": 60,
+    "tooltip": true
+  },
+  // "custom/notifications": {
+  //   "format": "{}   ",
+  //   "on-click": "swaync-client -t"
+  // },
+  "custom/notifications": {
+    "tooltip": false,
+    "format": "{icon} ",
+    "format-icons": {
+      "notification": " ",
+      "none": " ",
+      "dnd-notification": " ",
+      "dnd-none": " ",
+      "inhibited-notification": " ",
+      "inhibited-none": " ",
+      "dnd-inhibited-notification": " ",
+      "dnd-inhibited-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/powermenu": {
+    "format": "{}  ",
+    "on-click": "~/.config/rofi/scripts/power-menu.sh"
+  },
+  "custom/outlook": {
+    "format": "{} 󰺻 ",
+    "on-click": "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --app=https://outlook.office.com/mail/"
+  },
+  "custom/teams": {
+    "format": "{}   ",
+    "on-click": "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --app=https://teams.microsoft.com/v2/"
+  },
+  "custom/onenote": {
+    "format": "{}  ",
+    "on-click": "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --app=https://onenote.com"
+  },
+  "custom/windows": {
+    "format": "{}  ",
+    "on-click": "~/.config/waybar/scripts/startwm.sh"
+  },
+  "custom/emoji": {
+    "format": "{} 󰞅 ",
+    "on-click": "rofi -modi emoji -show emoji"
+  },
+  "custom/calc": {
+    "format": "{}  ",
+    "on-click": "rofi -modi calc -show calc"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": "()",
+    "format-connected-battery": "()",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t({device_battery_percentage}%)",
+    "on-click": "sh -c '(blueman-manager)' & disown"
+  },
+  "network": {
+    "format-wifi": "",
+    "format-disconnected": "󱚼",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "sh -c '(nm-connection-editor)' & disown"
+  },
+  "hyprland/window": {
+    "format": "({})"
+  },
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%",
+    "max-length": 10,
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+  },
+  "disk": {
+    "interval": 30,
+    "format": "󰋊 {percentage_used}%",
+    "path": "/",
+    "tooltip": true,
+    "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {}%",
+    "max-length": 10,
+    "tooltip": true,
+    "tooltip-format": "Memory - {used:0.1f}GB used",
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+  },
+  "custom/updates": {
+    // "format": "{}",
+    "exec": "~/.config/waybar/scripts/update-sys.sh",
+    "on-click": "~/.config/waybar/scripts/update-sys.sh update",
+    "return-type": "json",
+    "interval": 300,
+    "tooltip": true
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+  "clock": {
+    "timezone": "Europe/Berlin",
+    "locale": "de_CH.UTF-8",
+    "format": "{:%d.%m.%y - %H:%M}",
+    "tooltip": true,
+    "tooltip-format": "{:%A, %e %B %Y}"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "min-length": 6
+  },
+  "inhibitor": {
+    "what": "idle",
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": "󰒲 "
+    }
+  },
+  "battery": {
+    "states": {
+      "good": 75,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 400,
+      "children-class": "audio",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "pulseaudio",
+      "pulseaudio/slider",
+      "pulseaudio#microphone"
+    ]
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "<span size='14pt'>󰍬</span>",
+    "format-source-muted": "<span size='14pt'>󰍭</span>",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "tooltip": false
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "orthogonal"
+  },
+  "pulseaudio": {
+    "interval": 1,
+    "format": "{icon}",
+    "format-icons": [
+      "<span size='14pt'>󰕿</span>",
+      "<span size='14pt'>󰖀</span>",
+      "<span size='14pt'>󰕾</span>"
+    ],
+    "format-muted": "<span size='14pt'>󰝟</span>",
+    "on-click-right": "pavucontrol",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "reverse-scrolling": true,
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%\n{desc}",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+  // "pulseaudio": {
+  //   "format": "{icon} {volume}%",
+  //   "format-muted": "",
+  //   "on-click": "pamixer -t",
+  //   "on-click-right": "pavucontrol",
+  //   "on-scroll-up": "pamixer -i 5",
+  //   "on-scroll-down": "pamixer -d 5",
+  //   "scroll-step": 5,
+  //   "format-icons": {
+  //     "headphone": "",
+  //     "hands-free": "",
+  //     "headset": "",
+  //     "phone": "",
+  //     "portable": "",
+  //     "car": "",
+  //     "default": [
+  //       "",
+  //       "",
+  //       ""
+  //     ]
+  //   }
+  // },
+  "temperature": {
+    "thermal-zone": 8,
+    "format": " {temperatureC}°C",
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C",
+    "tooltip": true,
+    "interval": 1
+  },
+  "custom/wl-gammarelay-temperature": {
+    "format": "{} ",
+    "exec": "wl-gammarelay-rs watch {t}",
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
+  },
+  "custom/vpn": {
+    "format": "VPN ",
+    "exec": "echo '{\"class\": \"connected\"}'",
+    "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
+    "return-type": "json",
+    "interval": 5
+  },
+  "custom/weather": {
+    "exec": "${HOME}/.config/waybar/scripts/get_weather.sh Aarau+Switzerland",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600
+  }
+}

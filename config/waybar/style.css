@@ -1,0 +1,211 @@
+/* import theme */
+@import "./themes/rose-pine.css";
+/* @import "./rose-pine-moon.css"; */
+/* @import "./rose-pine-dawn.css"; */
+
+* {
+  border: none;
+  font-family: "JetBrainsMono NF";
+  font-weight: normal;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @base;
+  opacity: 1;
+  color: @subtle;
+  border-width: 1px;
+  border-color: @overlay;
+  border-style: solid;
+}
+
+tooltip {
+  background: @overlay;
+  /* opacity: 0.8; */
+  border-radius: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @base;
+  color: @sublte;
+}
+
+tooltip label {
+  color: @subtle;
+}
+
+#workspaces button {
+  padding: 0px;
+  margin: 3px 0px;
+  color: @iris;
+  margin-right: 5px;
+  font-size: 0em;
+}
+
+#workspaces button.active {
+  color: @iris;
+  padding: 0px 1px;
+  border-radius: 5px;
+  border: 1px solid @iris;
+}
+
+#workspaces button.focused {
+  color: @base;
+  padding: 0px 1px;
+  border-radius: 5px;
+  background: @love;
+}
+
+#workspaces button.urgent {
+  color: @base;
+  padding: 0px 1px;
+  border-radius: 5px;
+  background: @foam;
+}
+
+#workspaces button:hover {
+  color: @base;
+  padding: 0px 1px;
+  border-radius: 5px;
+  background: @iris;
+}
+
+#custom-launch_fuzzel,
+#custom-sonixd,
+#mpris #custom-power_btn,
+#window,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#tray,
+#temperature,
+#workspaces,
+#network,
+#bluetooth,
+#custom-media,
+#backlight {
+  padding: 0px 10px;
+  margin: 2px 0px;
+}
+
+#pulseaudio {
+  padding: 0px 10px 0px 0px;
+  margin: 2px 0px;
+}
+
+
+#custom-powermenu {
+  margin-right: 10px;
+  color: #ff007c;
+}
+
+#custom-notifications {
+  color: #ffc777;
+}
+
+#custom-launch_fuzzel {
+  color: #89b4fa;
+  margin-left: 10px;
+  border-right: 0px;
+}
+
+#clock {
+  color: #ff9e64;
+}
+
+#battery.warning {
+  color: @gold;
+}
+
+#battery.good {
+  color: @pine;
+}
+
+#battery.critical {
+  color: @love;
+}
+
+#battery {
+  /* border-radius: 0px 5px 5px 0px; */
+  margin-right: 0px;
+  color: #4fd6be;
+}
+
+#cpu,
+#memory {
+  padding-right: 3px;
+}
+
+/* #cpu, */
+/* #disk, */
+/* #memory { */
+/*   color: #7aa2f7; */
+/* } */
+
+#window {
+  color: @foam;
+}
+
+#custom-media {
+  padding-left: 20px;
+}
+
+#temperature.critical {
+  color: @love;
+}
+
+#workspaces {
+  padding-left: 5px;
+}
+
+#window {
+  margin-right: 20px;
+}
+
+#custom-updates {
+  color: #7dcfff;
+}
+
+#custom-updates.update {
+  color: #4fd6be;
+}
+
+#network,
+#bluetooth,
+#custom-thunderbird {
+  color: @iris;
+}
+
+#custom-thunderbird.mail {
+  color: #4fd6be;
+}
+
+#pulseaudio-slider {
+  padding: 0;
+  margin: 0;
+  padding-right: 10px;
+}
+
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+  min-height: 10px;
+  min-width: 80px;
+}
+
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  background: #7dcfff;
+}

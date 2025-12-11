@@ -1,0 +1,42 @@
+{
+  "pyprland": {
+    "plugins": [
+      "scratchpads",
+      "expose",
+      "toggle_special"
+    ]
+  },
+  "scratchpads": {
+    "term": {
+      "command": "kitty --class kitty-dropterm",
+      "unfocus": "hide",
+      "animation": "fromTop",
+      "size": "60% 50%",
+      "margin": 47
+    },
+    "volume": {
+      "command": "pavucontrol",
+      "animation": "fromRight",
+      "margin": 10,
+      "size": "40% 80%",
+      "unfocus": "hide",
+      "lazy": true
+    },
+    "mc": {
+      "command": "kitty --class kitty-dropmc -e mc",
+      "unfocus": "hide",
+      "animation": "fromTop",
+      "size": "70% 70%",
+      "margin": 47,
+      "lazy": true
+    },
+    "spotify": {
+      "command": "kitty --class kitty-spotify -e spotify_player",
+      "unfocus": "hide",
+      "animation": "fromBottom",
+      "size": "60% 50%",
+      "margin": 47,
+      "lazy": true
+    }
+  }
+}

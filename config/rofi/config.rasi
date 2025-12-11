@@ -1,0 +1,24 @@
+configuration {
+    modi: "run,drun,ssh";
+    show-icons: true;
+    icon-theme: "Tokyonight-Dark";
+    font: "JetBrains Mono NF 12";
+    lines: 10;
+    terminal: "kitty";
+    hide-scrollbar: true;
+    disable-history: false;
+    display-ssh:    " ssh:";
+    display-run:    "󱓞 run:";
+    display-drun:   "󰣖 apps:";
+    display-window: " window:";
+    display-combi:  "󰕘 combi:";
+    display-filebrowser: "󰉋 filebrowser:";
+    sidebar-mode: true;
+
+}
+
+//@theme "~/.config/rofi/themes/gruvbox-material.rasi"
+
+
+
+@theme "~/.config/rofi/themes/tokyo-night.rasi"

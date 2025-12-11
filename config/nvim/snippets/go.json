@@ -1,0 +1,29 @@
+{
+  "if err != nil": {
+    "prefix": "ifer",
+    "body": [
+      "if err != nil {",
+      "\t$1",
+      "}"
+    ],
+    "description": "Go error handling"
+  },
+  "if err return": {
+    "prefix": "ifert",
+    "body": [
+      "if err != nil {",
+      "\treturn $1err",
+      "}"
+    ],
+    "description": "Go error handling with return"
+  },
+  "if err log fatal": {
+    "prefix": "iferl",
+    "body": [
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "}"
+    ],
+    "description": "Go error handling with log.Fatal"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  description = "Hyprland on Nixos";
+  description = "NixOS configuration and home-manager configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11";
@@ -20,13 +20,13 @@
       nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./hosts/nixpad1/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.faebut = import ./home.nix;
+              users.faebut = import ./home-modules/default.nix;
               backupFileExtension = "backup";
             };
           }

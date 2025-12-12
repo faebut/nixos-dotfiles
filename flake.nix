@@ -34,6 +34,7 @@
         system = "x86_64-linux";
         modules = [
           ./nixos
+          ./users/faebut.nix
           ./nixos/desktop/hyprland
           ./hosts/nixpad1/configuration.nix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
@@ -56,6 +57,7 @@
         system = "x86_64-linux";
         modules = [
           ./nixos
+          ./users/faebut.nix
           ./nixos/desktop/hyprland
           ./hosts/sinkbad/configuration.nix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen

@@ -41,7 +41,10 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.faebut = import ./home-modules/common.nix;
+              users.faebut.imports = [
+                ./home-modules/common.nix
+                ./home-modules/desktop
+              ];
               backupFileExtension = "backup";
             };
           }

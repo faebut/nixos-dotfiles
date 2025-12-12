@@ -17,7 +17,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixpad1"; # Define your hostname.
+  networking.hostName = "sinkbad"; # Define your hostname.
+
+  # Console settings for high resolution
+  console = {
+    font = "ter-132n";
+    packages = [ pkgs.terminus_font ];
+  };
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -30,23 +36,8 @@
     xwayland.enable = true;
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "ch";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.faebut = {

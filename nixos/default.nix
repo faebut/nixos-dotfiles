@@ -2,6 +2,7 @@
 # shared default config for all hosts
 
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -26,17 +27,13 @@
     LC_TIME = "de_CH.UTF-8";
   };
 
-  # console = {
-  #   # font = "ter-v22n";
-  #   # keyMap = "sg"; # swiss german
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
-  console.keyMap = "sg";
+  console = {
+    # font = "ter-v22n";
+    keyMap = "sg";
+  };
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "ch";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # virtual filesystems
   services.gvfs.enable = true;
@@ -51,6 +48,8 @@
     gcc
     unzip
   ];
+
+  programs.zsh.enable = true;
 
   # default nerd-font
   fonts.packages = with pkgs; [

@@ -12,7 +12,7 @@
     nix-colors.url = "github:Misterio77/nix-colors";
 
     # secrets
-    # sops-nix-url = "github:Mic92/sops-nix";
+    # sops-nix.url = "github:Mic92/sops-nix";
     #
     # nix-secrets = {
     #   url = "git+ssh://git@github.com/faebut/nix-secrets.git";
@@ -29,7 +29,14 @@
       home-manager,
       ...
     }@inputs:
+    let
+      unstablePkgs = import inputs.unstable {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
+    in
     {
+
       nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -49,7 +56,7 @@
               ];
               backupFileExtension = "backup";
               extraSpecialArgs = {
-                unstablePkgs = inputs.unstable;
+                unstablePkgs = unstablePkgs;
               };
             };
           }
@@ -75,7 +82,7 @@
               ];
               backupFileExtension = "backup";
               extraSpecialArgs = {
-                unstablePkgs = inputs.unstable;
+                unstablePkgs = unstablePkgs;
               };
             };
           }

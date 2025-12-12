@@ -58,72 +58,76 @@
   };
 
   home.packages =
-    # ----- UNSTABLE -------------------------------------------------------
-    (with unstablePkgs; [
-      crush # 0.20.1 (desired version)
-    ])
-    ++
-      # ----- STABLE ---------------------------------------------------------
-      (with pkgs; [
-        # archives
-        zip
-        xz
-        unzip
-        p7zip
+    with pkgs;
+    [
 
-        # utils
-        ripgrep
-        jq
-        fzf
+      # archives
+      zip
+      xz
+      unzip
+      p7zip
 
-        # networking
-        mtr
-        socat
-        nmap
-        ipcalc
+      # utils
+      ripgrep # recursively searches directories for a regex pattern
+      jq # A lightweight and flexible command-line JSON processor
+      fzf # A command-line fuzzy finder
 
-        # misc
-        file
-        which
-        tree
-        gnutar
-        gawk
-        zstd
-        gnupg
+      # networking tools
+      mtr # A network diagnostic tool
+      socat # replacement of openbsd-netcat
+      nmap # A utility for network discovery and security auditing
+      ipcalc # it is a calculator for the IPv4/v6 addresses
 
-        # window‑manager UI
-        rofi
-        waybar
-        hyprpaper
+      # misc
+      file
+      which
+      tree
+      gnutar
+      gawk
+      zstd
+      gnupg
 
-        # productivity
-        glow
-        libreoffice
-        btop
+      # window manager
+      rofi
+      waybar
+      hyprpaper
 
-        # system tools
-        lm_sensors
-        pciutils
-        usbutils
-        networkmanagerapplet
+      # productivity
+      glow # markdown previewer in terminal
+      libreoffice
 
-        # devtools
-        beekeeper-studio
-        posting
-        gh
+      btop # replacement of htop/nmon
 
-        # auth / crypto
-        gcr
+      # system tools
+      lm_sensors # for `sensors` command
+      pciutils # lspci
+      usbutils # lsusb
+      networkmanagerapplet
 
-        # language runtimes / servers
-        nodejs
-        nixd
-        nixfmt-rfc-style
-        lua-language-server
+      # devtools
+      beekeeper-studio
+      posting # API client
+      gh
+      unstablePkgs.crush
 
-        # graphical file manager
-        nautilus
-      ]);
+      # auth
+      gcr
+
+      # proglang
+      nodejs
+
+      # language-servers for nvim
+      nixd # nix formatting
+      nixfmt-rfc-style # nix formatter
+      lua-language-server # lua
+
+      # graphical tools
+      nautilus
+    ]
+    # add unstable packages
+    ++ (with unstablePkgs; [
+      crush
+    ]);
 
   # kitty terminal
   programs.kitty = {

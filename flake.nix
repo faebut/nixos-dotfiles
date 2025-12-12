@@ -20,13 +20,14 @@
       nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ./nixos/default.nix
           ./hosts/nixpad1/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.faebut = import ./home-modules/default.nix;
+              users.faebut = import ./home-modules/common.nix;
               backupFileExtension = "backup";
             };
           }

@@ -26,11 +26,13 @@
     LC_TIME = "de_CH.UTF-8";
   };
 
-  console = {
-    # font = "ter-v22n";
-    keyMap = "sg"; # swiss german
-    useXkbConfig = true; # use xkb.options in tty.
-  };
+  # console = {
+  #   # font = "ter-v22n";
+  #   # keyMap = "sg"; # swiss german
+  #   useXkbConfig = true; # use xkb.options in tty.
+  # };
+
+  console.keyMap = "sg";
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "ch";

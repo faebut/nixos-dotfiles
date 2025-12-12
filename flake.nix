@@ -58,7 +58,7 @@
           ./nixos
           ./nixos/desktop/hyprland
           ./hosts/sinkbad/configuration.nix
-          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen
           home-manager.nixosModules.home-manager
           {
             home-manager = {

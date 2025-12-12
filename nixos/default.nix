@@ -35,8 +35,20 @@
   # Configure keymap in X11
   services.xserver.xkb.layout = "ch";
 
-  # virtual filesystems
+  # services
   services.gvfs.enable = true;
+  services.printing.enable = true;
+
+  # network management
+  networking.networkmanager.enable = true;
+
+  # Enable sound.
+  # services.pulseaudio.enable = true;
+  # OR
+  # services.pipewire = {
+  #   enable = true;
+  #   pulse.enable = true;
+  # };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -49,9 +61,10 @@
     unzip
   ];
 
+  # shell
   programs.zsh.enable = true;
 
-  # default nerd-font
+  # default installed fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];

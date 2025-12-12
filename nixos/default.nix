@@ -1,6 +1,5 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+# shared default config for all hosts
 
 {
   config,
@@ -29,7 +28,7 @@
 
   console = {
     # font = "ter-v22n";
-    # keyMap = "de_CH-latin1";
+    keyMap = "sg"; # swiss german
     useXkbConfig = true; # use xkb.options in tty.
   };
 
@@ -40,11 +39,26 @@
   # virtual filesystems
   services.gvfs.enable = true;
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # default applications
+  environment.systemPackages = with pkgs; [
+    neovim
+    wget
+    gcc
+    unzip
+  ];
+
+  # default nerd-font
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
   system.stateVersion = "25.11";
-
 }

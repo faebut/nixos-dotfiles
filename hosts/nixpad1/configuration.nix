@@ -1,3 +1,5 @@
+# host specific configuration
+
 {
   config,
   lib,
@@ -56,19 +58,6 @@
   programs.zsh.enable = true;
   programs.firefox.enable = true;
   programs.thunderbird.enable = true;
-
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    gcc
-    unzip
-  ];
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
 
   # add insecure packages if necessary
   nixpkgs.config.permittedInsecurePackages = [

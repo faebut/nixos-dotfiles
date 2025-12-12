@@ -69,6 +69,11 @@
     nerd-fonts.jetbrains-mono
   ];
 
+  # add insecure packages if necessary
+  nixpkgs.config.permittedInsecurePackages = [
+    "beekeeper-studio-5.3.4"
+  ];
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"

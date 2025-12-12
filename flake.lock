@@ -102,7 +102,16 @@
         "type": "github"
       }
     },
-    "nixpkgs-unstable": {
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nix-colors": "nix-colors",
+        "nixos-hardware": "nixos-hardware",
+        "nixpkgs": "nixpkgs",
+        "unstable": "unstable"
+      }
+    },
+    "unstable": {
       "locked": {
         "lastModified": 1765186076,
         "narHash": "sha256-hM20uyap1a0M9d344I692r+ik4gTMyj60cQWO+hAYP8=",
@@ -116,15 +125,6 @@
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
-      }
-    },
-    "root": {
-      "inputs": {
-        "home-manager": "home-manager",
-        "nix-colors": "nix-colors",
-        "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
   },

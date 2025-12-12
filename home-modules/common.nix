@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  unstablePkgs,
+  ...
+}:
 
 {
   home.username = "faebut";
@@ -52,71 +57,76 @@
     enableZshIntegration = true;
   };
 
-  home.packages = with pkgs; [
+  home.packages =
+    with pkgs;
+    [
 
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
+      # archives
+      zip
+      xz
+      unzip
+      p7zip
 
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    fzf # A command-line fuzzy finder
+      # utils
+      ripgrep # recursively searches directories for a regex pattern
+      jq # A lightweight and flexible command-line JSON processor
+      fzf # A command-line fuzzy finder
 
-    # networking tools
-    mtr # A network diagnostic tool
-    socat # replacement of openbsd-netcat
-    nmap # A utility for network discovery and security auditing
-    ipcalc # it is a calculator for the IPv4/v6 addresses
+      # networking tools
+      mtr # A network diagnostic tool
+      socat # replacement of openbsd-netcat
+      nmap # A utility for network discovery and security auditing
+      ipcalc # it is a calculator for the IPv4/v6 addresses
 
-    # misc
-    file
-    which
-    tree
-    gnutar
-    gawk
-    zstd
-    gnupg
+      # misc
+      file
+      which
+      tree
+      gnutar
+      gawk
+      zstd
+      gnupg
 
-    # window manager
-    rofi
-    waybar
-    hyprpaper
+      # window manager
+      rofi
+      waybar
+      hyprpaper
 
-    # productivity
-    glow # markdown previewer in terminal
-    libreoffice
+      # productivity
+      glow # markdown previewer in terminal
+      libreoffice
 
-    btop # replacement of htop/nmon
+      btop # replacement of htop/nmon
 
-    # system tools
-    lm_sensors # for `sensors` command
-    pciutils # lspci
-    usbutils # lsusb
-    networkmanagerapplet
+      # system tools
+      lm_sensors # for `sensors` command
+      pciutils # lspci
+      usbutils # lsusb
+      networkmanagerapplet
 
-    # devtools
-    beekeeper-studio
-    posting # API client
-    gh
-    crush
+      # devtools
+      beekeeper-studio
+      posting # API client
+      gh
 
-    # auth
-    gcr
+      # auth
+      gcr
 
-    # proglang
-    nodejs
+      # proglang
+      nodejs
 
-    # language-servers for nvim
-    nixd # nix formatting
-    nixfmt-rfc-style # nix formatter
-    lua-language-server # lua
+      # language-servers for nvim
+      nixd # nix formatting
+      nixfmt-rfc-style # nix formatter
+      lua-language-server # lua
 
-    # graphical tools
-    nautilus
-  ];
+      # graphical tools
+      nautilus
+    ]
+    # add unstable packages
+    ++ (with unstablePkgs; [
+      crush
+    ]);
 
   # kitty terminal
   programs.kitty = {

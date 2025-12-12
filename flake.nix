@@ -51,5 +51,27 @@
           }
         ];
       };
+
+      nixosConfigurations.sinkbad = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos
+          ./nixos/desktop/hyprland
+          ./hosts/sinkbad/configuration.nix
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.faebut.imports = [
+                ./home-modules/common.nix
+                ./home-modules/desktop
+              ];
+              backupFileExtension = "backup";
+            };
+          }
+        ];
+      };
     };
 }

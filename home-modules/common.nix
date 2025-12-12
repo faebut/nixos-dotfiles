@@ -95,14 +95,16 @@
     lm_sensors # for `sensors` command
     pciutils # lspci
     usbutils # lsusb
+    networkmanagerapplet
 
     # devtools
     beekeeper-studio
     posting # API client
     gh
+    crush
 
     # auth
-    # gcr
+    gcr
 
     # proglang
     nodejs
@@ -114,7 +116,6 @@
 
     # graphical tools
     nautilus
-
   ];
 
   # kitty terminal

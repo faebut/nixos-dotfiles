@@ -12,10 +12,16 @@
     nix-colors.url = "github:Misterio77/nix-colors";
 
     # secrets
-    # sops-nix.url = "github:Mic92/sops-nix";
-    #
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # nur
+    nur.url = "github:charmbracelet/nur";
+
     # nix-secrets = {
-    #   url = "git+ssh://git@github.com/faebut/nix-secrets.git";
+    #   url = "git+ssh://git@github.com/faebut/nix-secrets.git?shallow=1";
     #   flake = false;
     # };
 
@@ -27,6 +33,7 @@
       self,
       nixpkgs,
       home-manager,
+      nur,
       ...
     }@inputs:
     let
@@ -34,16 +41,20 @@
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
+      system = "x86_64-linux";
     in
     {
 
       nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
+        specialArgs = { inherit inputs; };
         modules = [
           ./nixos
           ./users/faebut.nix
           ./nixos/desktop/hyprland
+          ./hosts/common
           ./hosts/nixpad1/configuration.nix
+          # nur.modules.nixos.default
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
           home-manager.nixosModules.home-manager
           {
@@ -53,10 +64,13 @@
               users.faebut.imports = [
                 ./home-modules/common.nix
                 ./home-modules/desktop
+                ./home-modules/faebut/common
+                ./home-modules/programming
               ];
               backupFileExtension = "backup";
               extraSpecialArgs = {
                 unstablePkgs = unstablePkgs;
+                inherit inputs;
               };
             };
           }
@@ -64,11 +78,12 @@
       };
 
       nixosConfigurations.sinkbad = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./nixos
           ./users/faebut.nix
           ./nixos/desktop/hyprland
+          ./hosts/common
           ./hosts/sinkbad/configuration.nix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen
           home-manager.nixosModules.home-manager
@@ -83,6 +98,7 @@
               backupFileExtension = "backup";
               extraSpecialArgs = {
                 unstablePkgs = unstablePkgs;
+                inherit inputs;
               };
             };
           }

@@ -14,6 +14,11 @@
     createDirectories = true;
   };
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    SUDO_EDITOR = "nvim";
+  };
+
   # programs.gpg = {
   #   enable = true;
   # };
@@ -57,6 +62,13 @@
     enableZshIntegration = true;
   };
 
+  programs.go = {
+    enable = true;
+    env = {
+      GOPATH = [ "${config.home.homeDirectory}/.go" ];
+    };
+  };
+
   home.packages =
     with pkgs;
     [
@@ -91,6 +103,9 @@
       rofi
       waybar
       hyprpaper
+      brightnessctl # control brightness
+      pamixer # control volume
+      notify # send desktop notifications
 
       # productivity
       glow # markdown previewer in terminal
@@ -105,10 +120,10 @@
       networkmanagerapplet
 
       # devtools
+      tmux
       beekeeper-studio
       posting # API client
       gh
-      unstablePkgs.crush
 
       # auth
       gcr
@@ -117,16 +132,17 @@
       nodejs
 
       # language-servers for nvim
-      nixd # nix formatting
+      nixd # nix language server
       nixfmt-rfc-style # nix formatter
       lua-language-server # lua
+      gopls # golang
 
       # graphical tools
       nautilus
     ]
     # add unstable packages
     ++ (with unstablePkgs; [
-      crush
+      # crush
     ]);
 
   # kitty terminal

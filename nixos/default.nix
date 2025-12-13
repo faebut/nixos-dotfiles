@@ -55,11 +55,18 @@
 
   # default applications
   environment.systemPackages = with pkgs; [
-    neovim
     wget
     gcc
     unzip
+    age
+    sops
   ];
+
+  # editor
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # shell
   programs.zsh.enable = true;

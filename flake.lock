@@ -56,6 +56,22 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765654213,
+        "narHash": "sha256-E+Eja/rgJ1Og/yTEsCGexIZstTx+4zRM5kFsqJsFUPY=",
+        "ref": "refs/heads/main",
+        "rev": "d320cba979a326542118f09895aaae5eaec3164d",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@codeberg.org/faebut/nix-secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@codeberg.org/faebut/nix-secrets.git"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1764440730,
@@ -140,6 +156,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
+        "nix-secrets": "nix-secrets",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nur": "nur",

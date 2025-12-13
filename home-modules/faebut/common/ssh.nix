@@ -6,7 +6,7 @@
 
     matchBlocks = {
       "codeberg" = {
-        host = "codeberg.com";
+        host = "codeberg.org";
         identitiesOnly = true;
         identityFile = [
           "~/.ssh/id_faebut"

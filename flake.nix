@@ -20,10 +20,11 @@
     # nur
     nur.url = "github:charmbracelet/nur";
 
-    # nix-secrets = {
-    #   url = "git+ssh://git@github.com/faebut/nix-secrets.git?shallow=1";
-    #   flake = false;
-    # };
+    nix-secrets = {
+      # INFO: shallow does not work?
+      url = "git+ssh://git@codeberg.org/faebut/nix-secrets.git";
+      flake = false;
+    };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };

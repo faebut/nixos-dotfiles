@@ -5,13 +5,16 @@
   config,
   ...
 }:
+let
+  secretspath = builtins.toString inputs.nix-secrets;
+in
 {
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
 
   sops = {
-    defaultSopsFile = ../../secrets.yaml;
+    defaultSopsFile = "${secretspath}/secrets.yaml";
     defaultSopsFormat = "yaml";
     validateSopsFiles = false;
 

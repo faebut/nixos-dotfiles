@@ -3,6 +3,9 @@
   config,
   ...
 }:
+let
+  secretspath = builtins.toString inputs.nix-secrets;
+in
 {
   imports = [
     inputs.nur.homeModules.crush
@@ -11,7 +14,7 @@
 
   # TODO: this should not be here but for the user in home-manager
   sops = {
-    defaultSopsFile = ../../secrets.yaml;
+    defaultSopsFile = "${secretspath}/secrets.yaml";
     defaultSopsFormat = "yaml";
     validateSopsFiles = false;
 

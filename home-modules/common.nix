@@ -104,7 +104,7 @@
       waybar
       hyprpaper
       brightnessctl # control brightness
-      pamixer # control volume
+      pamixer # control volume/faebut/nix-secrets/src/branch/main/
       notify # send desktop notifications
 
       # productivity
@@ -139,6 +139,7 @@
 
       # graphical tools
       nautilus
+      file-roller
     ]
     # add unstable packages
     ++ (with unstablePkgs; [

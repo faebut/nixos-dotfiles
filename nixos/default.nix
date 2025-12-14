@@ -52,6 +52,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # firmware updates
+  services.fwupd.enable = true;
+
   # default applications
   environment.systemPackages = with pkgs; [
     wget

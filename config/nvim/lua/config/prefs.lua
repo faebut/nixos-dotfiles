@@ -8,9 +8,10 @@ vim.lsp.enable({
   "htmx",
   "json",
   "tailwindcss",
+  "templ",
 })
 
 vim.opt.termguicolors = true
 -- Themes:
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("catppuccin")
 -- vim.opt.background = "light" -- light, dark

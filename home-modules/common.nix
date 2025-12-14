@@ -120,10 +120,11 @@
       networkmanagerapplet
 
       # devtools
-      tmux
       beekeeper-studio
       posting # API client
       gh
+      air # live go updating
+      tmuxifier # TODO: should go into tmux
 
       # auth
       gcr
@@ -136,6 +137,7 @@
       nixfmt-rfc-style # nix formatter
       lua-language-server # lua
       gopls # golang
+      templ # go templating
       vscode-langservers-extracted # html/css/json
       htmx-lsp # htmx
       htmx-lsp2 # htmx alternative lsp. try this one

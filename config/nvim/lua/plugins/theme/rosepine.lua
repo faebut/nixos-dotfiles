@@ -9,14 +9,14 @@ return {
   config = function()
     local rose = require("rose-pine")
     rose.setup({
-      variant = "auto",            -- auto, main, moon, or dawn
-      dark_variant = "moon",       -- main, moon, or dawn
+      variant = "auto",      -- auto, main, moon, or dawn
+      dark_variant = "main", -- main, moon, or dawn
       extend_background_behind_borders = true,
       -- disable_background = true,
       enable = {
         terminal = true,
-        legacy_highlights = true,         -- Improve compatibility for previous versions of Neovim
-        migrations = true,                -- Handle deprecated options automatically
+        legacy_highlights = false, -- Improve compatibility for previous versions of Neovim
+        migrations = true,         -- Handle deprecated options automatically
       },
       styles = {
         bold = true,

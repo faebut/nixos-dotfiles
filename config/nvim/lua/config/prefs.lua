@@ -2,6 +2,12 @@
 vim.lsp.enable({
   "lua",
   "nix",
+  "go",
+  "css",
+  "html",
+  "htmx",
+  "json",
+  "tailwindcss",
 })
 
 vim.opt.termguicolors = true

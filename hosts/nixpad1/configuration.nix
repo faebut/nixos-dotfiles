@@ -18,4 +18,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixpad1"; # Define your hostname.
+
+  yubikey.enable = true;
 }

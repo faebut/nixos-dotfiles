@@ -34,7 +34,7 @@ in
         anthropic = {
           id = "anthropic";
           name = "Anthropic";
-          base_url = "https://api.anthropic.com/v1";
+          base_url = "https://api.anthropic.com";
           type = "anthropic";
           api_key = "cat ${config.sops.secrets."anthropic-api".path}";
           models = [

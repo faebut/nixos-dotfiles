@@ -51,11 +51,11 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./nixos
-          ./users/faebut.nix
           ./nixos/desktop/hyprland
           ./hosts/common
+          ./hosts/common/users/faebut
+          ./hosts/common/optional/yubikey
           ./hosts/nixpad1/configuration.nix
-          # nur.modules.nixos.default
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
           home-manager.nixosModules.home-manager
           {
@@ -82,9 +82,10 @@
         inherit system;
         modules = [
           ./nixos
-          ./users/faebut.nix
           ./nixos/desktop/hyprland
           ./hosts/common
+          ./hosts/common/users/faebut
+          ./hosts/common/optional/yubikey
           ./hosts/sinkbad/configuration.nix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen
           home-manager.nixosModules.home-manager

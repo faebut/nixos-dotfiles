@@ -38,7 +38,6 @@
 
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/.nixos-dotfiles#";
-      # nrs = "sudo nixos-rebuild switch --flake ~/.nixos-dotfiles#nixpad1";
     };
 
     history = {
@@ -55,6 +54,7 @@
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
+    options = [ "--cmd cd" ];
   };
 
   programs.atuin = {

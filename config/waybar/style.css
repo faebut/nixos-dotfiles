@@ -1,7 +1,6 @@
 /* import theme */
-@import "./themes/rose-pine.css";
-/* @import "./rose-pine-moon.css"; */
-/* @import "./rose-pine-dawn.css"; */
+/* @import "./themes/rose-pine.css"; */
+@import "./themes/catppuccin-mocha.css";
 
 * {
   border: none;
@@ -14,60 +13,60 @@
 window#waybar {
   background: @base;
   opacity: 1;
-  color: @subtle;
+  color: @text;
   border-width: 1px;
-  border-color: @overlay;
+  border-color: @crust;
   border-style: solid;
 }
 
 tooltip {
-  background: @overlay;
+  background: @mantle;
   /* opacity: 0.8; */
   border-radius: 0px;
   border-width: 1px;
   border-style: solid;
-  border-color: @base;
-  color: @sublte;
+  border-color: @crust;
+  color: @subtext1;
 }
 
 tooltip label {
-  color: @subtle;
+  color: @subtext1;
 }
 
 #workspaces button {
   padding: 0px;
   margin: 3px 0px;
-  color: @iris;
+  color: @mauve;
   margin-right: 5px;
   font-size: 0em;
 }
 
 #workspaces button.active {
-  color: @iris;
+  color: @mauve;
   padding: 0px 1px;
   border-radius: 5px;
-  border: 1px solid @iris;
+  border: 1px solid @mauve;
 }
 
 #workspaces button.focused {
   color: @base;
   padding: 0px 1px;
   border-radius: 5px;
-  background: @love;
+  background: @maroon;
 }
 
 #workspaces button.urgent {
   color: @base;
   padding: 0px 1px;
   border-radius: 5px;
-  background: @foam;
+  background: @teal;
 }
 
 #workspaces button:hover {
   color: @base;
   padding: 0px 1px;
   border-radius: 5px;
-  background: @iris;
+  background: @mauve;
 }
 
 #custom-launch_fuzzel,
@@ -96,42 +95,41 @@ tooltip label {
   margin: 2px 0px;
 }
 
-
 #custom-powermenu {
   margin-right: 10px;
-  color: #ff007c;
+  color: @red;
 }
 
 #custom-notifications {
-  color: #ffc777;
+  color: @yellow;
 }
 
 #custom-launch_fuzzel {
-  color: #89b4fa;
+  color: @blue;
   margin-left: 10px;
   border-right: 0px;
 }
 
 #clock {
-  color: #ff9e64;
+  color: @sapphire;
 }
 
 #battery.warning {
-  color: @gold;
+  color: @peach;
 }
 
 #battery.good {
-  color: @pine;
+  color: @green;
 }
 
 #battery.critical {
-  color: @love;
+  color: @red;
 }
 
 #battery {
   /* border-radius: 0px 5px 5px 0px; */
   margin-right: 0px;
-  color: #4fd6be;
+  color: @green;
 }
 
 #cpu,
@@ -139,14 +137,8 @@ tooltip label {
   padding-right: 3px;
 }
 
-/* #cpu, */
-/* #disk, */
-/* #memory { */
-/*   color: #7aa2f7; */
-/* } */
-
 #window {
-  color: @foam;
+  color: @sky;
 }
 
 #custom-media {
@@ -154,7 +146,7 @@ tooltip label {
 }
 
 #temperature.critical {
-  color: @love;
+  color: @red;
 }
 
 #workspaces {
@@ -166,21 +158,21 @@ tooltip label {
 }
 
 #custom-updates {
-  color: #7dcfff;
+  color: @saphhire;
 }
 
 #custom-updates.update {
-  color: #4fd6be;
+  color: @teal;
 }
 
 #network,
 #bluetooth,
 #custom-thunderbird {
-  color: @iris;
+  color: @blue;
 }
 
 #custom-thunderbird.mail {
-  color: #4fd6be;
+  color: @green;
 }
 
 #pulseaudio-slider {
@@ -207,5 +199,5 @@ tooltip label {
 
 #pulseaudio-slider highlight {
   min-width: 10px;
-  background: #7dcfff;
+  background: @maroon;
 }

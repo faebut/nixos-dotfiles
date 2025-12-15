@@ -11,7 +11,6 @@ vim.lsp.enable({
   -- "templ",
 })
 
-vim.opt.termguicolors = true
 -- Themes:
 vim.cmd.colorscheme("catppuccin")
 -- vim.opt.background = "light" -- light, dark

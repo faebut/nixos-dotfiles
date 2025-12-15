@@ -1,15 +1,12 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 # shared default config for all hosts
-
 {
   inputs,
   config,
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
 

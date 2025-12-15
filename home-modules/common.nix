@@ -138,15 +138,8 @@
         ]))
 
       # language-servers for nvim
-      # nixd # nix language server
+      nixd # nix language server, not installed in nvim
       # nixfmt-rfc-style # nix formatter
-      # lua-language-server # lua
-      # vscode-langservers-extracted # html/css/json
-      # htmx-lsp # htmx
-      # htmx-lsp2 # htmx alternative lsp. try this one
-      # tailwindcss-language-server # tailwind lsp
-      # prettierd # formatting
-      # prettier # formatting
 
       # graphical tools
       nautilus

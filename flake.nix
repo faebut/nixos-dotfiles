@@ -29,82 +29,78 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nur,
-      ...
-    }@inputs:
-    let
-      unstablePkgs = import inputs.unstable {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nur,
+    ...
+  } @ inputs: let
+    unstablePkgs = import inputs.unstable {
       system = "x86_64-linux";
-    in
-    {
-
-      nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./nixos
-          ./nixos/desktop/hyprland
-          ./hosts/common
-          ./hosts/common/users/faebut
-          ./hosts/common/optional/yubikey
-          ./hosts/nixpad1/configuration.nix
-          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.faebut.imports = [
-                ./home-modules/common.nix
-                ./home-modules/desktop
-                ./home-modules/faebut/common
-                ./home-modules/programming
-              ];
-              backupFileExtension = "backup";
-              extraSpecialArgs = {
-                unstablePkgs = unstablePkgs;
-                inherit inputs;
-              };
-            };
-          }
-        ];
-      };
-
-      nixosConfigurations.sinkbad = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./nixos
-          ./nixos/desktop/hyprland
-          ./hosts/common
-          ./hosts/common/users/faebut
-          ./hosts/common/optional/yubikey
-          ./hosts/sinkbad/configuration.nix
-          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.faebut.imports = [
-                ./home-modules/common.nix
-                ./home-modules/desktop
-              ];
-              backupFileExtension = "backup";
-              extraSpecialArgs = {
-                unstablePkgs = unstablePkgs;
-                inherit inputs;
-              };
-            };
-          }
-        ];
-      };
+      config.allowUnfree = true;
     };
+    system = "x86_64-linux";
+  in {
+    nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./nixos
+        ./nixos/desktop/hyprland
+        ./hosts/common
+        ./hosts/common/users/faebut
+        ./hosts/common/optional/yubikey
+        ./hosts/nixpad1/configuration.nix
+        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.faebut.imports = [
+              ./home-modules/common.nix
+              ./home-modules/desktop
+              ./home-modules/faebut/common
+              ./home-modules/programming
+            ];
+            backupFileExtension = "backup";
+            extraSpecialArgs = {
+              unstablePkgs = unstablePkgs;
+              inherit inputs;
+            };
+          };
+        }
+      ];
+    };
+
+    nixosConfigurations.sinkbad = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./nixos
+        ./nixos/desktop/hyprland
+        ./hosts/common
+        ./hosts/common/users/faebut
+        ./hosts/common/optional/yubikey
+        ./hosts/sinkbad/configuration.nix
+        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.faebut.imports = [
+              ./home-modules/common.nix
+              ./home-modules/desktop
+            ];
+            backupFileExtension = "backup";
+            extraSpecialArgs = {
+              unstablePkgs = unstablePkgs;
+              inherit inputs;
+            };
+          };
+        }
+      ];
+    };
+  };
 }

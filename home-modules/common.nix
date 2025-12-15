@@ -101,7 +101,7 @@
       hyprpaper
       brightnessctl # control brightness
       pamixer # control volume/faebut/nix-secrets/src/branch/main/
-      notify # send desktop notifications
+      libnotify # send desktop notifications
 
       # productivity
       glow # markdown previewer in terminal
@@ -260,7 +260,7 @@
   home.file.".config/nvim".source = ../config/nvim;
   home.file.".config/hypr".source = ../config/hypr;
   home.file.".config/waybar".source = ../config/waybar;
-  home.file.".config/swaync".source = ../config/swaync;
+  # home.file.".config/swaync".source = ../config/swaync;
   home.file.".config/rofi".source = ../config/rofi;
   home.file.".config/btop".source = ../config/btop;
 }

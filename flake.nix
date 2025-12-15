@@ -64,6 +64,7 @@
             users.faebut.imports = [
               ./home-modules/common.nix
               ./home-modules/desktop
+              ./home-modules/desktop/hyprland
               ./home-modules/faebut/common
               ./home-modules/programming
             ];

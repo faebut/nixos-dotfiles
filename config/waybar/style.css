@@ -114,12 +114,16 @@ tooltip label {
   color: @sapphire;
 }
 
-#battery.warning {
-  color: @peach;
+#battery.full {
+  color: @green;
 }
 
 #battery.good {
-  color: @green;
+  color: @yellow;
+}
+
+#battery.warning {
+  color: @peach;
 }
 
 #battery.critical {

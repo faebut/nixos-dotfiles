@@ -9,8 +9,7 @@
   # Enable the display and window manager
   services.displayManager.ly = {
     enable = true;
-    package = unstablePkgs.ly; # TUI -- zig -- https://codeberg.org/AnErrupTion/ly
-    # x11Support = true;
+    package = unstablePkgs.ly; # TUI https://codeberg.org/AnErrupTion/ly
     settings = {
       auth_fails = 3; # special animation looks broken?
       bg = "0x000E1013";
@@ -41,6 +40,13 @@
     xwayland.enable = true;
   };
 
-  # maybe needed?
+  # polkit
   security.polkit.enable = true;
+
+  # packages
+
+  environment.systemPackages = with pkgs; [
+    swaynotificationcenter
+    unstablePkgs.ly
+  ];
 }

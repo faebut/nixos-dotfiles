@@ -28,7 +28,7 @@
     // "custom/wl-gammarelay-temperature",
     "backlight",
     "group/audio",
-    // "temperature",
+    "temperature",
     "inhibitor",
     "battery",
     "clock",
@@ -205,7 +205,8 @@
   },
   "battery": {
     "states": {
-      "good": 75,
+      "full": 100,
+      "good": 60,
       "warning": 30,
       "critical": 20
     },

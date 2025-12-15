@@ -36,19 +36,19 @@
     nur,
     ...
   } @ inputs: let
+    system = "x86_64-linux";
     unstablePkgs = import inputs.unstable {
-      system = "x86_64-linux";
+      localSystem = system;
       config.allowUnfree = true;
     };
-    system = "x86_64-linux";
   in {
     nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {
-      inherit system;
       specialArgs = {
         inherit inputs;
         unstablePkgs = unstablePkgs;
       };
       modules = [
+        {nixpkgs.hostPlatform = system;}
         ./nixos
         ./nixos/desktop/hyprland
         ./hosts/common
@@ -79,12 +79,12 @@
     };
 
     nixosConfigurations.sinkbad = nixpkgs.lib.nixosSystem {
-      inherit system;
       specialArgs = {
         inherit inputs;
         unstablePkgs = unstablePkgs;
       };
       modules = [
+        {nixpkgs.hostPlatform = system;}
         ./nixos
         ./nixos/desktop/hyprland
         ./hosts/common

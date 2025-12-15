@@ -44,7 +44,10 @@
   in {
     nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit inputs;
+        unstablePkgs = unstablePkgs;
+      };
       modules = [
         ./nixos
         ./nixos/desktop/hyprland

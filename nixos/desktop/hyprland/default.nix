@@ -1,12 +1,15 @@
-{ pkgs, ... }:
 {
+  pkgs,
+  unstablePkgs,
+  ...
+}: {
   imports = [
   ];
 
   # Enable the display and window manager
   services.displayManager.ly = {
     enable = true;
-    package = pkgs.ly; # TUI -- zig -- https://codeberg.org/AnErrupTion/ly
+    package = unstablePkgs.ly; # TUI -- zig -- https://codeberg.org/AnErrupTion/ly
     # x11Support = true;
     settings = {
       auth_fails = 3; # special animation looks broken?

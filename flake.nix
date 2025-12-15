@@ -80,6 +80,10 @@
 
     nixosConfigurations.sinkbad = nixpkgs.lib.nixosSystem {
       inherit system;
+      specialArgs = {
+        inherit inputs;
+        unstablePkgs = unstablePkgs;
+      };
       modules = [
         ./nixos
         ./nixos/desktop/hyprland

@@ -8,10 +8,10 @@
       control-center-layer = "top";
       layer-shell = true;
       cssPriority = "user";
-      control-center-margin-top = 12;
-      control-center-margin-bottom = 12;
-      control-center-margin-right = 12;
-      control-center-margin-left = 12;
+      control-center-margin-top = 14;
+      control-center-margin-bottom = 14;
+      control-center-margin-right = 14;
+      control-center-margin-left = 14;
       notification-2fa-action = true;
       notification-inline-replies = false;
       notification-icon-size = 64;

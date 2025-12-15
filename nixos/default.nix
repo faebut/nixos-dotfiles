@@ -63,6 +63,7 @@
     age
     sops
     pulseaudio # for audio
+    nh # nix cli helper
   ];
 
   # editor

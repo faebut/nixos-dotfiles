@@ -3,9 +3,7 @@
   pkgs,
   unstablePkgs,
   ...
-}:
-
-{
+}: {
   home.username = "faebut";
   home.homeDirectory = "/home/faebut";
   home.stateVersion = "25.11";
@@ -54,7 +52,7 @@
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
-    options = [ "--cmd cd" ];
+    options = ["--cmd cd"];
   };
 
   programs.atuin = {
@@ -65,14 +63,12 @@
   programs.go = {
     enable = true;
     env = {
-      GOPATH = [ "${config.home.homeDirectory}/.go" ];
+      GOPATH = ["${config.home.homeDirectory}/.go"];
     };
   };
 
-  home.packages =
-    with pkgs;
+  home.packages = with pkgs;
     [
-
       # archives
       zip
       xz
@@ -122,28 +118,35 @@
       # devtools
       beekeeper-studio
       posting # API client
-      gh
+      gh # github client
       air # live go updating
-      tmuxifier # TODO: should go into tmux
+      tmuxifier # tmux session management
 
       # auth
       gcr
 
       # proglang
       nodejs
-
-      # language-servers for nvim
-      nixd # nix language server
-      nixfmt-rfc-style # nix formatter
-      lua-language-server # lua
       gopls # golang
       templ # go templating
-      vscode-langservers-extracted # html/css/json
-      htmx-lsp # htmx
-      htmx-lsp2 # htmx alternative lsp. try this one
-      tailwindcss-language-server # tailwind lsp
-      prettierd # formatting
-      prettier # formatting
+      cargo # rust package manager
+      rustc # rust compiler
+      (python3.withPackages (python-pkgs:
+        with python-pkgs; [
+          pandas
+          requests
+        ]))
+
+      # language-servers for nvim
+      # nixd # nix language server
+      # nixfmt-rfc-style # nix formatter
+      # lua-language-server # lua
+      # vscode-langservers-extracted # html/css/json
+      # htmx-lsp # htmx
+      # htmx-lsp2 # htmx alternative lsp. try this one
+      # tailwindcss-language-server # tailwind lsp
+      # prettierd # formatting
+      # prettier # formatting
 
       # graphical tools
       nautilus
@@ -200,18 +203,16 @@
       package = pkgs.qogir-theme;
       name = "Qogir-Dark";
     };
-    iconTheme =
-      let
-        theme = (
-          pkgs.colloid-icon-theme.override {
-            colorVariants = [ "purple" ];
-          }
-        );
-      in
-      {
-        package = theme;
-        name = "Colloid-Purple-Dark";
-      };
+    iconTheme = let
+      theme = (
+        pkgs.colloid-icon-theme.override {
+          colorVariants = ["purple"];
+        }
+      );
+    in {
+      package = theme;
+      name = "Colloid-Purple-Dark";
+    };
     gtk2 = {
       enable = true;
       theme = {
@@ -246,7 +247,6 @@
         # name = "Colloid-Dark";
       };
     };
-
   };
 
   home.pointerCursor = {

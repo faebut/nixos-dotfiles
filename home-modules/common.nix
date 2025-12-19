@@ -138,6 +138,8 @@
 
       # language-servers for nvim
       nixd # nix language server, not installed in nvim
+      lua-language-server # lua language server
+      stylua # lua formatter
       # nixfmt-rfc-style # nix formatter
 
       # graphical tools

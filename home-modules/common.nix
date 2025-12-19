@@ -99,7 +99,6 @@
       rofi
       waybar
       hyprpaper
-      brightnessctl # control brightness
       pamixer # control volume/faebut/nix-secrets/src/branch/main/
       libnotify # send desktop notifications
 

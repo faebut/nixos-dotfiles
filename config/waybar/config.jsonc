@@ -267,9 +267,6 @@
     "reverse-scrolling": true,
     "tooltip": true,
     "tooltip-format": "Volume: {volume}%\n{desc}",
-    "ignored-sinks": [
-      "Easy Effects Sink"
-    ]
   },
   // "pulseaudio": {
   //   "format": "{icon} {volume}%",

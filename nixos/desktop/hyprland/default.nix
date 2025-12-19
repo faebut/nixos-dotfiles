@@ -22,6 +22,7 @@
       error_bg = "0x000E1013";
       error_fg = "0x01E55561";
       fg = "0x01A0A8B7";
+      full_color = true; # enable 24-bit color support
       hide_borders = true;
       hide_version_string = true; # doesnt work?
       hide_key_hints = true;
@@ -46,7 +47,21 @@
   # packages
 
   environment.systemPackages = with pkgs; [
-    swaynotificationcenter
+    # displaymanager
     unstablePkgs.ly
+
+    # tools for hyprland
+    rofi # execute stuff
+    waybar # top bar
+    hyprpaper # background
+    libnotify # send notifications
+    swaynotificationcenter # show notifications
+    brightnessctl # control brightness
+    pamixer # control volume
+
+    # other tools
+    nautilus # file manager
+    file-roller # archiver
+    networkmanagerapplet # control networkmanager from applet
   ];
 }

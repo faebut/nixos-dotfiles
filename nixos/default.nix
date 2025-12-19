@@ -60,6 +60,7 @@
     age
     sops
     pulseaudio # for audio
+    wireplumber
     nh # nix cli helper
   ];
 

@@ -51,6 +51,8 @@
     unstablePkgs.ly
 
     # tools for hyprland
+    xdg-desktop-portal-hyprland # desktop portal
+    hyprpolkitagent # polkit
     rofi # execute stuff
     waybar # top bar
     hyprpaper # background
@@ -63,5 +65,10 @@
     nautilus # file manager
     file-roller # archiver
     networkmanagerapplet # control networkmanager from applet
+
+    # borrowed from gnome / kde
+    sushi # quick preview
+    loupe # image viewer
+    papers # document viewer
   ];
 }

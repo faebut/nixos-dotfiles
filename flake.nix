@@ -27,6 +27,9 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {

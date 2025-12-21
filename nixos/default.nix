@@ -76,6 +76,8 @@
   # default installed fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    font-awesome
+    noto-fonts
   ];
 
   # add insecure packages if necessary

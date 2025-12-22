@@ -48,7 +48,7 @@
       background = [
         {
           monitor = "";
-          path = "~/config/hypr/wallpapers/blockwavemoon.png";
+          path = "~/.config/hypr/wallpapers/blockwavemoon.png";
           color = "rgba(25, 20, 20, 1.0)";
           blur_passes = 0;
           blur_size = 7;

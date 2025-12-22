@@ -5,6 +5,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    jitsi-meet # jitsi meet client
+    jitsi-meet-electron # jitsi meet client
   ];
 }

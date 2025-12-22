@@ -60,6 +60,7 @@
     swaynotificationcenter # show notifications
     brightnessctl # control brightness
     pamixer # control volume
+    pyprland # scratchpads and so
 
     # other tools
     nautilus # file manager

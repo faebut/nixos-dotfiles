@@ -259,7 +259,6 @@
 
   home.file.".config/kitty".source = ../config/kitty;
   home.file.".config/nvim".source = ../config/nvim;
-  home.file.".config/hypr".source = ../config/hypr;
   home.file.".config/waybar".source = ../config/waybar;
   # home.file.".config/swaync".source = ../config/swaync;
   home.file.".config/rofi".source = ../config/rofi;

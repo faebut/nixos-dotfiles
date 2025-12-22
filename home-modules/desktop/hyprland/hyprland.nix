@@ -141,11 +141,11 @@
     package = pkgs.hyprpaper;
     settings = {
       ipc = "on";
-      splash = true;
+      splash = false;
       splash_offset = 2.0;
 
       preload = ["~/.config/hypr/wallpapers/sunken-tower.png"];
-      walpaper = [
+      wallpaper = [
         "eDP-1, ~/.config/hypr/wallpapers/sunken-tower.png"
         "DP-4, ~/.config/hypr/wallpapers/sunken-tower.png"
       ];

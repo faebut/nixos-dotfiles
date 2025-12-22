@@ -1,16 +1,9 @@
 {
   pkgs,
   config,
+  osConfig,
   ...
-}: let
-  # Per-machine monitor scaling
-  monitorScale =
-    if config.networking.hostName == "sinkbad"
-    then "1.75"
-    else if config.networking.hostName == "nixpad1"
-    then "1.25"
-    else "1.0"; # default for other machines
-in {
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     # set the flake package
@@ -18,10 +11,12 @@ in {
     portalPackage = null;
     extraConfig =
       ''
-        monitor=eDP-1,preferred,0x0,${monitorScale}
+        monitor=eDP-1,preferred,0x0,${osConfig.displayScaling}
       ''
       + builtins.readFile ../../../config/hypr/hyprland.conf;
   };
+
+  services.hyprpolkitagent.enable = true;
 
   # blue light filter
   # TODO: maybe change to something more dynamic
@@ -141,9 +136,24 @@ in {
     };
   };
 
+  services.hyprpaper = {
+    enable = true;
+    package = pkgs.hyprpaper;
+    settings = {
+      ipc = "on";
+      splash = true;
+      splash_offset = 2.0;
+
+      preload = ["~/.config/hypr/wallpapers/sunken-tower.png"];
+      walpaper = [
+        "eDP-1, ~/.config/hypr/wallpapers/sunken-tower.png"
+        "DP-4, ~/.config/hypr/wallpapers/sunken-tower.png"
+      ];
+    };
+  };
+
   # INFO: link config files individually to allow hyprsunset to generate its config
   home.file = {
-    ".config/hypr/hyprpaper.conf".source = ../../../config/hypr/hyprpaper.conf;
     ".config/hypr/hyprtheme.conf".source = ../../../config/hypr/hyprtheme.conf;
     ".config/hypr/pyprland.json".source = ../../../config/hypr/pyprland.json;
     ".config/hypr/scripts".source = ../../../config/hypr/scripts;

@@ -55,7 +55,6 @@
     hyprpolkitagent # polkit
     rofi # execute stuff
     waybar # top bar
-    hyprpaper # background
     libnotify # send notifications
     swaynotificationcenter # show notifications
     brightnessctl # control brightness

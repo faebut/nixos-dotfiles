@@ -58,5 +58,8 @@
 
   networking.hostName = "nixpad1"; # Define your hostname.
 
+  # Display scaling for this machine
+  displayScaling = "1.25";
+
   yubikey.enable = true;
 }

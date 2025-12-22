@@ -7,6 +7,8 @@
   # additional packages
   home.packages = with pkgs; [
     hyprpicker
+    hyprpwcenter
+    hyprgraphics
   ];
 
   wayland.windowManager.hyprland = {
@@ -155,6 +157,20 @@
         "DP-4, ~/.config/hypr/wallpapers/sunken-tower.png"
       ];
     };
+  };
+
+  # clipboard manager
+  services.cliphist = {
+    enable = true;
+    package = pkgs.cliphist;
+    allowImages = true;
+    clipboardPackage = pkgs.wl-clipboard;
+    extraOptions = [
+      "-max-dedupe-search"
+      "100"
+      "-max-items"
+      "500"
+    ];
   };
 
   # INFO: link config files individually to allow hyprsunset to generate its config

@@ -4,6 +4,11 @@
   osConfig,
   ...
 }: {
+  # additional packages
+  home.packages = with pkgs; [
+    hyprpicker
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     # set the flake package

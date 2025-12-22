@@ -1,10 +1,26 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  # Per-machine monitor scaling
+  monitorScale =
+    if config.networking.hostName == "sinkbad"
+    then "1.75"
+    else if config.networking.hostName == "nixpad1"
+    then "1.25"
+    else "1.0"; # default for other machines
+in {
   wayland.windowManager.hyprland = {
     enable = true;
     # set the flake package
     package = null;
     portalPackage = null;
-    extraConfig = builtins.readFile ../../../config/hypr/hyprland.conf;
+    extraConfig =
+      ''
+        monitor=eDP-1,preferred,0x0,${monitorScale}
+      ''
+      + builtins.readFile ../../../config/hypr/hyprland.conf;
   };
 
   # blue light filter

@@ -4,6 +4,7 @@
     # set the flake package
     package = null;
     portalPackage = null;
+    extraConfig = builtins.readFile ../../../config/hypr/hyprland.conf;
   };
 
   # blue light filter
@@ -28,11 +29,104 @@
     };
   };
 
+  # hyprlock - screen lock
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        hide_cursor = true;
+        grace = 1;
+        fractional_scaling = 1;
+      };
+
+      auth = {
+        "fingerprint:enabled" = true;
+        "fingerprint:ready_message" = "scan finger for login";
+        "fingerprint:present_message" = "scanning...";
+      };
+
+      background = [
+        {
+          monitor = "";
+          path = "~/config/hypr/wallpapers/blockwavemoon.png";
+          color = "rgba(25, 20, 20, 1.0)";
+          blur_passes = 0;
+          blur_size = 7;
+          noise = 0.0117;
+          contrast = 0.8916;
+          brightness = 0.8172;
+          vibrancy = 0.1696;
+          vibrancy_darkness = 0.0;
+        }
+      ];
+
+      label = [
+        {
+          monitor = "";
+          text = ''cmd[update:1000] echo "$(date +"%-I:%M%p")"'';
+          color = "rgba(180, 249, 248, 0.6)";
+          font_size = 240;
+          font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+          position = "0, -300";
+          halign = "center";
+          valign = "top";
+        }
+      ];
+
+      input-field = [
+        {
+          monitor = "";
+          size = "300, 75";
+          outline_thickness = 4;
+          dots_size = 0.2;
+          dots_spacing = 0.5;
+          dots_center = true;
+          inner_color = "rgba(26, 27, 38, 0.9)";
+          outer_color = "rgba(187, 154, 247, 1)";
+          font_color = "rgba(187, 154, 247, 1)";
+          fade_on_empty = false;
+          font_family = "JetBrains Mono Nerd Font Mono";
+          placeholder_text = "Password or Fingerprint ...";
+          hide_input = false;
+          position = "0, -300";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+    };
+  };
+
+  # hypridle - idle daemon
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+        ignore_dbus_inhibit = false;
+      };
+
+      listener = [
+        {
+          timeout = 150;
+          on-timeout = "brightnessctl -s set 10";
+          on-resume = "brightnessctl -r";
+        }
+        {
+          timeout = 300;
+          on-timeout = "loginctl lock-session";
+        }
+        {
+          timeout = 450;
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
+  };
+
   # INFO: link config files individually to allow hyprsunset to generate its config
   home.file = {
-    ".config/hypr/hypridle.conf".source = ../../../config/hypr/hypridle.conf;
-    ".config/hypr/hyprland.conf".source = ../../../config/hypr/hyprland.conf;
-    ".config/hypr/hyprlock.conf".source = ../../../config/hypr/hyprlock.conf;
     ".config/hypr/hyprpaper.conf".source = ../../../config/hypr/hyprpaper.conf;
     ".config/hypr/hyprtheme.conf".source = ../../../config/hypr/hyprtheme.conf;
     ".config/hypr/pyprland.json".source = ../../../config/hypr/pyprland.json;

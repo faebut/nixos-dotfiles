@@ -83,6 +83,7 @@
   # add insecure packages if necessary
   nixpkgs.config.permittedInsecurePackages = [
     "beekeeper-studio-5.3.4"
+    "jitsi-meet-1.0.8792"
   ];
 
   nix.settings.experimental-features = [

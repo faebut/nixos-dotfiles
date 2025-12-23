@@ -143,6 +143,16 @@
     };
   };
 
+  systemd.user.services.hyprpaper = {
+    Unit = {
+      After = ["hyprland-session.target"];
+      Requires = ["hyprland-session.target"];
+    };
+    Install = {
+      WantedBy = ["hyprland-session.target"];
+    };
+  };
+
   services.hyprpaper = {
     enable = true;
     package = pkgs.hyprpaper;

@@ -6,5 +6,6 @@
     ./graphic.nix
     ./cloud.nix
     ./multimedia.nix
+    ./java.nix
   ];
 }

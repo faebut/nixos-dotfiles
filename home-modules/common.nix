@@ -104,7 +104,6 @@
 
       # productivity
       glow # markdown previewer in terminal
-      libreoffice
 
       btop # replacement of htop/nmon
 
@@ -115,7 +114,6 @@
       networkmanagerapplet
 
       # devtools
-      beekeeper-studio
       posting # API client
       gh # github client
       air # live go updating

@@ -2,7 +2,9 @@
   imports = [
     ./firefox.nix
     ./thunderbird.nix
-    ./conferencing.nix
+    ./communication.nix
     ./graphic.nix
+    ./cloud.nix
+    ./multimedia.nix
   ];
 }

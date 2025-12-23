@@ -5,6 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    jitsi-meet-electron # jitsi meet client
+    filen-cli # filen command line client
+    filen-desktop # filen desktop tool
   ];
 }

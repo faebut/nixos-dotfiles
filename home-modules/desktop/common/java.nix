@@ -5,6 +5,10 @@
   ...
 }: {
   home.packages = with pkgs; [
-    jre
+    jdk
   ];
+
+  home.sessionVariables = {
+    INSTALL4J_JAVA_HOME = "${pkgs.jdk}";
+  };
 }

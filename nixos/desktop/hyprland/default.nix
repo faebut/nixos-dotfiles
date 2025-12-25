@@ -44,6 +44,9 @@
   # polkit
   security.polkit.enable = true;
 
+  # gnome-keyring for secret storage (filen, etc.)
+  services.gnome.gnome-keyring.enable = true;
+
   # packages
 
   environment.systemPackages = with pkgs; [
@@ -65,6 +68,7 @@
     nautilus # file manager
     file-roller # archiver
     networkmanagerapplet # control networkmanager from applet
+    seahorse # keyring manager
 
     # borrowed from gnome / kde
     sushi # quick preview

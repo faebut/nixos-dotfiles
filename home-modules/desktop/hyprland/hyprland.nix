@@ -9,6 +9,9 @@
     hyprpicker
     hyprpwcenter
     hyprgraphics
+
+    grim # screenshots
+    wl-clipboard # clipboard
   ];
 
   wayland.windowManager.hyprland = {

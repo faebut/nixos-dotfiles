@@ -1,6 +1,7 @@
 {
   imports = [
     ./firefox.nix
+    ./zen-browser.nix
     ./thunderbird.nix
     ./communication.nix
     ./graphic.nix

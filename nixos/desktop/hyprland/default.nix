@@ -41,6 +41,12 @@
     xwayland.enable = true;
   };
 
+  # xdg desktop portal
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
+
   # polkit
   security.polkit.enable = true;
 
@@ -54,7 +60,7 @@
     unstablePkgs.ly
 
     # tools for hyprland
-    xdg-desktop-portal-hyprland # desktop portal
+    # xdg-desktop-portal-hyprland # desktop portal
     hyprpolkitagent # polkit
     rofi # execute stuff
     waybar # top bar

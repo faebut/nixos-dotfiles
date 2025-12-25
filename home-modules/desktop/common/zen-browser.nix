@@ -2,13 +2,18 @@
   inputs,
   pkgs,
   lib,
+  config,
   ...
 }: let
-  extension = shortId: guid: {
+  extension = shortId: guid: pinned: {
     name = guid;
     value = {
       install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
       installation_mode = "normal_installed";
+      default_area =
+        if pinned
+        then "navbar"
+        else "menupanel";
     };
   };
 
@@ -17,17 +22,36 @@
     "extensions.autoDisableScopes" = 0;
     "extensions.pocket.enabled" = false;
     "browser.startup.homepage" = "https://nixos.org";
+    "browser.search.defaultenginename" = "DuckDuckGo";
+
+    # Profile name
+    "zen.profile.name" = config.home.username;
+
+    # Session restore - preserves pinned tabs and workspaces
+    "browser.startup.page" = 3; # Restore previous session
+    "browser.sessionstore.resume_from_crash" = true;
+    "browser.sessionstore.resume_session_once" = false;
+
+    # Zen Browser specific
+    "zen.view.compact" = true; # Enable compact mode
+    "zen.view.compact.enable-at-startup" = true;
+    "zen.view.compact.hide-tabbar" = true;
+    "zen.view.compact.hide-toolbar" = true;
+    "zen.view.use-single-toolbar" = false;
+    "zen.welcome-screen.seen" = true;
+    "zen.ui.migration.compact-mode-button-added" = true;
+    "browser.toolbars.bookmarks.visibility" = "always"; # Show bookmarks bar
   };
 
   extensions = [
     # To add additional extensions, find it on addons.mozilla.org, find
     # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
     # Then go to https://addons.mozilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
-    (extension "darkreader" "addon@darkreader.org")
-    (extension "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me")
-    (extension "addon/proton-vpn-firefox-extension" "vpn@proton.ch")
-    (extension "firefox-color" "FirefoxColor@mozilla.com")
-    (extension "gnome-shell-integration" "chrome-gnome-shell@gnome.org")
+    (extension "darkreader" "addon@darkreader.org" true)
+    (extension "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me" true)
+    (extension "addon/proton-vpn-firefox-extension" "vpn@proton.ch" false)
+    (extension "firefox-color" "FirefoxColor@mozilla.com" false)
+    (extension "gnome-shell-integration" "chrome-gnome-shell@gnome.org" false)
     # ...
   ];
 in {

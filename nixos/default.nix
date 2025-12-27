@@ -62,6 +62,8 @@
     pulseaudio # for audio
     wireplumber
     nh # nix cli helper
+
+    pinentry-curses # pinentry tool
   ];
 
   # editor

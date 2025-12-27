@@ -41,6 +41,12 @@
     "zen.welcome-screen.seen" = true;
     "zen.ui.migration.compact-mode-button-added" = true;
     "browser.toolbars.bookmarks.visibility" = "always"; # Show bookmarks bar
+
+    # password management
+    "browser.contextual-password-manager.enabled" = false;
+    "signon.rememberSignons" = false;
+    "signon.autofillForms" = false;
+    "signon.management.page.breach-alerts.enabled" = false;
   };
 
   extensions = [

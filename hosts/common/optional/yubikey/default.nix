@@ -25,7 +25,8 @@
     services.pcscd.enable = true; # smartcard service
     services.udev.packages = [ pkgs.yubikey-personalization ];
 
-    services.yubikey-agent.enable = true;
+    # Disabled: using GPG agent for SSH instead
+    # services.yubikey-agent.enable = true;
 
     # yubikey login / sudo
     security.pam = lib.optionalAttrs pkgs.stdenv.isLinux {

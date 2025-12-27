@@ -16,14 +16,6 @@
         controlPath = "~/.ssh/master-%r@%n:%p";
         controlPersist = "no";
       };
-
-      "codeberg" = {
-        host = "codeberg.org";
-        identitiesOnly = true;
-        identityFile = [
-          "~/.ssh/id_faebut"
-        ];
-      };
     };
   };
 }

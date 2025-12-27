@@ -15,18 +15,21 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     SUDO_EDITOR = "nvim";
+    # GPG agent for SSH
+    SSH_AUTH_SOCK = "$(gpgconf --list-dirs agent-ssh-socket)";
+    GPG_TTY = "$(tty)";
   };
 
-  # programs.gpg = {
-  #   enable = true;
-  # };
-  #
-  # services.gpg-agent = {
-  #   enable = true;
-  #   enableSshSupport = true;
-  #   enableZshIntegration = true;
-  #
-  # };
+  programs.gpg = {
+    enable = true;
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    enableZshIntegration = true;
+    pinentry.package = pkgs.pinentry-curses;
+  };
 
   programs.zsh = {
     enable = true;

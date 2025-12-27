@@ -28,7 +28,6 @@ in
         inherit (config.users.users.faebut) group;
       };
       faebut-pass = { };
-      "private_keys/faebut" = { };
     };
   };
 }

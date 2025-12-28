@@ -25,7 +25,7 @@
     enable = true;
     enableSshSupport = true;
     enableZshIntegration = true;
-    pinentry.package = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
 
   programs.zsh = {
@@ -41,6 +41,7 @@
 
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/.nixos-dotfiles#";
+      gpgrestart = "gpgconf --kill gpg-agent";
     };
 
     history = {

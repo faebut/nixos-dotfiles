@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   # get password
   sops.secrets.faebut-pass.neededForUsers = true;
   users.mutableUsers = false;

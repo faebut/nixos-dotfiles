@@ -18,9 +18,19 @@ in {
     "keys/gpg/shared_ssh_key" = {
       path = "${config.home.homeDirectory}/.gnupg/imported-key.asc";
     };
-    "keys/age/${hostname}" = {
-      path = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
-    };
+    # NOTE: Age key is NOT deployed from sops - it must exist on disk before
+    # sops can decrypt anything. This creates a circular dependency.
+    #
+    # BOOTSTRAP NEW MACHINE WITH YUBIKEY:
+    # 1. Ensure age-plugin-yubikey is installed (in home-modules/common.nix)
+    # 2. YubiKey must have age identity generated (age-plugin-yubikey --generate)
+    # 3. YubiKey public key must be in nix-secrets/.sops.yaml recipients
+    # 4. On new machine, decrypt with YubiKey:
+    #      age-plugin-yubikey --identity > /tmp/yubikey-age-identity.txt
+    #      SOPS_AGE_KEY_FILE=/tmp/yubikey-age-identity.txt sops -d ~/nix-secrets/secrets.yaml
+    # 5. Extract this machine's age key from secrets.yaml (keys/age/${hostname})
+    # 6. Save to ~/.config/sops/age/keys.txt with chmod 600
+    # 7. Future rebuilds work without YubiKey
   };
 
   # Import GPG key from sops on activation

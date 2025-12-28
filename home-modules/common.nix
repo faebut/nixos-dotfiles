@@ -15,9 +15,6 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     SUDO_EDITOR = "nvim";
-    # GPG agent for SSH
-    SSH_AUTH_SOCK = "$(gpgconf --list-dirs agent-ssh-socket)";
-    GPG_TTY = "$(tty)";
   };
 
   programs.gpg = {
@@ -36,6 +33,11 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+
+    # GPG agent environment variables - moved here from sessionVariables (needed to fix login error!)
+    initContent = ''
+      export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)";
+    '';
 
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/.nixos-dotfiles#";
@@ -124,6 +126,7 @@
 
       # auth
       gcr
+      age-plugin-yubikey
 
       # proglang
       nodejs

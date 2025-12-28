@@ -164,12 +164,18 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
+    signing = {
+      key = "74E8953715B50171";
+      signByDefault = true;
+    };
     settings = {
       user = {
         name = "Fabian Trost";
-        email = "faebutrost@gmail.com";
+        email = "ftrost@proton.me";
       };
       init.defaultBranch = "main";
+      gpg.program = "gpg";
+      tag.gpgSign = true;
     };
   };
 

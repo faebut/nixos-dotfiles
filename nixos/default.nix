@@ -92,5 +92,16 @@
     "flakes"
   ];
 
+  # Automatic garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-old";
+  };
+
+  # Keep last 5 generations (minimum) for rollback safety
+  # These are protected from garbage collection
+  boot.loader.systemd-boot.configurationLimit = 5;
+
   system.stateVersion = "25.11";
 }

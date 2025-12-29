@@ -27,9 +27,21 @@ in
     };
   };
 
-  home.sessionVariables = {
-    ANTHROPIC_API_KEY = "$(cat ${config.sops.secrets."anthropic-api".path})";
+  systemd.user.sessionVariables = {
+    ANTHROPIC_API_KEY_FILE = config.sops.secrets."anthropic-api".path;
   };
+
+  programs.bash.initExtra = ''
+    if [ -f "$ANTHROPIC_API_KEY_FILE" ]; then
+      export ANTHROPIC_API_KEY="$(cat "$ANTHROPIC_API_KEY_FILE")"
+    fi
+  '';
+
+  programs.zsh.initExtra = ''
+    if [ -f "$ANTHROPIC_API_KEY_FILE" ]; then
+      export ANTHROPIC_API_KEY="$(cat "$ANTHROPIC_API_KEY_FILE")"
+    fi
+  '';
 
   programs.crush = {
     enable = true;

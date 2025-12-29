@@ -9,6 +9,7 @@
 }: {
   imports = [
     ./tailscale.nix
+    ./smb-mount.nix
   ];
   # Set your time zone.
   time.timeZone = "Europe/Zurich";

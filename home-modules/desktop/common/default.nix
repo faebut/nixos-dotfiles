@@ -8,5 +8,6 @@
     ./cloud.nix
     ./multimedia.nix
     ./java.nix
+    ./smb-share.nix
   ];
 }

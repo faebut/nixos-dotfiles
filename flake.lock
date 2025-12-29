@@ -449,11 +449,11 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1767003054,
-        "narHash": "sha256-tMGFXbIDo+OKymhCq83t5y9058CGv11GoTDEfPr4skQ=",
+        "lastModified": 1767005694,
+        "narHash": "sha256-45SeJZecizW+uI3ClpYr5OAhgNhoFGwx2IrqHEMhmg8=",
         "ref": "refs/heads/main",
-        "rev": "d9862bcbedc8b07ce80f509c3a360de2e42bc782",
-        "revCount": 14,
+        "rev": "f4995c058889f76381320d8b0b227470e8596809",
+        "revCount": 16,
         "type": "git",
         "url": "ssh://git@codeberg.org/faebut/nix-secrets.git"
       },

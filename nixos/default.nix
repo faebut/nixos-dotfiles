@@ -35,6 +35,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "ch";
+  services.libinput.enable = true;
 
   # services
   services.gvfs.enable = true;

@@ -1,8 +1,5 @@
-{
-  pkgs,
-  ...
-}: {
-  services.xserver.displayManager.gdm = {
+{pkgs, ...}: {
+  services.displayManager.gdm = {
     enable = true;
     wayland = true;
   };

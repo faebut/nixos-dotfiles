@@ -5,6 +5,9 @@
   imports = [
   ];
 
+  # Enable X server support (required for proper keyboard/input handling even in Wayland)
+  services.xserver.enable = true;
+
   # Enable Hyprland window manager
   # Note: Display manager (ly/sddm/gdm) is configured per-host
   programs.hyprland = {

@@ -11,6 +11,7 @@
     hyprgraphics
 
     grim # screenshots
+    slurp # needed for selection
     wl-clipboard # clipboard
   ];
 

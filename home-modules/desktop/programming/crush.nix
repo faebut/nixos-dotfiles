@@ -2,11 +2,9 @@
   inputs,
   config,
   ...
-}:
-let
+}: let
   secretspath = builtins.toString inputs.nix-secrets;
-in
-{
+in {
   imports = [
     inputs.nur.homeModules.crush
     inputs.sops-nix.homeManagerModules.sops
@@ -23,7 +21,7 @@ in
     };
 
     secrets = {
-      anthropic-api = { };
+      anthropic-api = {};
     };
   };
 
@@ -36,7 +34,8 @@ in
           name = "Anthropic";
           base_url = "https://api.anthropic.com";
           type = "anthropic";
-          api_key = "cat ${config.sops.secrets."anthropic-api".path}";
+          # TODO: somehow add this api key, it does not work like this
+          # api_key = "cat ${config.sops.secrets."anthropic-api".path}";
           models = [
             {
               id = "claude-sonnet-4-5-20250929";

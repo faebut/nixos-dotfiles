@@ -15,6 +15,7 @@
       "wheel"
       "networkmanager"
       "libvirtd" # for virt-manager
+      "input" # for direct input device access (ThinkPad extra buttons, etc.)
     ];
     shell = pkgs.zsh;
     # openssh.authorizedKeys.keys = [

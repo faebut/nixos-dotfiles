@@ -17,6 +17,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use latest kernel for Lunar Lake support
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   networking.hostName = "sinkbad"; # Define your hostname.
 
   # Display scaling for this machine

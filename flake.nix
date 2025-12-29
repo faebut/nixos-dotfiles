@@ -119,5 +119,41 @@
         }
       ];
     };
+
+    nixosConfigurations.nixps15 = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs;
+        unstablePkgs = unstablePkgs;
+      };
+      modules = [
+        {nixpkgs.hostPlatform = system;}
+        ./nixos
+        ./nixos/desktop/gnome
+        ./hosts/common
+        ./hosts/common/users/faebut
+        ./hosts/common/optional/yubikey
+        ./hosts/nixps15/configuration.nix
+        inputs.nixos-hardware.nixosModules.dell-xps-15-9500
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.faebut.imports = [
+              ./home-modules/common.nix
+              ./home-modules/desktop
+              ./home-modules/desktop/programming
+              ./home-modules/desktop/gnome
+              ./home-modules/faebut/common
+            ];
+            backupFileExtension = "backup";
+            extraSpecialArgs = {
+              unstablePkgs = unstablePkgs;
+              inherit inputs;
+            };
+          };
+        }
+      ];
+    };
   };
 }

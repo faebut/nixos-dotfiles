@@ -7,6 +7,9 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./tailscale.nix
+  ];
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
 
@@ -64,7 +67,23 @@
     nh # nix cli helper
 
     pinentry-curses # pinentry tool
+
+    # virtualization
+    virt-manager
   ];
+
+  # Virtualization with libvirt/KVM
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+    };
+  };
+
+  # Add user to libvirtd group (in users/faebut/default.nix)
+  programs.virt-manager.enable = true;
 
   # editor
   programs.neovim = {

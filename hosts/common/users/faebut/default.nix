@@ -14,6 +14,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "libvirtd" # for virt-manager
     ];
     shell = pkgs.zsh;
     # openssh.authorizedKeys.keys = [

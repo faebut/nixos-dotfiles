@@ -129,6 +129,13 @@ in {
 
   programs.crush = {
     enable = true;
-    settings = {};
+    # Don't use settings - we generate config via activation script to inject secrets
+  };
+  
+  # Prevent NUR module from creating xdg.configFile."crush/crush.json"
+  # Force overwrite since we manage it via activation script
+  xdg.configFile."crush/crush.json" = {
+    enable = false;
+    force = true;
   };
 }

@@ -40,6 +40,20 @@ in {
     fi
   '';
 
+  # Add GPG authentication subkey to sshcontrol so gpg-agent exposes it for SSH
+  home.activation.setupSshControl = config.lib.dag.entryAfter ["importGpgKey"] ''
+    SSHCONTROL="${config.home.homeDirectory}/.gnupg/sshcontrol"
+    # Extract keygrip of authentication subkey (usage: [A])
+    KEYGRIP=$(${pkgs.gnupg}/bin/gpg --with-keygrip --list-secret-keys | ${pkgs.gnugrep}/bin/grep -A1 "\[A\]" | ${pkgs.coreutils}/bin/tail -n1 | ${pkgs.gawk}/bin/awk '{print $3}')
+    
+    if [ -n "$KEYGRIP" ]; then
+      # Only add if not already present
+      if ! ${pkgs.gnugrep}/bin/grep -q "$KEYGRIP" "$SSHCONTROL" 2>/dev/null; then
+        $DRY_RUN_CMD echo "$KEYGRIP" >> "$SSHCONTROL"
+      fi
+    fi
+  '';
+
   # Store public keys for reference
   home.file.".ssh/shared-gpg-ssh.pub".source = "${secretspath}/keys/shared-gpg-ssh.pub";
   home.file.".config/age/${hostname}-age.pub".source = "${secretspath}/keys/${hostname}-age.pub";

@@ -32,8 +32,14 @@
       },
       "mcp": {},
       "models": {
-        "default": "anthropic/claude-sonnet-4-5-20250929",
-        "default_small": "anthropic/claude-3-5-haiku-20241022"
+        "large": {
+          "model": "claude-sonnet-4-5-20250929",
+          "provider": "anthropic"
+        },
+        "small": {
+          "model": "claude-3-5-haiku-20241022",
+          "provider": "anthropic"
+        }
       },
       "options": {
         "context_paths": [],

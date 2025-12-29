@@ -167,7 +167,7 @@
       preload = ["~/.config/hypr/wallpapers/sunken-tower.png"];
       wallpaper = [
         "eDP-1, ~/.config/hypr/wallpapers/sunken-tower.png"
-        "DP-4, ~/.config/hypr/wallpapers/sunken-tower.png"
+        "DP-6, ~/.config/hypr/wallpapers/sunken-tower.png"
       ];
     };
   };

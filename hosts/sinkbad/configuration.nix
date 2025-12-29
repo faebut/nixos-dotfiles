@@ -1,13 +1,10 @@
 # host specific configuration
-
 {
   config,
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -27,12 +24,12 @@
   networking.hostName = "sinkbad"; # Define your hostname.
 
   # Display scaling for this machine
-  displayScaling = "1.75";
+  displayScaling = "1.8";
 
   # Console settings for high resolution
   console = {
     font = "ter-132n";
-    packages = [ pkgs.terminus_font ];
+    packages = [pkgs.terminus_font];
   };
 
   yubikey.enable = true;

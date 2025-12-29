@@ -40,7 +40,7 @@
     '';
 
     shellAliases = {
-      nrs = "sudo nixos-rebuild switch --flake ~/.nixos-dotfiles#";
+      nrs = "nixos-rebuild switch --flake ~/.nixos-dotfiles# --sudo";
       gpgrestart = "gpgconf --kill gpg-agent";
     };
 

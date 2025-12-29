@@ -1,12 +1,97 @@
 {
   inputs,
   config,
+  lib,
+  pkgs,
   ...
-}:
-let
+}: let
   secretspath = builtins.toString inputs.nix-secrets;
-in
-{
+  crushConfigFile = pkgs.writeShellScript "generate-crush-config" ''
+    API_KEY=$(cat ${config.sops.secrets."anthropic-api".path})
+    CONFIG_DIR="$HOME/.config/crush"
+    mkdir -p "$CONFIG_DIR"
+    
+    # Remove read-only file if it exists
+    rm -f "$CONFIG_DIR/crush.json"
+    
+    cat > "$CONFIG_DIR/crush.json" <<EOF
+    {
+      "lsp": {
+        "go": {
+          "args": [],
+          "command": "gopls",
+          "enabled": true,
+          "options": {}
+        },
+        "nix": {
+          "args": [],
+          "command": "nixd",
+          "enabled": true,
+          "options": {}
+        }
+      },
+      "mcp": {},
+      "models": {},
+      "options": {
+        "context_paths": [],
+        "data_directory": ".crush",
+        "debug": false,
+        "debug_lsp": false,
+        "disable_auto_summarize": false,
+        "tui": {
+          "compact_mode": false
+        }
+      },
+      "permissions": {
+        "allowed_tools": []
+      },
+      "providers": {
+        "anthropic": {
+          "api_key": "$API_KEY",
+          "base_url": "https://api.anthropic.com",
+          "disable": false,
+          "extra_body": {},
+          "extra_headers": {},
+          "id": "anthropic",
+          "models": [
+            {
+              "can_reason": false,
+              "context_window": 128000,
+              "cost_per_1m_in": 0,
+              "cost_per_1m_in_cached": 0,
+              "cost_per_1m_out": 0,
+              "cost_per_1m_out_cached": 0,
+              "default_max_tokens": 8192,
+              "default_reasoning_effort": "",
+              "has_reasoning_efforts": false,
+              "id": "claude-sonnet-4-5-20250929",
+              "name": "Claude Sonnet 4.5",
+              "supports_attachments": false
+            },
+            {
+              "can_reason": false,
+              "context_window": 128000,
+              "cost_per_1m_in": 0,
+              "cost_per_1m_in_cached": 0,
+              "cost_per_1m_out": 0,
+              "cost_per_1m_out_cached": 0,
+              "default_max_tokens": 8192,
+              "default_reasoning_effort": "",
+              "has_reasoning_efforts": false,
+              "id": "claude-3-5-haiku-20241022",
+              "name": "Claude Haiku 3.5",
+              "supports_attachments": false
+            }
+          ],
+          "name": "Anthropic",
+          "system_prompt_prefix": "",
+          "type": "anthropic"
+        }
+      }
+    }
+    EOF
+  '';
+in {
   imports = [
     inputs.nur.homeModules.crush
     inputs.sops-nix.homeManagerModules.sops
@@ -23,65 +108,17 @@ in
     };
 
     secrets = {
-      anthropic-api = { };
+      anthropic-api = {};
     };
   };
 
-  systemd.user.sessionVariables = {
-    ANTHROPIC_API_KEY_FILE = config.sops.secrets."anthropic-api".path;
-  };
-
-  programs.bash.initExtra = ''
-    if [ -f "$ANTHROPIC_API_KEY_FILE" ]; then
-      export ANTHROPIC_API_KEY="$(cat "$ANTHROPIC_API_KEY_FILE")"
-    fi
-  '';
-
-  programs.zsh.initExtra = ''
-    if [ -f "$ANTHROPIC_API_KEY_FILE" ]; then
-      export ANTHROPIC_API_KEY="$(cat "$ANTHROPIC_API_KEY_FILE")"
-    fi
+  home.activation.crushConfig = lib.hm.dag.entryAfter ["writeBoundary" "linkGeneration"] ''
+    run rm -f $VERBOSE_ARG "$HOME/.config/crush/crush.json"
+    run ${crushConfigFile}
   '';
 
   programs.crush = {
     enable = true;
-    settings = {
-      providers = {
-        anthropic = {
-          id = "anthropic";
-          name = "Anthropic";
-          base_url = "https://api.anthropic.com";
-          type = "anthropic";
-          api_key = "$ANTHROPIC_API_KEY";
-          models = [
-            {
-              id = "claude-sonnet-4-5-20250929";
-              name = "Claude Sonnet 4.5";
-            }
-            {
-              id = "claude-3-5-haiku-20241022";
-              name = "Claude Haiku 3.5";
-            }
-          ];
-        };
-      };
-      lsp = {
-        go = {
-          command = "gopls";
-          enabled = true;
-        };
-        nix = {
-          command = "nixd";
-          enabled = true;
-        };
-      };
-      # options = {
-      #   context_paths = [ "/etc/nixos/configuration.nix" ];
-      #   tui = {
-      #     compact_mode = true;
-      #   };
-      #   debug = false;
-      # };
-    };
+    settings = {};
   };
 }

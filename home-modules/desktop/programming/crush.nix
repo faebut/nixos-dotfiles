@@ -46,6 +46,7 @@
         "data_directory": ".crush",
         "debug": false,
         "debug_lsp": false,
+        "default_model": "large",
         "disable_auto_summarize": false,
         "tui": {
           "compact_mode": false

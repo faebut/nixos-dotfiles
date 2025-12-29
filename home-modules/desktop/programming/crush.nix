@@ -31,7 +31,10 @@
         }
       },
       "mcp": {},
-      "models": {},
+      "models": {
+        "default": "anthropic/claude-sonnet-4-5-20250929",
+        "default_small": "anthropic/claude-3-5-haiku-20241022"
+      },
       "options": {
         "context_paths": [],
         "data_directory": ".crush",

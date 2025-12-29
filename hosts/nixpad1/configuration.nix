@@ -19,6 +19,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable hibernation
+  boot.resumeDevice = "/dev/disk/by-uuid/2d7f1ae5-9796-4224-a5a5-d9cbcea9bc4f";
+
   # ACPI
   services.acpid = {
     enable = true;

@@ -20,6 +20,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # NOTE: Hibernation configuration (uncomment after first boot and getting resume_offset):
+  # boot.resumeDevice = "/dev/disk/by-label/nixos";
+  # boot.kernelParams = [ "resume_offset=XXXXX" ];  # Get from: sudo filefrag -v /swapfile
+
   # ACPI for hardware buttons
   services.acpid = {
     enable = true;

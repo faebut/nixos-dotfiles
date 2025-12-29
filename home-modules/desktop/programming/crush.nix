@@ -27,6 +27,10 @@ in
     };
   };
 
+  home.sessionVariables = {
+    ANTHROPIC_API_KEY = "$(cat ${config.sops.secrets."anthropic-api".path})";
+  };
+
   programs.crush = {
     enable = true;
     settings = {
@@ -36,7 +40,7 @@ in
           name = "Anthropic";
           base_url = "https://api.anthropic.com";
           type = "anthropic";
-          api_key_file = config.sops.secrets."anthropic-api".path;
+          api_key = "$ANTHROPIC_API_KEY";
           models = [
             {
               id = "claude-sonnet-4-5-20250929";

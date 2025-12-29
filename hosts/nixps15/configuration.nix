@@ -8,6 +8,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # Display manager
+    ../../nixos/desktop/displaymanagers/gdm.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -60,25 +62,6 @@
       };
     };
   };
-
-  # GNOME Desktop Environment
-  services.xserver = {
-    enable = true;
-    desktopManager.gnome.enable = true;
-  };
-
-  # GDM Display Manager
-  services.displayManager.gdm.enable = true;
-
-  # Exclude some default GNOME applications
-  environment.gnome.excludePackages = with pkgs; [
-    epiphany # web browser
-    geary # email client
-    gnome-music
-    gnome-photos
-    simple-scan
-    totem # video player
-  ];
 
   networking.hostName = "nixps15"; # Define your hostname.
 

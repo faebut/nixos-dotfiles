@@ -8,6 +8,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # Display manager
+    ../../nixos/desktop/displaymanagers/sddm.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

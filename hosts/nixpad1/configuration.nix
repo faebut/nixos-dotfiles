@@ -8,6 +8,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # Display manager
+    ../../nixos/desktop/displaymanagers/ly.nix
   ];
 
   environment.systemPackages = with pkgs; [

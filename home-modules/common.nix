@@ -42,6 +42,7 @@
     shellAliases = {
       nrs = "nixos-rebuild switch --flake ~/.nixos-dotfiles# --sudo";
       gpgrestart = "gpgconf --kill gpg-agent";
+      gitlog = "git log --graph --all --decorate";
     };
 
     history = {

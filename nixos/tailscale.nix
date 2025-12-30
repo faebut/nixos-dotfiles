@@ -36,16 +36,26 @@
   # Create script to connect with headscale server URL from secrets
   systemd.services.tailscale-autoconnect = {
     description = "Automatic connection to Tailscale/Headscale";
-    after = ["network-pre.target" "tailscaled.service"];
-    wants = ["network-pre.target"];
-    wantedBy = ["multi-user.target"];
+    after = ["network-online.target" "tailscaled.service"];
+    wants = ["network-online.target"];
+    # Start after boot completes, don't block it
+    wantedBy = ["default.target"];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
+      # Restart on failure with backoff
+      Restart = "on-failure";
+      RestartSec = "30s";
     };
     script = ''
       # Wait for tailscaled to be ready
       sleep 2
+      
+      # Check if we have network connectivity
+      if ! ${pkgs.iputils}/bin/ping -c 1 -W 5 1.1.1.1 >/dev/null 2>&1; then
+        echo "No network connectivity, skipping Tailscale connection"
+        exit 0
+      fi
       
       # Check if already connected
       status=$(${pkgs.tailscale}/bin/tailscale status --json 2>/dev/null || echo "{}")

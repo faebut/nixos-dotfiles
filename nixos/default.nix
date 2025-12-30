@@ -34,7 +34,9 @@
   };
 
   # Configure keymap in X11
-  services.xserver.xkb.layout = "ch";
+  services.xserver.xkb = {
+    layout = "ch";
+  };
   services.libinput.enable = true;
 
   # services
@@ -67,6 +69,7 @@
     pulseaudio # for audio
     wireplumber
     nh # nix cli helper
+    libinput # device input handling
 
     pinentry-curses # pinentry tool
 

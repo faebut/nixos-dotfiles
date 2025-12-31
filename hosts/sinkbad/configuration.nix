@@ -101,7 +101,7 @@
   };
   yubikey.enable = true;
 
-  # ZSA keyboard:
+  # ZSA keyboard support
   hardware.keyboard.zsa.enable = true;
   environment.systemPackages = with pkgs; [keymapp];
 }

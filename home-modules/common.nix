@@ -266,7 +266,7 @@
     gtk.enable = true;
   };
 
-  services.hypridle.enable = true;
+
   services.protonmail-bridge.enable = true;
 
   home.file.".config/kitty".source = ../config/kitty;

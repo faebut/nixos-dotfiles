@@ -1,38 +1,29 @@
-{
-  pkgs,
-  unstablePkgs,
-  ...
-}: {
+{unstablePkgs, ...}: {
   services.displayManager.ly = {
     enable = true;
     package = unstablePkgs.ly; # TUI https://codeberg.org/AnErrupTion/ly
     settings = {
-      auth_fails = 3; # special animation looks broken?
-      bg = "0x000E1013";
-      bigclock = "en"; # enlarges the clock -- may not work with some fonts?
-      border_fg = "0x00BF68D9";
-      box_title = "null"; # text above the box
+      auth_fails = 3;
+      bigclock = "en";
+      box_title = "null";
       clear_password = true;
       clock = "%B, %A %d @ %H:%M:%S";
       default_input = "password";
-      error_bg = "0x000E1013";
-      error_fg = "0x01E55561";
-      fg = "0x01A0A8B7";
-      full_color = true; # enable 24-bit color support
       hide_borders = true;
-      hide_version_string = true; # doesnt work?
+      hide_version_string = true;
       hide_key_hints = true;
       lang = "en";
       load = true;
       margin_box_h = 0;
       margin_box_v = 0;
-      min_refresh_delta = 100; # milliseconds -- default=5
+      min_refresh_delta = 100;
       save = true;
-      text_in_center = false; # ugly
+      term_reset_cmd = "tput reset";
+      text_in_center = false;
     };
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     unstablePkgs.ly
   ];
 }

@@ -9,7 +9,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # Display manager
-    ../../nixos/desktop/displaymanagers/gdm.nix
+    ../../nixos/desktop/displaymanagers/ly.nix
   ];
 
   # ACPI handlers for ThinkPad function keys (sinkbad-specific)
@@ -57,27 +57,47 @@
     };
   };
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.consoleMode = "max"; # Use highest resolution for HiDPI
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Use the systemd-boot EFI boot loader. configure plymouth
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.systemd-boot.consoleMode = "max"; # Use highest resolution for HiDPI
+    loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel for Lunar Lake support
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+    # Use latest kernel for Lunar Lake support
+    kernelPackages = pkgs.linuxPackages_latest;
 
-  # NOTE: Hibernation configuration (uncomment after first boot and getting resume_offset):
-  # boot.resumeDevice = "/dev/disk/by-label/nixos";
-  # boot.kernelParams = [ "resume_offset=XXXXX" ];  # Get from: sudo filefrag -v /swapfile
+    # NOTE: Hibernation configuration (uncomment after first boot and getting resume_offset):
+    # resumeDevice = "/dev/disk/by-label/nixos";
+    # kernelParams = [ "resume_offset=XXXXX" ];  # Get from: sudo filefrag -v /swapfile
+  };
 
   networking.hostName = "sinkbad"; # Define your hostname.
 
   # Display scaling for this machine
   displayScaling = "1.8";
 
-  # Console settings for high resolution
+  # Console settings with Catppuccin Mocha colors
   console = {
-    font = "ter-132n";
-    packages = [pkgs.terminus_font];
+    earlySetup = true;
+    font = "${pkgs.kbd}/share/consolefonts/latarcyrheb-sun32.psfu.gz";
+    colors = [
+      "1e1e2e" # 0: black (Base - proper background)
+      "f38ba8" # 1: red
+      "a6e3a1" # 2: green
+      "f9e2af" # 3: yellow
+      "89b4fa" # 4: blue
+      "f5c2e7" # 5: magenta
+      "94e2d5" # 6: cyan
+      "cdd6f4" # 7: white (Text)
+      "585b70" # 8: bright black (Surface2)
+      "f38ba8" # 9: bright red
+      "a6e3a1" # 10: bright green
+      "f9e2af" # 11: bright yellow
+      "89b4fa" # 12: bright blue
+      "f5c2e7" # 13: bright magenta
+      "94e2d5" # 14: bright cyan
+      "cdd6f4" # 15: bright white (Text)
+    ];
   };
 
   yubikey.enable = true;

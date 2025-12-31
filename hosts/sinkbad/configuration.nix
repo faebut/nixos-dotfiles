@@ -99,6 +99,9 @@
       "cdd6f4" # 15: bright white (Text)
     ];
   };
-
   yubikey.enable = true;
+
+  # ZSA keyboard:
+  hardware.keyboard.zsa.enable = true;
+  environment.systemPackages = with pkgs; [keymapp];
 }

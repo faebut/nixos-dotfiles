@@ -5,7 +5,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    libreoffice-bin # libreoffice
+    libreoffice # libreoffice
     pdfarranger # manipulate pdfs
   ];
 }

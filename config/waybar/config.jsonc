@@ -36,9 +36,9 @@
     // "custom/powermenu"
   ],
   "tray": {
-    "icon-size": 22,
-    "spacing": 8
-    // "show-passive-items": true, // show icons with "passive" status
+    "icon-size": 20,
+    "spacing": 8,
+    "show-passive-items": true // show icons with "passive" status
     // "icons": {
     //   "filen": "/home/faebut/.icons/Tokyonight-Dark-Bluegrey/panel/48/filen.png"
     // }

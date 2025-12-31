@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
   ];
 
@@ -25,8 +24,9 @@
     gedit # text editor
     totem # video player
     yelp # help viewer
-    evince # document viewer
+    papers # document viewer
     geary # email client
+    foliate # epub reader
     gnome-tour
     gnome-calendar
     gnome-connections

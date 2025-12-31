@@ -9,5 +9,6 @@
     ./multimedia.nix
     ./java.nix
     ./smb-share.nix
+    ./productivity.nix
   ];
 }

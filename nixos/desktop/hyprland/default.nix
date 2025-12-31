@@ -51,5 +51,6 @@
     sushi # quick preview
     loupe # image viewer
     papers # document viewer
+    foliate # ebook reader
   ];
 }

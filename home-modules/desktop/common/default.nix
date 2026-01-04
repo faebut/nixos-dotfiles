@@ -1,6 +1,6 @@
 {
   imports = [
-    ./firefox.nix
+    # ./firefox.nix  # Disabled - using Zen Browser instead
     ./zen-browser.nix
     ./thunderbird.nix
     ./communication.nix

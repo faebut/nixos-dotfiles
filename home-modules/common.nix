@@ -197,46 +197,7 @@
 
   # hyprland
 
-  gtk = {
-    enable = true;
-    colorScheme = "dark";
-    theme = {
-      package = pkgs.qogir-theme;
-      name = "Qogir-Dark";
-    };
-    iconTheme = let
-      theme = (
-        pkgs.colloid-icon-theme.override {
-          colorVariants = ["purple"];
-        }
-      );
-    in {
-      package = theme;
-      name = "Colloid-Purple-Dark";
-    };
-    gtk2 = {
-      enable = true;
-      theme = {
-        package = pkgs.qogir-theme;
-        name = "Qogir-Dark";
-      };
-    };
-    gtk3 = {
-      enable = true;
-      theme = {
-        package = pkgs.qogir-theme;
-        name = "Qogir-Dark";
-      };
-    };
-    gtk4 = {
-      enable = true;
-      colorScheme = "dark";
-      theme = {
-        package = pkgs.qogir-theme;
-        name = "Qogir-Dark";
-      };
-    };
-  };
+  # GTK theme and icons configured per-desktop in desktop/hyprland or desktop/gnome
 
   home.pointerCursor = {
     name = "Hackneyed";

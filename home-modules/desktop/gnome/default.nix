@@ -51,6 +51,13 @@
     # Window manager keybindings
     "org/gnome/desktop/wm/keybindings" = {
       close = ["<Super>q"];
+      switch-input-source = []; # Disable Super+Space for keyboard switching
+      switch-input-source-backward = [];
+    };
+
+    # Search Light extension settings
+    "org/gnome/shell/extensions/search-light" = {
+      shortcut-search = ["<Super>space"];
     };
 
     # Custom keyboard shortcuts

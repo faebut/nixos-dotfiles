@@ -43,6 +43,43 @@
   services.gvfs.enable = true;
   services.printing.enable = true;
 
+  # SMB server for VM file sharing (localhost only)
+  services.samba = {
+    enable = true;
+    openFirewall = false; # Don't open firewall, localhost only
+    settings = {
+      global = {
+        "hosts allow" = "127.0.0.1 192.168.122."; # localhost and libvirt default network
+        "hosts deny" = "0.0.0.0/0";
+        "server string" = "NixOS Share";
+        "netbios name" = "nixps15";
+        "security" = "user";
+        "guest account" = "nobody";
+        "map to guest" = "never";
+      };
+      "Share" = {
+        "path" = "/home/faebut/Share";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "valid users" = "faebut";
+        "force user" = "faebut";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+      };
+    };
+  };
+
+  # Allow SMB from libvirt network only
+  networking.firewall = {
+    interfaces."virbr0" = {
+      allowedTCPPorts = [ 139 445 ];
+      allowedUDPPorts = [ 137 138 ];
+    };
+  };
+
+  # Set Samba password separately with: sudo smbpasswd -a faebut
+
   # network management
   networking.networkmanager = {
     enable = true;

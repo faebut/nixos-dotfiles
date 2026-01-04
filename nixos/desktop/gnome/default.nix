@@ -7,7 +7,7 @@
 
   # Enable the GNOME Desktop Environment.
   # Note: Display manager (gdm) is configured per-host
-  services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # GNOME-related packages
   environment.systemPackages = with pkgs; [

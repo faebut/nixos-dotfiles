@@ -13,7 +13,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    acpid
     gnome-tweaks
     gnomeExtensions.appindicator
   ];
@@ -25,43 +24,6 @@
   # NOTE: Hibernation configuration (uncomment after first boot and getting resume_offset):
   # boot.resumeDevice = "/dev/disk/by-label/nixos";
   # boot.kernelParams = [ "resume_offset=XXXXX" ];  # Get from: sudo filefrag -v /swapfile
-
-  # ACPI for hardware buttons
-  services.acpid = {
-    enable = true;
-    handlers = {
-      mute = {
-        event = "button/mute";
-        action = ''
-          ${pkgs.systemd}/bin/systemd-run --machine=faebut@.host --user ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-        '';
-      };
-      volumedown = {
-        event = "button/volumedown";
-        action = ''
-          ${pkgs.systemd}/bin/systemd-run --machine=faebut@.host --user ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1.0
-        '';
-      };
-      volumeup = {
-        event = "button/volumeup";
-        action = ''
-          ${pkgs.systemd}/bin/systemd-run --machine=faebut@.host --user ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0
-        '';
-      };
-      brightnessdown = {
-        event = "video/brightnessdown";
-        action = ''
-          ${pkgs.brightnessctl}/bin/brightnessctl set --min-value=5 15-
-        '';
-      };
-      brightnessup = {
-        event = "video/brightnessup";
-        action = ''
-          ${pkgs.brightnessctl}/bin/brightnessctl set 15+
-        '';
-      };
-    };
-  };
 
   networking.hostName = "nixps15"; # Define your hostname.
 

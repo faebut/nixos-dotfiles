@@ -1,5 +1,9 @@
 { pkgs, ... }:
 
+let
+  # Both GNOME (Wayland) and Hyprland use wl-clipboard
+  clipboardCmd = "${pkgs.wl-clipboard}/bin/wl-copy";
+in
 {
   programs.tmux = {
     enable = true;
@@ -28,11 +32,11 @@
       bind -n M-L next-window
       bind -n M-H previous-window
 
-      # Wayland clipboard integration
-      set -s copy-command 'wl-copy'
+      # Clipboard integration (adapts to desktop environment)
+      set -s copy-command '${clipboardCmd}'
       bind-key -T copy-mode-vi v send-keys -X begin-selection
-      bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy'
-      bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel 'wl-copy'
+      bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel '${clipboardCmd}'
+      bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel '${clipboardCmd}'
     '';
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator

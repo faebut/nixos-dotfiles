@@ -32,12 +32,35 @@
     "org/gnome/mutter" = {
       experimental-features = ["scale-monitor-framebuffer"];
     };
+    
+    # Custom keyboard shortcuts
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+      ];
+    };
+    
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>t";
+      command = "kitty";
+      name = "Open Kitty Terminal";
+    };
+    
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = "<Super>e";
+      command = "nautilus --new-window";
+      name = "Open Nautilus File Manager";
+    };
   };
 
-  # GNOME-compatible packages (excluding Hyprland/Wayland-specific tools)
+  # GNOME-compatible packages
   home.packages = with pkgs; [
     # Extensions
     gnomeExtensions.appindicator
+    
+    # Clipboard tool for tmux integration on Wayland
+    wl-clipboard
   ];
   
   # Monitor configuration

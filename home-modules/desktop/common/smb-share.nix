@@ -47,7 +47,17 @@
         
         # Create/update bookmark dynamically
         mkdir -p ~/.config/gtk-3.0
-        echo "smb://$SERVER/$SHARE Prozessor Share" > ~/.config/gtk-3.0/bookmarks
+        
+        # Start with base bookmarks if they exist
+        if [ -f ~/.config/gtk-3.0/bookmarks-base ]; then
+          cp ~/.config/gtk-3.0/bookmarks-base ~/.config/gtk-3.0/bookmarks
+        else
+          # Fallback if bookmarks-base doesn't exist
+          echo "" > ~/.config/gtk-3.0/bookmarks
+        fi
+        
+        # Append SMB share bookmark
+        echo "smb://$SERVER/$SHARE Prozessor Share" >> ~/.config/gtk-3.0/bookmarks
       '';
     };
     Install = {

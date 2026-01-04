@@ -266,7 +266,6 @@
     gtk.enable = true;
   };
 
-
   services.protonmail-bridge.enable = true;
 
   home.file.".config/kitty".source = ../config/kitty;
@@ -275,4 +274,10 @@
   # home.file.".config/swaync".source = ../config/swaync;
   home.file.".config/rofi".source = ../config/rofi;
   home.file.".config/btop".source = ../config/btop;
+
+  # GTK bookmarks (Nautilus sidebar) - base bookmarks
+  # Note: smb-share.nix will append to this if SMB is configured
+  home.file.".config/gtk-3.0/bookmarks-base".text = ''
+    file://${config.home.homeDirectory}/Downloads
+  '';
 }

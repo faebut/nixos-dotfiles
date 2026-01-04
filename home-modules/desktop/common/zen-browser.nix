@@ -62,6 +62,10 @@
   ];
 in {
   home.packages = [
+    # also add chromium
+    pkgs.chromium
+
+    # wrap zen into firefox
     (
       pkgs.wrapFirefox
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped

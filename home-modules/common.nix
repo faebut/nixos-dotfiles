@@ -189,12 +189,9 @@
   # starship - an customizable prompt for any shell
   programs.starship = {
     enable = true;
-    # custom settings
     settings = {
-      # add_newline = false;
       aws.disabled = true;
       gcloud.disabled = true;
-      # line_break.disabled = true;
     };
   };
 
@@ -204,8 +201,6 @@
     enable = true;
     colorScheme = "dark";
     theme = {
-      # package = pkgs.rose-pine-gtk-theme;
-      # name = "rose-pine";
       package = pkgs.qogir-theme;
       name = "Qogir-Dark";
     };
@@ -222,35 +217,23 @@
     gtk2 = {
       enable = true;
       theme = {
-        # package = pkgs.rose-pine-gtk-theme;
-        # name = "rose-pine";
         package = pkgs.qogir-theme;
         name = "Qogir-Dark";
       };
     };
     gtk3 = {
       enable = true;
-      # colorScheme = "dark";
       theme = {
-        # package = pkgs.rose-pine-gtk-theme;
-        # name = "rose-pine";
         package = pkgs.qogir-theme;
         name = "Qogir-Dark";
       };
-      # extraConfig.gtk-application-prefer-dark-theme = true;
     };
     gtk4 = {
       enable = true;
       colorScheme = "dark";
       theme = {
-        # package = pkgs.rose-pine-gtk-theme;
-        # name = "rose-pine";
-        # package = pkgs.juno-theme;
-        # name = "Juno-mirage";
         package = pkgs.qogir-theme;
         name = "Qogir-Dark";
-        # package = pkgs.colloid-gtk-theme;
-        # name = "Colloid-Dark";
       };
     };
   };

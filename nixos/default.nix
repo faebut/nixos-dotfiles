@@ -44,7 +44,12 @@
   services.printing.enable = true;
 
   # network management
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
 
   # Enable sound.
   services.pipewire = {

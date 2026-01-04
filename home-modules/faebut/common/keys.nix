@@ -57,4 +57,7 @@ in {
   # Store public keys for reference
   home.file.".ssh/shared-gpg-ssh.pub".source = "${secretspath}/keys/shared-gpg-ssh.pub";
   home.file.".config/age/${hostname}-age.pub".source = "${secretspath}/keys/${hostname}-age.pub";
+  
+  # VPN configuration file
+  home.file.".config/openvpn/si.ovpn".source = "${secretspath}/vpn/si.ovpn";
 }

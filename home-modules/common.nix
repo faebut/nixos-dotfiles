@@ -15,6 +15,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     SUDO_EDITOR = "nvim";
+    LIBVIRT_DEFAULT_URI = "qemu:///system";
   };
 
   programs.gpg = {

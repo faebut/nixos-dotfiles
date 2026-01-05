@@ -5,12 +5,14 @@
   config,
   lib,
   pkgs,
+  unstablePkgs,
   ...
 }: {
   imports = [
     ./tailscale.nix
     ./smb-mount.nix
   ];
+  
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
 
@@ -41,7 +43,31 @@
 
   # services
   services.gvfs.enable = true;
-  services.printing.enable = true;
+
+  # CUPS printing with additional drivers
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      gutenprint
+      hplip
+      cups-filters
+      cups-browsed
+    ];
+    # Enable Avahi for network printer discovery
+    browsing = true;
+    defaultShared = false;
+  };
+
+  # Avahi for printer discovery
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+    publish = {
+      enable = true;
+      userServices = true;
+    };
+  };
 
   # SMB server for VM file sharing (localhost only)
   services.samba = {
@@ -73,8 +99,8 @@
   # Allow SMB from libvirt network only
   networking.firewall = {
     interfaces."virbr0" = {
-      allowedTCPPorts = [ 139 445 ];
-      allowedUDPPorts = [ 137 138 ];
+      allowedTCPPorts = [139 445];
+      allowedUDPPorts = [137 138];
     };
   };
 
@@ -132,7 +158,7 @@
 
   # Add user to libvirtd group (in users/faebut/default.nix)
   programs.virt-manager.enable = true;
-  
+
   # SPICE USB redirection support
   virtualisation.spiceUSBRedirection.enable = true;
 

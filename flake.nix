@@ -148,6 +148,7 @@
               ./home-modules/desktop/programming
               ./home-modules/desktop/gnome
               ./home-modules/desktop/optional/smb-shares.nix
+              ./home-modules/desktop/optional/worktools.nix
               ./home-modules/faebut/common
             ];
             backupFileExtension = "backup";

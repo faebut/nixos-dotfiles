@@ -28,6 +28,18 @@ in
         inherit (config.users.users.faebut) group;
       };
       faebut-pass = { };
+      "rclone/onedrive-business/token" = {
+        owner = config.users.users.faebut.name;
+        inherit (config.users.users.faebut) group;
+      };
+      "rclone/onedrive-business/drive-id" = {
+        owner = config.users.users.faebut.name;
+        inherit (config.users.users.faebut) group;
+      };
+      "rclone/onedrive-business/drive-name" = {
+        owner = config.users.users.faebut.name;
+        inherit (config.users.users.faebut) group;
+      };
     };
   };
 }

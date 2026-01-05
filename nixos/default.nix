@@ -117,6 +117,7 @@
 
     # virtualization
     virt-manager
+    spice-gtk # Required for USB redirection in virt-manager
   ];
 
   # Virtualization with libvirt/KVM
@@ -131,6 +132,12 @@
 
   # Add user to libvirtd group (in users/faebut/default.nix)
   programs.virt-manager.enable = true;
+  
+  # SPICE USB redirection support
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  # FUSE configuration for rclone mounts
+  programs.fuse.userAllowOther = true;
 
   # editor
   programs.neovim = {

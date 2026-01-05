@@ -4,6 +4,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ../common/rclone.nix  # OneDrive access for nixps15
+  ];
+
   # GNOME desktop configuration
   dconf.settings = {
     "org/gnome/desktop/interface" = {
@@ -143,9 +147,8 @@
   };
 
   # Monitor configuration
-  # Note: You'll need to get your monitor identifiers first by running:
-  # gsettings get org.gnome.desktop.monitors
-  # Then configure monitors.xml manually or use autorandr
+  # External monitor (Dell P2422HE via dock) is primary
+  # Internal laptop screen is secondary on the left
   home.file.".config/monitors.xml" = {
     text = ''
       <monitors version="2">
@@ -158,13 +161,13 @@
             <monitor>
               <monitorspec>
                 <connector>eDP-1</connector>
-                <vendor>unknown</vendor>
-                <product>unknown</product>
-                <serial>unknown</serial>
+                <vendor>SHP</vendor>
+                <product>0x14d1</product>
+                <serial>0x00000000</serial>
               </monitorspec>
               <mode>
                 <width>1920</width>
-                <height>1080</height>
+                <height>1200</height>
                 <rate>60</rate>
               </mode>
             </monitor>
@@ -176,10 +179,10 @@
             <primary>yes</primary>
             <monitor>
               <monitorspec>
-                <connector>HDMI-1</connector>
-                <vendor>unknown</vendor>
-                <product>unknown</product>
-                <serial>unknown</serial>
+                <connector>DP-5</connector>
+                <vendor>DEL</vendor>
+                <product>DELL P2422HE</product>
+                <serial>2HL3ZB3</serial>
               </monitorspec>
               <mode>
                 <width>1920</width>

@@ -146,53 +146,7 @@
     };
   };
 
-  # Monitor configuration
-  # External monitor (Dell P2422HE via dock) is primary
-  # Internal laptop screen is secondary on the left
-  home.file.".config/monitors.xml" = {
-    text = ''
-      <monitors version="2">
-        <configuration>
-          <logicalmonitor>
-            <x>0</x>
-            <y>0</y>
-            <scale>1</scale>
-            <primary>no</primary>
-            <monitor>
-              <monitorspec>
-                <connector>eDP-1</connector>
-                <vendor>SHP</vendor>
-                <product>0x14d1</product>
-                <serial>0x00000000</serial>
-              </monitorspec>
-              <mode>
-                <width>1920</width>
-                <height>1200</height>
-                <rate>60</rate>
-              </mode>
-            </monitor>
-          </logicalmonitor>
-          <logicalmonitor>
-            <x>1920</x>
-            <y>0</y>
-            <scale>1</scale>
-            <primary>yes</primary>
-            <monitor>
-              <monitorspec>
-                <connector>DP-5</connector>
-                <vendor>DEL</vendor>
-                <product>DELL P2422HE</product>
-                <serial>2HL3ZB3</serial>
-              </monitorspec>
-              <mode>
-                <width>1920</width>
-                <height>1080</height>
-                <rate>60</rate>
-              </mode>
-            </monitor>
-          </logicalmonitor>
-        </configuration>
-      </monitors>
-    '';
-  };
+  # Monitor configuration managed by GNOME directly
+  # Set via Settings > Displays in GNOME
+  # GNOME persists configuration in ~/.config/monitors.xml automatically
 }

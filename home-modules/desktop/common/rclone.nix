@@ -81,4 +81,108 @@ EOF
       WantedBy = ["default.target"];
     };
   };
+
+  # Systemd service to mount STAO shared folder
+  systemd.user.services.onedrive-stao-mount = lib.mkIf (osConfig.sops.secrets ? "rclone/onedrive-business/token") {
+    Unit = {
+      Description = "RClone mount of OneDrive Business STAO shared folder";
+      After = ["network-online.target" "onedrive-mount.service"];
+      Wants = ["network-online.target"];
+      Requires = ["onedrive-mount.service"];
+    };
+
+    Service = {
+      Type = "simple";
+      
+      # Pre-flight checks
+      ExecStartPre = pkgs.writeShellScript "onedrive-stao-mount-pre" ''
+        # Create mount point
+        mkdir -p "$HOME/Cloud/STAO"
+        
+        # Ensure mount directory is empty
+        if [ "$(ls -A "$HOME/Cloud/STAO" 2>/dev/null)" ]; then
+          ${pkgs.util-linux}/bin/fusermount -u "$HOME/Cloud/STAO" 2>/dev/null || true
+        fi
+      '';
+      
+      # Mount STAO shared folder
+      ExecStart = pkgs.writeShellScript "onedrive-stao-mount-start" ''
+        exec ${pkgs.rclone}/bin/rclone mount \
+          --config="$HOME/.config/rclone/rclone.conf" \
+          --allow-other \
+          --default-permissions \
+          --vfs-cache-mode=full \
+          --vfs-cache-max-age=72h \
+          --vfs-cache-max-size=50G \
+          --dir-cache-time=60m \
+          --poll-interval=15s \
+          --vfs-read-chunk-size=32M \
+          onedrive-business:STAO "$HOME/Cloud/STAO"
+      '';
+      
+      # Unmount
+      ExecStop = pkgs.writeShellScript "onedrive-stao-mount-stop" ''
+        ${pkgs.util-linux}/bin/fusermount -u "$HOME/Cloud/STAO"
+      '';
+      
+      Restart = "on-failure";
+      RestartSec = "10s";
+    };
+
+    Install = {
+      WantedBy = ["default.target"];
+    };
+  };
+
+  # Systemd service to mount Grundkompetenzen shared folder
+  systemd.user.services.onedrive-grundkompetenzen-mount = lib.mkIf (osConfig.sops.secrets ? "rclone/onedrive-business/token") {
+    Unit = {
+      Description = "RClone mount of OneDrive Business Grundkompetenzen shared folder";
+      After = ["network-online.target" "onedrive-mount.service"];
+      Wants = ["network-online.target"];
+      Requires = ["onedrive-mount.service"];
+    };
+
+    Service = {
+      Type = "simple";
+      
+      # Pre-flight checks
+      ExecStartPre = pkgs.writeShellScript "onedrive-grundkompetenzen-mount-pre" ''
+        # Create mount point
+        mkdir -p "$HOME/Cloud/Grundkompetenzen"
+        
+        # Ensure mount directory is empty
+        if [ "$(ls -A "$HOME/Cloud/Grundkompetenzen" 2>/dev/null)" ]; then
+          ${pkgs.util-linux}/bin/fusermount -u "$HOME/Cloud/Grundkompetenzen" 2>/dev/null || true
+        fi
+      '';
+      
+      # Mount Grundkompetenzen shared folder
+      ExecStart = pkgs.writeShellScript "onedrive-grundkompetenzen-mount-start" ''
+        exec ${pkgs.rclone}/bin/rclone mount \
+          --config="$HOME/.config/rclone/rclone.conf" \
+          --allow-other \
+          --default-permissions \
+          --vfs-cache-mode=full \
+          --vfs-cache-max-age=72h \
+          --vfs-cache-max-size=50G \
+          --dir-cache-time=60m \
+          --poll-interval=15s \
+          --vfs-read-chunk-size=32M \
+          onedrive-business:Grundkompetenzen "$HOME/Cloud/Grundkompetenzen"
+      '';
+      
+      # Unmount
+      ExecStop = pkgs.writeShellScript "onedrive-grundkompetenzen-mount-stop" ''
+        ${pkgs.util-linux}/bin/fusermount -u "$HOME/Cloud/Grundkompetenzen"
+      '';
+      
+      Restart = "on-failure";
+      RestartSec = "10s";
+    };
+
+    Install = {
+      WantedBy = ["default.target"];
+    };
+  };
 }

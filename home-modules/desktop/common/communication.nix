@@ -9,4 +9,30 @@
     ferdium # multi client
     slack # slack
   ];
+
+  # Override Ferdium to start minimized
+  xdg.desktopEntries.ferdium = {
+    name = "Ferdium";
+    genericName = "Messaging Application";
+    exec = "ferdium --hidden %U";
+    icon = "ferdium";
+    type = "Application";
+    categories = ["Network" "InstantMessaging"];
+    settings = {
+      StartupWMClass = "Ferdium";
+    };
+  };
+
+  # Override Slack to start minimized
+  xdg.desktopEntries.slack = {
+    name = "Slack";
+    genericName = "Team Communication";
+    exec = "slack -u %U";
+    icon = "slack";
+    type = "Application";
+    categories = ["Network" "InstantMessaging"];
+    settings = {
+      StartupWMClass = "Slack";
+    };
+  };
 }

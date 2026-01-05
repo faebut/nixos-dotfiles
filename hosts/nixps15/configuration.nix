@@ -21,9 +21,27 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # NOTE: Hibernation configuration (uncomment after first boot and getting resume_offset):
-  # boot.resumeDevice = "/dev/disk/by-label/nixos";
-  # boot.kernelParams = [ "resume_offset=XXXXX" ];  # Get from: sudo filefrag -v /swapfile
+  # Plymouth boot splash with graphical LUKS password prompt
+  boot.plymouth = {
+    enable = true;
+    theme = "breeze";
+  };
+
+  # Required for Plymouth to work properly with LUKS
+  boot.initrd.systemd.enable = true;
+
+  # Enable silent boot for cleaner Plymouth experience
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "resume_offset=72843264"
+  ];
+
+  boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
+
+  # Hibernation configuration
+  boot.resumeDevice = "/dev/disk/by-label/nixos";
 
   networking.hostName = "nixps15"; # Define your hostname.
 

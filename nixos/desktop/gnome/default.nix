@@ -27,6 +27,7 @@
     papers # document viewer
     geary # email client
     foliate # epub reader
+    pika-backup # backup tool
     gnome-tour
     gnome-calendar
     gnome-connections

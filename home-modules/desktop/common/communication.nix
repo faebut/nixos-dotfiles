@@ -23,11 +23,11 @@
     };
   };
 
-  # Override Slack to start minimized
+  # Override Slack to start minimized and disable Ozone (fixes graphical artifacts when maximized)
   xdg.desktopEntries.slack = {
     name = "Slack";
     genericName = "Team Communication";
-    exec = "slack -u %U";
+    exec = "slack -u --disable-features=WaylandWindowDecorations --ozone-platform=x11 %U";
     icon = "slack";
     type = "Application";
     categories = ["Network" "InstantMessaging"];

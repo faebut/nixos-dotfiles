@@ -1,11 +1,10 @@
-{
-  config,
-  pkgs,
-  unstablePkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    libreoffice # libreoffice
+    # Just install LibreOffice and dictionaries
+    libreoffice-fresh
+    hunspellDicts.de_CH
+    hyphenDicts.de_CH
+    
     pdfarranger # manipulate pdfs
   ];
 }

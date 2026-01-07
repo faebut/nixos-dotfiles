@@ -6,10 +6,10 @@
     text = ''
       <?xml version="1.0" encoding="UTF-8"?>
       <oor:items xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <!-- Icon theme: Colibre (SVG + Dark) -->
+        <!-- Icon theme: Colibre Dark (non-SVG) -->
         <item oor:path="/org.openoffice.Office.Common/Misc">
           <prop oor:name="SymbolStyle" oor:op="fuse">
-            <value>colibre_dark_svg</value>
+            <value>colibre_dark</value>
           </prop>
         </item>
         
@@ -24,6 +24,18 @@
         <item oor:path="/org.openoffice.Office.Common/Save/Document">
           <prop oor:name="WarnAlienFormat" oor:op="fuse">
             <value>false</value>
+          </prop>
+        </item>
+
+        <!-- Enable hyphenation -->
+        <item oor:path="/org.openoffice.Office.Writer/Hyphenation">
+          <prop oor:name="IsHyphAuto" oor:op="fuse">
+            <value>true</value>
+          </prop>
+        </item>
+        <item oor:path="/org.openoffice.Office.Writer/Hyphenation">
+          <prop oor:name="IsHyphSpecial" oor:op="fuse">
+            <value>true</value>
           </prop>
         </item>
       </oor:items>

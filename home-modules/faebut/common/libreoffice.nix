@@ -38,6 +38,42 @@
             <value>true</value>
           </prop>
         </item>
+
+        <!-- User information -->
+        <item oor:path="/org.openoffice.UserProfile/Data">
+          <prop oor:name="givenname" oor:op="fuse">
+            <value>Fabian</value>
+          </prop>
+        </item>
+        <item oor:path="/org.openoffice.UserProfile/Data">
+          <prop oor:name="sn" oor:op="fuse">
+            <value>Trost</value>
+          </prop>
+        </item>
+
+        <!-- Disable first start wizard -->
+        <item oor:path="/org.openoffice.Setup/Office">
+          <prop oor:name="ooSetupConnectionURL" oor:op="fuse">
+            <value></value>
+          </prop>
+        </item>
+        <item oor:path="/org.openoffice.Setup/Office">
+          <prop oor:name="ooSetupInstCompleted" oor:op="fuse">
+            <value>true</value>
+          </prop>
+        </item>
+        <item oor:path="/org.openoffice.Setup/Product">
+          <prop oor:name="ooSetupLastVersion" oor:op="fuse">
+            <value>25.8</value>
+          </prop>
+        </item>
+
+        <!-- Disable tip of the day -->
+        <item oor:path="/org.openoffice.Office.Common/Misc">
+          <prop oor:name="LastTipOfTheDayShown" oor:op="fuse">
+            <value>99999</value>
+          </prop>
+        </item>
       </oor:items>
     '';
   };

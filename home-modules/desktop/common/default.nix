@@ -10,5 +10,6 @@
     ./java.nix
     ./smb-share.nix
     ./productivity.nix
+    ./obsidian.nix
   ];
 }

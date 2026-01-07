@@ -19,6 +19,13 @@
             <value>1</value>
           </prop>
         </item>
+
+        <!-- Disable warning when saving in Microsoft Office formats -->
+        <item oor:path="/org.openoffice.Office.Common/Save/Document">
+          <prop oor:name="WarnAlienFormat" oor:op="fuse">
+            <value>false</value>
+          </prop>
+        </item>
       </oor:items>
     '';
   };

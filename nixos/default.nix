@@ -12,7 +12,7 @@
     ./tailscale.nix
     ./smb-mount.nix
   ];
-  
+
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
 
@@ -137,6 +137,7 @@
     pulseaudio # for audio
     wireplumber
     nh # nix cli helper
+    nvd # nix package diff tool
     libinput # device input handling
 
     pinentry-curses # pinentry tool

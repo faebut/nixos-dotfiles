@@ -12,7 +12,9 @@
   # GNOME-related packages
   environment.systemPackages = with pkgs; [
     gnome-tweaks
-    gnomeExtensions.appindicator
+    pika-backup # backup tool
+    papers # document viewer
+    foliate # epub reader
   ];
 
   # Remove unwanted packages
@@ -24,10 +26,7 @@
     gedit # text editor
     totem # video player
     yelp # help viewer
-    papers # document viewer
     geary # email client
-    foliate # epub reader
-    pika-backup # backup tool
     gnome-tour
     gnome-calendar
     gnome-connections

@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ../common/rclone.nix  # OneDrive access for nixps15
+    ../common/rclone.nix # OneDrive access for nixps15
   ];
 
   # GNOME desktop configuration
@@ -43,7 +43,6 @@
         "dash-to-dock@micxgx.gmail.com"
         "blur-my-shell@aunetx"
         "caffeine@patapon.info"
-        "trayIconsReloaded@selfmade.pl"
         "search-light@icedman.github.com"
       ];
     };
@@ -109,6 +108,19 @@
     # Tool to change papirus folder colors
     papirus-folders
   ];
+
+  # GNOME autostart applications
+  xdg.configFile."autostart/ferdium.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Name=Ferdium
+    Comment=Messaging Application
+    Exec=ferdium --hidden %U
+    Icon=ferdium
+    Categories=Network;InstantMessaging;
+    StartupWMClass=Ferdium
+    X-GNOME-Autostart-enabled=true
+  '';
 
   # GTK theme configuration for GNOME (nixps15)
   gtk = {

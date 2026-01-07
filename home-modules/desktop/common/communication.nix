@@ -20,6 +20,7 @@
     categories = ["Network" "InstantMessaging"];
     settings = {
       StartupWMClass = "Ferdium";
+      X-GNOME-Autostart-Delay = "2";
     };
   };
 

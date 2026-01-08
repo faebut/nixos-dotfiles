@@ -1,0 +1,11 @@
+# Database files
+*.db
+*.db-shm
+*.db-wal
+
+# Result symlinks from nix build
+result
+result-*
+
+# Backup files
+*.backup

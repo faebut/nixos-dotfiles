@@ -16,6 +16,7 @@
     EDITOR = "nvim";
     SUDO_EDITOR = "nvim";
     LIBVIRT_DEFAULT_URI = "qemu:///system";
+    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
   };
 
   programs.gpg = {

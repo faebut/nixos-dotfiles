@@ -1,6 +1,15 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     todoist-electron
-    vikunja
   ];
+
+  services.flatpak = {
+    packages = [
+      "io.vikunja.Vikunja"
+    ];
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly";
+    };
+  };
 }

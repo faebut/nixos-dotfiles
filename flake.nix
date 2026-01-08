@@ -36,6 +36,9 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # flatpak
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
   outputs = {
@@ -65,12 +68,14 @@
         ./hosts/common/optional/yubikey
         ./hosts/nixpad1/configuration.nix
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+        inputs.nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             users.faebut.imports = [
+              inputs.nix-flatpak.homeManagerModules.nix-flatpak
               ./home-modules/common.nix
               ./home-modules/desktop
               ./home-modules/desktop/programming
@@ -101,12 +106,14 @@
         ./hosts/common/optional/yubikey
         ./hosts/sinkbad/configuration.nix
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-13th-gen
+        inputs.nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             users.faebut.imports = [
+              inputs.nix-flatpak.homeManagerModules.nix-flatpak
               ./home-modules/common.nix
               ./home-modules/desktop
               ./home-modules/desktop/programming
@@ -137,12 +144,14 @@
         ./hosts/common/optional/yubikey
         ./hosts/nixps15/configuration.nix
         inputs.nixos-hardware.nixosModules.dell-xps-15-9500
+        inputs.nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             users.faebut.imports = [
+              inputs.nix-flatpak.homeManagerModules.nix-flatpak
               ./home-modules/common.nix
               ./home-modules/desktop
               ./home-modules/desktop/programming

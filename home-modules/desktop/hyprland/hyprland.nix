@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   osConfig,
   ...
@@ -195,6 +196,27 @@
       "-max-items"
       "500"
     ];
+  };
+
+  # Override cliphist services to restart after suspend/resume
+  systemd.user.services.cliphist = {
+    Unit = {
+      After = lib.mkForce ["graphical-session.target" "hyprland-session.target"];
+    };
+    Service = {
+      Restart = lib.mkForce "always";
+      RestartSec = "5";
+    };
+  };
+
+  systemd.user.services.cliphist-images = {
+    Unit = {
+      After = lib.mkForce ["graphical-session.target" "hyprland-session.target"];
+    };
+    Service = {
+      Restart = lib.mkForce "always";
+      RestartSec = "5";
+    };
   };
 
   # INFO: link config files individually to allow hyprsunset to generate its config

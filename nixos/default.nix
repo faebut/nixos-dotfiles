@@ -166,6 +166,18 @@
   # SPICE USB redirection support
   virtualisation.spiceUSBRedirection.enable = true;
 
+  # Enable rootless Docker support (user-level containers)
+  # Daemon starts automatically, but containers only start if configured with restart policies
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+    daemon.settings = {
+      # Prevent containers from auto-restarting on daemon start
+      # Users must explicitly set --restart=always if they want autostart
+      live-restore = false;
+    };
+  };
+
   # FUSE configuration for rclone mounts
   programs.fuse.userAllowOther = true;
 

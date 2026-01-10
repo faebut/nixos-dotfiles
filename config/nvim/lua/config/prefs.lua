@@ -4,6 +4,7 @@ vim.lsp.enable({
 	"lua_ls",
 	"nixd",
 	"marksman",
+	"postgres_lsp",
 	-- "go",
 	-- "css",
 	-- "html",

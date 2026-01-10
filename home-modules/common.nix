@@ -150,6 +150,7 @@
       stylua # lua formatter
       # nixfmt-rfc-style # nix formatter
       marksman
+      postgres-language-server # postgres language server
 
       # graphical tools
       nautilus

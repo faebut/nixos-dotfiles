@@ -25,7 +25,7 @@ return {
 				"docker_language_server", -- dockerfiles
 				"docker_compose_language_service", -- docker compose
 				"htmx", -- htmx
-				"marksman", -- markdown
+				-- "marksman", -- markdown, installed in nix
 				"postgres_lsp", -- PostgresQL
 				-- "sqlls", -- sql, not sure if better than above
 				"nil_ls", -- nix expression

@@ -149,6 +149,7 @@
       lua-language-server # lua language server
       stylua # lua formatter
       # nixfmt-rfc-style # nix formatter
+      marksman
 
       # graphical tools
       nautilus

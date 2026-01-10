@@ -5,8 +5,8 @@
     lazydocker # TUI for docker management (like lazygit)
   ];
 
-  # Session variables are set automatically by virtualisation.docker.rootless.setSocketVariable
+  # Set DOCKER_HOST for rootless docker
   home.sessionVariables = {
-    DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/docker.sock";
+    DOCKER_HOST = "unix:///run/user/1000/docker.sock";
   };
 }

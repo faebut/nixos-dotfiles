@@ -11,7 +11,7 @@
       "margin": 47
     },
     "volume": {
-      "command": "hyprpwcenter",
+      "command": "pavucontrol",
       "animation": "fromRight",
       "margin": 10,
       "size": "40% 80%",

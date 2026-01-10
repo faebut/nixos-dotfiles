@@ -37,6 +37,9 @@ in
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel '${clipboardCmd}'
       bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel '${clipboardCmd}'
+
+      # Update environment variables from shell
+      set-option -g update-environment "DOCKER_HOST"
     '';
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator

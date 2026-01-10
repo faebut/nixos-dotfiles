@@ -3,6 +3,7 @@
 vim.lsp.enable({
 	"lua_ls",
 	"nixd",
+	"marksman",
 	-- "go",
 	-- "css",
 	-- "html",

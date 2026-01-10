@@ -10,6 +10,7 @@
     hyprpicker
     hyprpwcenter
     hyprgraphics
+    pavucontrol
 
     grim # screenshots
     slurp # needed for selection

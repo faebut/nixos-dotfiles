@@ -4,5 +4,6 @@
     ./tmux.nix
     ./database.nix
     ./docker.nix
+    ./goto-ssh.nix
   ];
 }

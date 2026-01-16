@@ -51,7 +51,12 @@
     system = "x86_64-linux";
     unstablePkgs = import inputs.unstable {
       localSystem = system;
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          "beekeeper-studio-5.5.3"
+        ];
+      };
     };
   in {
     nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {

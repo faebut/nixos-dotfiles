@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  unstablePkgs,
+  ...
+}: let
   luna-modeler = pkgs.appimageTools.wrapType2 {
     pname = "luna-modeler";
     version = "12.3.0";
@@ -29,10 +33,12 @@
     '';
   };
 in {
-  home.packages = with pkgs; [
-    pgmodeler # TODO: we have subscription, this is the free version
-    luna-modeler
-
-    beekeeper-studio # db viewer
-  ];
+  home.packages = with pkgs;
+    [
+      pgmodeler # TODO: we have subscription, this is the free version
+      luna-modeler
+    ]
+    ++ (with unstablePkgs; [
+      beekeeper-studio # db viewer
+    ]);
 }

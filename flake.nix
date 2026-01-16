@@ -144,6 +144,7 @@
         {nixpkgs.hostPlatform = system;}
         ./nixos
         ./nixos/desktop/gnome
+        ./nixos/desktop/cosmic
         ./hosts/common
         ./hosts/common/users/faebut
         ./hosts/common/optional/yubikey
@@ -161,6 +162,7 @@
               ./home-modules/desktop
               ./home-modules/desktop/programming
               ./home-modules/desktop/gnome
+              ./home-modules/desktop/cosmic
               ./home-modules/desktop/optional/smb-shares.nix
               ./home-modules/desktop/optional/worktools.nix
               ./home-modules/faebut/common

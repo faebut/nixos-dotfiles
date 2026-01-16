@@ -15,6 +15,7 @@
     pika-backup # backup tool
     papers # document viewer
     foliate # epub reader
+    sticky-notes # sticky notes
   ];
 
   # Remove unwanted packages

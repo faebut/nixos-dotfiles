@@ -2,6 +2,7 @@
   config,
   pkgs,
   unstablePkgs,
+  lib,
   ...
 }: {
   home.username = "faebut";
@@ -29,6 +30,8 @@
     enableZshIntegration = true;
     pinentry.package = pkgs.pinentry-gnome3;
   };
+
+  fonts.fontconfig.enable = true;
 
   programs.zsh = {
     enable = true;

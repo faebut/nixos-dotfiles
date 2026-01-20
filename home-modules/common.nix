@@ -188,6 +188,7 @@
       gpg.program = "gpg";
       tag.gpgSign = true;
       url."git@github.com:".insteadOf = "https://github.com/";
+      advice.addIgnoredFile = false;
     };
   };
 

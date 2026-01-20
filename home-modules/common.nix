@@ -48,6 +48,7 @@
       nrs = "nixos-rebuild switch --flake ~/.nixos-dotfiles# --sudo";
       gpgrestart = "gpgconf --kill gpg-agent";
       gitlog = "git log --graph --all --decorate";
+      md2pdf = ''for file in *.md; do pandoc "$file" -o "''${file%.md}.pdf" --template=$HOME/Templates/eisvogel.tex; done'';
     };
 
     history = {

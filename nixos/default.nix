@@ -145,6 +145,10 @@
 
     pinentry-curses # pinentry tool
 
+    # document conversion
+    pandoc
+    texliveFull
+
     # virtualization
     virt-manager
     spice-gtk # Required for USB redirection in virt-manager

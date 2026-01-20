@@ -76,6 +76,7 @@
     enable = true;
     env = {
       GOPATH = ["${config.home.homeDirectory}/.go"];
+      GOPRIVATE = ["github.com/faebut/*"];
     };
   };
 
@@ -185,6 +186,7 @@
       init.defaultBranch = "main";
       gpg.program = "gpg";
       tag.gpgSign = true;
+      url."git@github.com:".insteadOf = "https://github.com/";
     };
   };
 

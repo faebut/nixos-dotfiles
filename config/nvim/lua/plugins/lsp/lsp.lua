@@ -15,5 +15,13 @@ return {
     vim.lsp.config("*", {
       capabilities = capabilities,
     })
+
+    -- Attach LSP keybinds when LSP server attaches
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+      callback = function(event)
+        require("config.keymaps").map_lsp_keybinds(event.buf)
+      end,
+    })
   end,
 }

@@ -92,3 +92,11 @@ vim.diagnostic.config({
 		current_line = true,
 	},
 })
+
+-- Enable treesitter highlighting for all buffers
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+	pattern = "*",
+	callback = function()
+		pcall(vim.treesitter.start)
+	end,
+})

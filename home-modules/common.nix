@@ -93,6 +93,9 @@
       ripgrep # recursively searches directories for a regex pattern
       jq # A lightweight and flexible command-line JSON processor
       fzf # A command-line fuzzy finder
+      
+      # Treesitter CLI for nvim parser compilation
+      tree-sitter
 
       # networking tools
       mtr # A network diagnostic tool

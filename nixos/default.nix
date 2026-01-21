@@ -185,10 +185,12 @@
   # FUSE configuration for rclone mounts
   programs.fuse.userAllowOther = true;
 
-  # editor
+  # editor - system-wide neovim for sudo access
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    withNodeJs = true;
+    withPython3 = true;
   };
 
   # shell

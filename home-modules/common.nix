@@ -224,7 +224,13 @@
   services.protonmail-bridge.enable = true;
 
   home.file.".config/kitty".source = ../config/kitty;
-  home.file.".config/nvim".source = ../config/nvim;
+  
+  # Neovim config - symlink individual files/dirs, excluding lazy-lock.json so each host maintains its own
+  home.file.".config/nvim/init.lua".source = ../config/nvim/init.lua;
+  home.file.".config/nvim/lua".source = ../config/nvim/lua;
+  home.file.".config/nvim/after".source = ../config/nvim/after;
+  home.file.".config/nvim/snippets".source = ../config/nvim/snippets;
+  
   home.file.".config/waybar".source = ../config/waybar;
   # home.file.".config/swaync".source = ../config/swaync;
   home.file.".config/rofi".source = ../config/rofi;

@@ -6,13 +6,13 @@ vim.lsp.enable({
 	"marksman",
 	"postgres_lsp",
 	"htmx-lsp",
+	"templ",
 	-- "go",
 	-- "css",
 	-- "html",
 	-- "htmx",
 	-- "json",
 	-- "tailwindcss",
-	-- "templ",
 })
 
 -- Themes:

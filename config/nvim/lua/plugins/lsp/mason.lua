@@ -16,7 +16,7 @@ return {
 				"pyright",
 				"eslint", -- linter
 				"gopls", -- golang
-				"templ", -- go templ
+				-- "templ", -- go templ, intalled in nix
 				"jsonls", -- json
 				"rust_analyzer", -- rust
 				"bashls", --bash

@@ -233,6 +233,7 @@
   home.file.".config/nvim/init.lua".source = ../config/nvim/init.lua;
   home.file.".config/nvim/lua".source = ../config/nvim/lua;
   home.file.".config/nvim/after".source = ../config/nvim/after;
+  home.file.".config/nvim/ftdetect".source = ../config/nvim/ftdetect;
   home.file.".config/nvim/snippets".source = ../config/nvim/snippets;
   
   home.file.".config/waybar".source = ../config/waybar;

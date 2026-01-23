@@ -159,6 +159,7 @@
       # nixfmt-rfc-style # nix formatter
       marksman
       postgres-language-server # postgres language server
+      htmx-lsp # htmx language server
 
       # graphical tools
       nautilus

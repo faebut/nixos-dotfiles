@@ -5,6 +5,7 @@ vim.lsp.enable({
 	"nixd",
 	"marksman",
 	"postgres_lsp",
+	"htmx-lsp",
 	-- "go",
 	-- "css",
 	-- "html",

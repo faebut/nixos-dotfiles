@@ -1,12 +1,13 @@
 -- LSP activation (references lsp/<filename>
+
 -- enable manually installed lsp
 vim.lsp.enable({
+	"templ",
 	"lua_ls",
 	"nixd",
 	"marksman",
 	"postgres_lsp",
 	"htmx-lsp",
-	"templ",
 	-- "go",
 	-- "css",
 	-- "html",

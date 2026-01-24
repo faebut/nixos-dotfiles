@@ -7,11 +7,10 @@ vim.lsp.enable({
 	"nixd",
 	"marksman",
 	"postgres_lsp",
-	"htmx-lsp",
+	"htmx",
 	-- "go",
 	-- "css",
 	-- "html",
-	-- "htmx",
 	-- "json",
 	-- "tailwindcss",
 })

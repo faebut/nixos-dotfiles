@@ -149,6 +149,7 @@
     nh # nix cli helper
     nvd # nix package diff tool
     libinput # device input handling
+    inotify-tools # file watcher for LSP
 
     pinentry-curses # pinentry tool
 

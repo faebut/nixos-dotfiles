@@ -5,6 +5,12 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+			formatters = {
+				goimports_reviser = {
+					command = "goimports-reviser",
+					args = { "-output", "stdout", "$FILENAME" },
+				},
+			},
 			formatters_by_ft = {
 				javascript = { "prettier" },
 				typescript = { "prettier" },
@@ -22,7 +28,7 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				rust = { "rustfmt" },
-				go = { "gofumpt", "goimports-reviser" },
+				go = { "gofumpt", "goimports_reviser" },
 				nix = { "alejandra" },
 				templ = { "templ" },
 			},

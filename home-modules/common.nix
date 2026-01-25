@@ -93,7 +93,7 @@
       ripgrep # recursively searches directories for a regex pattern
       jq # A lightweight and flexible command-line JSON processor
       fzf # A command-line fuzzy finder
-      
+
       # Treesitter CLI for nvim parser compilation
       tree-sitter
 
@@ -143,6 +143,8 @@
       # proglang
       nodejs
       gopls # golang
+      gofumpt # go formatter
+      goimports-reviser # go import reviser
       templ # go templating
       cargo # rust package manager
       rustc # rust compiler
@@ -156,6 +158,7 @@
       nixd # nix language server, not installed in nvim
       lua-language-server # lua language server
       stylua # lua formatter
+      alejandra # lua formatter
       # nixfmt-rfc-style # nix formatter
       marksman
       postgres-language-server # postgres language server
@@ -228,14 +231,14 @@
   services.protonmail-bridge.enable = true;
 
   home.file.".config/kitty".source = ../config/kitty;
-  
+
   # Neovim config - symlink individual files/dirs, excluding lazy-lock.json so each host maintains its own
   home.file.".config/nvim/init.lua".source = ../config/nvim/init.lua;
   home.file.".config/nvim/lua".source = ../config/nvim/lua;
   home.file.".config/nvim/after".source = ../config/nvim/after;
   home.file.".config/nvim/ftdetect".source = ../config/nvim/ftdetect;
   home.file.".config/nvim/snippets".source = ../config/nvim/snippets;
-  
+
   home.file.".config/waybar".source = ../config/waybar;
   # home.file.".config/swaync".source = ../config/swaync;
   home.file.".config/rofi".source = ../config/rofi;

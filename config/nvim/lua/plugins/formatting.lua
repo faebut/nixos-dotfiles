@@ -22,7 +22,7 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				rust = { "rustfmt" },
-				go = { "gofumpt", "goimports_reviser" },
+				go = { "gofumpt", "goimports-reviser" },
 				nix = { "alejandra" },
 				templ = { "templ" },
 			},

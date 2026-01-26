@@ -9,6 +9,7 @@ return {
 				goimports_reviser = {
 					command = "goimports-reviser",
 					args = { "-output", "stdout", "$FILENAME" },
+					stdin = false,
 				},
 			},
 			formatters_by_ft = {

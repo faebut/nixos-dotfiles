@@ -8,11 +8,7 @@ vim.lsp.enable({
 	"marksman",
 	"postgres_lsp",
 	"htmx",
-	-- "go",
-	-- "css",
-	-- "html",
-	-- "json",
-	-- "tailwindcss",
+	"gopls",
 })
 
 -- Themes:

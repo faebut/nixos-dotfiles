@@ -6,6 +6,7 @@
     hyphenDicts.de_CH
 
     pdfarranger # manipulate pdfs
+    ghostscript
   ];
 
   programs.onlyoffice = {

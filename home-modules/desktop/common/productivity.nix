@@ -13,10 +13,10 @@
 
     package = pkgs.onlyoffice-desktopeditors;
 
-    # settings = ''
-    #   UITheme = "theme-night";
-    #   editorWindowMode = false;
-    #   # locale = "de-DE";
-    # '';
+    settings = {
+      UITheme = "theme-night";
+      editorWindowMode = false;
+      locale = "de-CH";
+    };
   };
 }

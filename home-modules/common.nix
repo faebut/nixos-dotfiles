@@ -163,6 +163,8 @@
       marksman
       postgres-language-server # postgres language server
       htmx-lsp # htmx language server
+      nodePackages.prettier # js/ts/css/html formatter
+      nodePackages.prettier-plugin-svelte # svelte formatter plugin
 
       # graphical tools
       nautilus

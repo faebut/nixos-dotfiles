@@ -150,6 +150,7 @@
     nvd # nix package diff tool
     libinput # device input handling
     inotify-tools # file watcher for LSP
+    direnv # project specific environment
 
     pinentry-curses # pinentry tool
 

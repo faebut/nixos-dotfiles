@@ -51,11 +51,9 @@ in {
       lsp = {
         go = {
           command = "gopls";
-          enabled = true;
         };
         nix = {
           command = "nixd";
-          enabled = true;
         };
       };
       # options = {

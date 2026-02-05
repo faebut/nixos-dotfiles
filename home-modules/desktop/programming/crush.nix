@@ -10,7 +10,6 @@ in {
     inputs.sops-nix.homeManagerModules.sops
   ];
 
-  # TODO: this should not be here but for the user in home-manager
   sops = {
     defaultSopsFile = "${secretspath}/secrets.yaml";
     defaultSopsFormat = "yaml";
@@ -35,7 +34,7 @@ in {
           base_url = "https://api.anthropic.com";
           type = "anthropic";
           # TODO: somehow add this api key, it does not work like this
-          # api_key = "cat ${config.sops.secrets."anthropic-api".path}";
+          api_key = "cat ${config.sops.secrets."anthropic-api".path}";
           models = [
             {
               id = "claude-sonnet-4-5-20250929";

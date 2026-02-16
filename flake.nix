@@ -17,9 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nur
-    nur.url = "github:charmbracelet/nur";
-
     nix-secrets = {
       # INFO: shallow does not work?
       url = "git+ssh://git@codeberg.org/faebut/nix-secrets.git";
@@ -39,13 +36,14 @@
 
     # flatpak
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    # affinity
+    affinity-nix.url = "github:mrshmllow/affinity-nix";
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
-    nur,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -54,7 +52,7 @@
       config = {
         allowUnfree = true;
         permittedInsecurePackages = [
-          "beekeeper-studio-5.5.3"
+          "beekeeper-studio-5.5.5"
         ];
       };
     };

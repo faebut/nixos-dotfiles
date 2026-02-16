@@ -1,12 +1,11 @@
 {
   inputs,
-  config,
+  unstablePkgs,
   ...
 }: let
   secretspath = builtins.toString inputs.nix-secrets;
 in {
   imports = [
-    inputs.nur.homeModules.crush
     inputs.sops-nix.homeManagerModules.sops
   ];
 
@@ -24,44 +23,7 @@ in {
     };
   };
 
-  programs.crush = {
-    enable = true;
-    settings = {
-      providers = {
-        anthropic = {
-          id = "anthropic";
-          name = "Anthropic";
-          base_url = "https://api.anthropic.com";
-          type = "anthropic";
-          # TODO: somehow add this api key, it does not work like this
-          api_key = "cat ${config.sops.secrets."anthropic-api".path}";
-          models = [
-            {
-              id = "claude-sonnet-4-5-20250929";
-              name = "Claude Sonnet 4.5";
-            }
-            {
-              id = "claude-3-5-haiku-20241022";
-              name = "Claude Haiku 3.5";
-            }
-          ];
-        };
-      };
-      lsp = {
-        go = {
-          command = "gopls";
-        };
-        nix = {
-          command = "nixd";
-        };
-      };
-      # options = {
-      #   context_paths = [ "/etc/nixos/configuration.nix" ];
-      #   tui = {
-      #     compact_mode = true;
-      #   };
-      #   debug = false;
-      # };
-    };
-  };
+  home.packages = [
+    unstablePkgs.crush
+  ];
 }

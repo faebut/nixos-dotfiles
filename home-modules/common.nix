@@ -49,6 +49,7 @@
       gpgrestart = "gpgconf --kill gpg-agent";
       gitlog = "git log --graph --all --decorate";
       md2pdf = ''for file in *.md; do pandoc "$file" -o "''${file%.md}.pdf" --template=$HOME/Templates/eisvogel.tex; done'';
+      gocoverage = "go test -coverprofile=.cover.out && go tool cover -html=.cover.out -o coverage.html && zen coverage.html && sleep 1 && rm .cover.out coverage.html";
     };
 
     history = {

@@ -32,6 +32,7 @@ return {
 				go = { "gofumpt", "goimports_reviser" },
 				nix = { "alejandra" },
 				templ = { "templ" },
+				sql = { "pg_format" },
 			},
 			format_on_save = function(bufnr)
 				-- Disable LSP fallback for Nix files to avoid error message

@@ -163,6 +163,8 @@
       # nixfmt-rfc-style # nix formatter
       marksman
       postgres-language-server # postgres language server
+      sqls # sql language server
+      pgformatter # sql formatter
       htmx-lsp # htmx language server
       nodePackages.prettier # js/ts/css/html formatter
 

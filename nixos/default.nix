@@ -161,7 +161,15 @@
     # virtualization
     virt-manager
     spice-gtk # Required for USB redirection in virt-manager
+
+    # keyboard
+    qmk
+    vial
   ];
+
+  # QMK/Vial keyboard support
+  hardware.keyboard.qmk.enable = true;
+  services.udev.packages = with pkgs; [vial];
 
   # Virtualization with libvirt/KVM
   virtualisation.libvirtd = {

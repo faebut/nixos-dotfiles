@@ -15,6 +15,7 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     gnomeExtensions.appindicator
+    keymapp
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -49,4 +50,7 @@
   displayScaling = "1.0";
 
   yubikey.enable = true;
+
+  # ZSA keyboard support
+  hardware.keyboard.zsa.enable = true;
 }

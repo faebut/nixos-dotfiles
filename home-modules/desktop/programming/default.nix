@@ -6,5 +6,6 @@
     ./docker.nix
     ./goto-ssh.nix
     ./gotestdox.nix
+    ./ftp-client.nix
   ];
 }

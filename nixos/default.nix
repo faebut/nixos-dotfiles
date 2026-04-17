@@ -45,7 +45,7 @@
   services.gvfs.enable = true;
 
   # flatpak
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   # CUPS printing with additional drivers
   services.printing = {

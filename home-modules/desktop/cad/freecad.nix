@@ -6,7 +6,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    orca-slicer
-    lycheeslicer
+    freecad
   ];
 }

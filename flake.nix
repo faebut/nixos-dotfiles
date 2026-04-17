@@ -120,6 +120,7 @@
               ./home-modules/common.nix
               ./home-modules/desktop
               ./home-modules/desktop/programming
+              ./home-modules/desktop/3dprinting
               ./home-modules/desktop/hyprland
               ./home-modules/faebut/common
             ];

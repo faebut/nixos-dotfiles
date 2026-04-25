@@ -122,6 +122,7 @@
               ./home-modules/desktop/programming
               ./home-modules/desktop/3dprinting
               ./home-modules/desktop/cad
+              ./home-modules/desktop/photo
               ./home-modules/desktop/hyprland
               ./home-modules/faebut/common
             ];

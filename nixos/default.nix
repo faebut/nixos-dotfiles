@@ -224,6 +224,8 @@
   nixpkgs.config.permittedInsecurePackages = [
   ];
 
+  nixpkgs.overlays = [inputs.affinity-nix.overlays.default];
+
   nix.settings = {
     experimental-features = [
       "nix-command"

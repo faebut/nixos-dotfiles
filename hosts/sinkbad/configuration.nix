@@ -66,10 +66,23 @@
     # Use latest kernel for Lunar Lake support
     kernelPackages = pkgs.linuxPackages_latest;
 
+    kernelParams = [
+      # Disable Panel Self-Refresh on Xe2/OLED to prevent display stutter after resume
+      "xe.enable_psr=0"
+    ];
+
     # NOTE: Hibernation configuration (uncomment after first boot and getting resume_offset):
     # resumeDevice = "/dev/disk/by-label/nixos";
     # kernelParams = [ "resume_offset=XXXXX" ];  # Get from: sudo filefrag -v /swapfile
   };
+
+  # Power management: restores proper CPU P-state/EPP after resume.
+  # Without this, Lunar Lake CPU stays stuck in powersave EPP post-resume
+  # causing ~60s of sluggishness until the governor ramps up under load.
+  services.power-profiles-daemon.enable = true;
+
+  # Intel thermal daemon: prevents unnecessary thermal throttling on resume
+  services.thermald.enable = true;
 
   networking.hostName = "sinkbad"; # Define your hostname.
 

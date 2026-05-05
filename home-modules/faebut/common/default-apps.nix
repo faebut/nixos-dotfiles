@@ -48,37 +48,37 @@
       "application/vnd.comicbook+zip" = ["com.github.johnfactotum.Foliate.desktop"]; # CBZ - prefer Foliate over Papers
       "x-scheme-handler/opds" = ["com.github.johnfactotum.Foliate.desktop"];
       
-      # LibreOffice Writer - Word documents & text
-      "application/msword" = ["writer.desktop"];
-      "application/vnd.ms-word" = ["writer.desktop"];
-      "application/vnd.ms-word.document.macroEnabled.12" = ["writer.desktop"];
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["writer.desktop"]; # DOCX
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.template" = ["writer.desktop"];
-      "application/vnd.oasis.opendocument.text" = ["writer.desktop"]; # ODT
-      "application/vnd.oasis.opendocument.text-template" = ["writer.desktop"];
-      "application/rtf" = ["writer.desktop"];
-      "text/rtf" = ["writer.desktop"];
+      # OnlyOffice - Word documents & text
+      "application/msword" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.ms-word" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.ms-word.document.macroEnabled.12" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["onlyoffice-desktopeditors.desktop"]; # DOCX
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.template" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.oasis.opendocument.text" = ["onlyoffice-desktopeditors.desktop"]; # ODT
+      "application/vnd.oasis.opendocument.text-template" = ["onlyoffice-desktopeditors.desktop"];
+      "application/rtf" = ["onlyoffice-desktopeditors.desktop"];
+      "text/rtf" = ["onlyoffice-desktopeditors.desktop"];
       
-      # LibreOffice Calc - Spreadsheets
-      "application/vnd.ms-excel" = ["calc.desktop"];
-      "application/vnd.ms-excel.sheet.macroEnabled.12" = ["calc.desktop"];
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = ["calc.desktop"]; # XLSX
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.template" = ["calc.desktop"];
-      "application/vnd.oasis.opendocument.spreadsheet" = ["calc.desktop"]; # ODS
-      "application/vnd.oasis.opendocument.spreadsheet-template" = ["calc.desktop"];
-      "application/excel" = ["calc.desktop"];
-      "application/x-excel" = ["calc.desktop"];
-      "text/csv" = ["calc.desktop"];
-      "application/csv" = ["calc.desktop"];
+      # OnlyOffice - Spreadsheets
+      "application/vnd.ms-excel" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.ms-excel.sheet.macroEnabled.12" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = ["onlyoffice-desktopeditors.desktop"]; # XLSX
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.template" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.oasis.opendocument.spreadsheet" = ["onlyoffice-desktopeditors.desktop"]; # ODS
+      "application/vnd.oasis.opendocument.spreadsheet-template" = ["onlyoffice-desktopeditors.desktop"];
+      "application/excel" = ["onlyoffice-desktopeditors.desktop"];
+      "application/x-excel" = ["onlyoffice-desktopeditors.desktop"];
+      "text/csv" = ["onlyoffice-desktopeditors.desktop"];
+      "application/csv" = ["onlyoffice-desktopeditors.desktop"];
       
-      # LibreOffice Impress - Presentations
-      "application/vnd.ms-powerpoint" = ["impress.desktop"];
-      "application/vnd.ms-powerpoint.presentation.macroEnabled.12" = ["impress.desktop"];
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["impress.desktop"]; # PPTX
-      "application/vnd.openxmlformats-officedocument.presentationml.template" = ["impress.desktop"];
-      "application/vnd.openxmlformats-officedocument.presentationml.slideshow" = ["impress.desktop"];
-      "application/vnd.oasis.opendocument.presentation" = ["impress.desktop"]; # ODP
-      "application/vnd.oasis.opendocument.presentation-template" = ["impress.desktop"];
+      # OnlyOffice - Presentations
+      "application/vnd.ms-powerpoint" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.ms-powerpoint.presentation.macroEnabled.12" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation" = ["onlyoffice-desktopeditors.desktop"]; # PPTX
+      "application/vnd.openxmlformats-officedocument.presentationml.template" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.openxmlformats-officedocument.presentationml.slideshow" = ["onlyoffice-desktopeditors.desktop"];
+      "application/vnd.oasis.opendocument.presentation" = ["onlyoffice-desktopeditors.desktop"]; # ODP
+      "application/vnd.oasis.opendocument.presentation-template" = ["onlyoffice-desktopeditors.desktop"];
       
       # Images
       "image/png" = ["org.gnome.Loupe.desktop"];

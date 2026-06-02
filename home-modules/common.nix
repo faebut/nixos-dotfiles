@@ -11,6 +11,7 @@
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
+    setSessionVariables = true;
   };
 
   home.sessionVariables = {
@@ -90,6 +91,9 @@
 
   home.packages = with pkgs;
     [
+      # terminal
+      kitty
+
       # archives
       zip
       xz
@@ -172,7 +176,7 @@
       sqls # sql language server
       pgformatter # sql formatter
       htmx-lsp # htmx language server
-      nodePackages.prettier # js/ts/css/html formatter
+      prettier # js/ts/css/html formatter
 
       # graphical tools
       nautilus
@@ -183,11 +187,7 @@
       # crush
     ]);
 
-  # kitty terminal
-  programs.kitty = {
-    enable = true;
-    enableGitIntegration = true;
-  };
+
 
   # basic configuration of git, please change to your own
   programs.git = {

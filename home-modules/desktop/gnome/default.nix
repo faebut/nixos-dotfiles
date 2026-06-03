@@ -126,35 +126,35 @@
   gtk = {
     enable = true;
     colorScheme = "dark";
-    theme = {
-      package = pkgs.nordic;
-      name = "Nordic";
-    };
+    # theme = {
+    #   package = pkgs.nordic;
+    #   name = "Nordic";
+    # };
     iconTheme = {
       package = pkgs.papirus-nord;
       name = "Papirus-Dark";
     };
-    gtk2 = {
-      enable = true;
-      theme = {
-        package = pkgs.nordic;
-        name = "Nordic";
-      };
-    };
-    gtk3 = {
-      enable = true;
-      theme = {
-        package = pkgs.nordic;
-        name = "Nordic";
-      };
-    };
+    # gtk2 = {
+    #   enable = true;
+    #   theme = {
+    #     package = pkgs.nordic;
+    #     name = "Nordic";
+    #   };
+    # };
+    # gtk3 = {
+    #   enable = true;
+    #   theme = {
+    #     package = pkgs.nordic;
+    #     name = "Nordic";
+    #   };
+    # };
     gtk4 = {
       enable = true;
       colorScheme = "dark";
-      theme = {
-        package = pkgs.nordic;
-        name = "Nordic";
-      };
+      # theme = {
+      #   package = pkgs.nordic;
+      #   name = "Nordic";
+      # };
     };
   };
 

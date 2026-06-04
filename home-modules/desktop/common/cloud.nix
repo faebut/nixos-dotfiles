@@ -2,14 +2,11 @@
   inputs,
   config,
   pkgs,
-  lib,
-  unstablePkgs,
   ...
 }:
 let
   secretspath = builtins.toString inputs.nix-secrets;
-in
-let
+
   filenMountScript = pkgs.writeShellScript "filen-mount" ''
     ${pkgs.filen-cli}/bin/filen mount "$HOME/Cloud/Filen" \
       --email "$(cat ${config.sops.secrets.filen-email.path})" \
@@ -36,15 +33,10 @@ in
     };
   };
 
-  home.packages = with pkgs; [
-    filen-cli # filen command line client
-  ];
-
-  # Systemd user service to mount Filen cloud storage
   systemd.user.services.filen-mount = {
     Unit = {
       Description = "Filen cloud storage mount";
-      After = ["graphical-session.target"];
+      After = [ "graphical-session.target" ];
     };
 
     Service = {
@@ -56,11 +48,11 @@ in
       ExecStart = "${filenMountScript}";
       ExecStopPost = "/run/wrappers/bin/fusermount -uz %h/Cloud/Filen";
       Restart = "on-failure";
-      RestartSec = "10s";
+      RestartSec = "30s";
     };
 
     Install = {
-      WantedBy = ["graphical-session.target"];
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 }

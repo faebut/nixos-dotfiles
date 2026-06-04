@@ -56,6 +56,10 @@
         ];
       };
     };
+    # Custom package overlay (remove once filen-cli mount is fixed in nixpkgs)
+    filen-cli-overlay = final: prev: {
+      filen-cli = prev.callPackage ./pkgs/filen-cli/package.nix {};
+    };
   in {
     nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -64,6 +68,7 @@
       };
       modules = [
         {nixpkgs.hostPlatform = system;}
+        {nixpkgs.overlays = [filen-cli-overlay];}
         ./nixos
         ./nixos/desktop/hyprland
         ./hosts/common
@@ -102,6 +107,7 @@
       };
       modules = [
         {nixpkgs.hostPlatform = system;}
+        {nixpkgs.overlays = [filen-cli-overlay];}
         ./nixos
         ./nixos/desktop/hyprland
         ./hosts/common
@@ -143,6 +149,7 @@
       };
       modules = [
         {nixpkgs.hostPlatform = system;}
+        {nixpkgs.overlays = [filen-cli-overlay];}
         ./nixos
         ./nixos/desktop/gnome
         ./nixos/desktop/cosmic

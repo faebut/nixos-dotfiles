@@ -19,15 +19,15 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    configType = "hyprlang";
+    configType = "lua";
     # set the flake package
     package = null;
     portalPackage = null;
     extraConfig =
       ''
-        monitor=eDP-1,preferred,0x0,${osConfig.displayScaling}
+        hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = ${osConfig.displayScaling} })
       ''
-      + builtins.readFile ../../../config/hypr/hyprland.conf;
+      + builtins.readFile ../../../config/hypr/hyprland.lua;
   };
 
   services.hyprpolkitagent.enable = true;

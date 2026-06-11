@@ -176,12 +176,12 @@
     settings = {
       ipc = "on";
       splash = false;
-      splash_offset = 2;
 
-      preload = ["~/.config/hypr/wallpapers/sunken-tower.png"];
       wallpaper = [
-        "eDP-1, ~/.config/hypr/wallpapers/sunken-tower.png"
-        ", ~/.config/hypr/wallpapers/sunken-tower.png"
+        {
+          monitor = "eDP-1";
+          path = "~/.config/hypr/wallpapers/sunken-tower.png";
+        }
       ];
     };
   };

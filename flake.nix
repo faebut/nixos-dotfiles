@@ -169,6 +169,7 @@
               ./home-modules/common.nix
               ./home-modules/desktop
               ./home-modules/desktop/programming
+              ./home-modules/desktop/cad
               ./home-modules/desktop/gnome
               ./home-modules/desktop/cosmic
               ./home-modules/desktop/optional/smb-shares.nix

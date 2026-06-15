@@ -6,9 +6,11 @@
 }: {
   home.packages = with pkgs; [
     jitsi-meet-electron # jitsi meet client
-    ferdium # multi client
     slack # slack
-  ];
+  ]
+  ++ (with unstablePkgs; [
+    ferdium # multi client
+  ]);
 
   # Override Ferdium to start minimized
   xdg.desktopEntries.ferdium = {

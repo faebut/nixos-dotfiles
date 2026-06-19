@@ -45,6 +45,22 @@ vim.api.nvim_create_user_command("LspRestart", function()
 	end
 end, { desc = "Restart LSP clients for current buffer" })
 
+-- Suppress htmx-lsp INVALID_SERVER_MESSAGE: error goes via nvim_echo, not
+-- vim.notify, so we patch write_error on the client instance at attach time.
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client and client.name == "htmx" then
+			client.write_error = function(self, code, err)
+				if code == vim.lsp.rpc.client_errors.INVALID_SERVER_MESSAGE then
+					return
+				end
+				vim.lsp.Client.write_error(self, code, err)
+			end
+		end
+	end,
+})
+
 -- Themes:
 vim.cmd.colorscheme("catppuccin")
 -- vim.opt.background = "light" -- light, dark

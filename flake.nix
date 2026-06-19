@@ -59,6 +59,7 @@
     # Custom package overlay (remove once filen-cli mount is fixed in nixpkgs)
     filen-cli-overlay = final: prev: {
       filen-cli = prev.callPackage ./pkgs/filen-cli/package.nix {};
+      htmx-lsp = prev.callPackage ./pkgs/htmx-lsp/package.nix {};
     };
   in {
     nixosConfigurations.nixpad1 = nixpkgs.lib.nixosSystem {

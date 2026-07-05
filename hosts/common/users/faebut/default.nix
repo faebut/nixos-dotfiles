@@ -17,6 +17,7 @@
       "libvirtd" # for virt-manager
       "input" # for direct input device access (ThinkPad extra buttons, etc.)
       "lp" # for printing
+      "dialout" # for USB-to-serial ports (inkcut, plotters)
     ];
     shell = pkgs.zsh;
     # openssh.authorizedKeys.keys = [

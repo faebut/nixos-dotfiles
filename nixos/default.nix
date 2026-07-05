@@ -213,6 +213,16 @@
   # shell
   programs.zsh.enable = true;
 
+  # Steam with Proton for Windows games
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
+  hardware.steam-hardware.enable = true;
+
   # default installed fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

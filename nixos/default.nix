@@ -241,9 +241,9 @@
       "nix-command"
       "flakes"
     ];
-    # garnix cache for affinity-nix
-    substituters = ["https://cache.garnix.io"];
-    trusted-public-keys = ["cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="];
+    # binary cache for affinity-nix
+    substituters = ["https://cache.forall.systems"];
+    trusted-public-keys = ["cache.forall.systems:5PmD7QO4MSF8YgyRZtkSGXRDo96H3bybIf2SsQh8ScI="];
   };
 
   # Automatic garbage collection

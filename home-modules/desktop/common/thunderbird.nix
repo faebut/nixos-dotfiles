@@ -64,6 +64,15 @@ in {
           # Theme
           "extensions.activeThemeID" = "{e3f32d78-0bfe-51f7-a93b-6da02ca3c2c9}";
         };
+
+        accountsOrder = [
+          "protonmail"
+          "takobit"
+          "prozessor-faebu"
+          "prozessor-info"
+          "gmail"
+          "nakedface"
+        ];
       };
     };
   };

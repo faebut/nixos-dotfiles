@@ -5,10 +5,11 @@
 }: let
   luna-modeler = pkgs.appimageTools.wrapType2 {
     pname = "luna-modeler";
-    version = "12.3.0";
+    version = "14.0.0";
     src = pkgs.fetchurl {
-      url = "https://www.datensen.com/downloads/Luna%20Modeler-12.3.0-x86_64.AppImage";
-      hash = "sha256-DF2E0C9E1Qlw2bAZ1UWu0cLISc4ECGU5g7Kpn2c74Uc=";
+      url = "https://www.datensen.com/downloads/Luna%20Modeler-14.0.0-x86_64.AppImage";
+      name = "luna-modeler-14.0.0.AppImage";
+      hash = "sha256-kYGw3AKzyR6HngHA6i9apR+EnCOMXzL9iFTvwEovGGg=";
     };
     extraPkgs = pkgs:
       with pkgs; [
@@ -17,18 +18,19 @@
     extraInstallCommands = let
       contents = pkgs.appimageTools.extractType2 {
         pname = "luna-modeler";
-        version = "12.3.0";
+        version = "14.0.0";
         src = pkgs.fetchurl {
-          url = "https://www.datensen.com/downloads/Luna%20Modeler-12.3.0-x86_64.AppImage";
-          hash = "sha256-DF2E0C9E1Qlw2bAZ1UWu0cLISc4ECGU5g7Kpn2c74Uc=";
+          url = "https://www.datensen.com/downloads/Luna%20Modeler-14.0.0-x86_64.AppImage";
+          name = "luna-modeler-14.0.0.AppImage";
+          hash = "sha256-kYGw3AKzyR6HngHA6i9apR+EnCOMXzL9iFTvwEovGGg=";
         };
       };
     in ''
-      install -Dm444 ${contents}/modeler.desktop $out/share/applications/luna-modeler.desktop
+      install -Dm444 ${contents}/luna.desktop $out/share/applications/luna-modeler.desktop
       substituteInPlace $out/share/applications/luna-modeler.desktop \
         --replace-fail 'Exec=AppRun' 'Exec=${placeholder "out"}/bin/luna-modeler' \
-        --replace-fail 'Icon=modeler' 'Icon=luna-modeler'
-      install -Dm444 ${contents}/usr/share/icons/hicolor/512x512/apps/modeler.png \
+        --replace-fail 'Icon=luna' 'Icon=luna-modeler'
+      install -Dm444 ${contents}/luna.png \
         $out/share/icons/hicolor/512x512/apps/luna-modeler.png
     '';
   };

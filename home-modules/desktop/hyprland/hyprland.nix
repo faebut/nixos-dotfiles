@@ -182,6 +182,10 @@
           monitor = "eDP-1";
           path = "~/.config/hypr/wallpapers/sunken-tower.png";
         }
+        {
+          monitor = "DP-7";
+          path = "~/.config/hypr/wallpapers/sunken-tower.png";
+        }
       ];
     };
   };

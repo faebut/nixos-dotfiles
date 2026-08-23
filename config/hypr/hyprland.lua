@@ -26,6 +26,7 @@ local highlightHigh = 0xff56526e
 -- Programs
 -- -------------------------
 local terminal    = "kitty"
+local emacs       = "emacsclient -c"
 local mail        = "thunderbird"
 local browser     = "zen"
 local fileManager = "nautilus -w"
@@ -316,6 +317,7 @@ hl.layer_rule({
 -- ============================================================
 
 -- Apps
+hl.bind(mainMod .. " + Return",     hl.dsp.exec_cmd(emacs))
 hl.bind(mainMod .. " + T",          hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + SHIFT + T",  hl.dsp.exec_cmd(terminal .. " --hold tmux"))
 hl.bind(mainMod .. " + Q",          hl.dsp.window.close())

@@ -14,6 +14,8 @@
     setSessionVariables = true;
   };
 
+  home.sessionPath = [ "$HOME/.config/emacs/bin" ];
+
   home.sessionVariables = {
     EDITOR = "nvim";
     SUDO_EDITOR = "nvim";

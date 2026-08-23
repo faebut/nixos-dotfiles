@@ -1,6 +1,7 @@
 {
   imports = [
     ./crush.nix
+    ./emacs.nix
     ./tmux.nix
     ./database.nix
     ./docker.nix

@@ -39,6 +39,9 @@
 
     # affinity
     affinity-nix.url = "github:mrshmllow/affinity-nix";
+
+    # emacs
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
   outputs = {
@@ -69,7 +72,7 @@
       };
       modules = [
         {nixpkgs.hostPlatform = system;}
-        {nixpkgs.overlays = [filen-cli-overlay];}
+        {nixpkgs.overlays = [filen-cli-overlay inputs.emacs-overlay.overlays.default];}
         ./nixos
         ./nixos/desktop/hyprland
         ./hosts/common
@@ -108,7 +111,7 @@
       };
       modules = [
         {nixpkgs.hostPlatform = system;}
-        {nixpkgs.overlays = [filen-cli-overlay];}
+        {nixpkgs.overlays = [filen-cli-overlay inputs.emacs-overlay.overlays.default];}
         ./nixos
         ./nixos/desktop/hyprland
         ./hosts/common
@@ -150,7 +153,7 @@
       };
       modules = [
         {nixpkgs.hostPlatform = system;}
-        {nixpkgs.overlays = [filen-cli-overlay];}
+        {nixpkgs.overlays = [filen-cli-overlay inputs.emacs-overlay.overlays.default];}
         ./nixos
         ./nixos/desktop/gnome
         ./nixos/desktop/cosmic

@@ -26,7 +26,6 @@
     vscode-langservers-extracted
     tailwindcss-language-server
     svelte-language-server
-    rassumfrassum
     lua-language-server
     nil
     nixd

@@ -255,6 +255,7 @@
   # home.file.".config/swaync".source = ../config/swaync;
   home.file.".config/rofi".source = ../config/rofi;
   home.file.".config/btop".source = ../config/btop;
+  home.file.".config/rassumfrassum".source = ../config/rassumfrassum;
 
   # GTK bookmarks (Nautilus sidebar) - base bookmarks
   # Note: smb-share.nix will append to this if SMB is configured

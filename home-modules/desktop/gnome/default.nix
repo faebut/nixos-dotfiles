@@ -43,7 +43,7 @@
         "dash-to-dock@micxgx.gmail.com"
         "blur-my-shell@aunetx"
         "caffeine@patapon.info"
-        "search-light@icedman.github.com"
+        "search-light-ng@salix.host"
       ];
     };
 
@@ -59,7 +59,7 @@
     };
 
     # Search Light extension settings
-    "org/gnome/shell/extensions/search-light" = {
+    "org/gnome/shell/extensions/search-light-ng" = {
       shortcut-search = ["<Super>space"];
     };
 
@@ -100,7 +100,7 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.caffeine
     gnomeExtensions.tray-icons-reloaded
-    gnomeExtensions.search-light
+    (pkgs.callPackage ./searchlightng.nix { })
 
     # Clipboard tool for tmux integration on Wayland
     wl-clipboard

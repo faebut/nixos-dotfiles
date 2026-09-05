@@ -169,6 +169,7 @@
 
       # language-servers for nvim
       nixd # nix language server, not installed in nvim
+      nil # nix language server (lsp-mode compatible)
       lua-language-server # lua language server
       stylua # lua formatter
       alejandra # lua formatter
@@ -179,6 +180,14 @@
       pgformatter # sql formatter
       htmx-lsp # htmx language server
       prettier # js/ts/css/html formatter
+      pyright # python language server
+      rust-analyzer # rust language server
+      typescript-language-server # typescript/javascript
+      vscode-langservers-extracted # html, css, json, eslint
+      tailwindcss-language-server # tailwindcss
+      bash-language-server # bash
+      yaml-language-server # yaml
+      dockerfile-language-server # dockerfile
 
       # graphical tools
       nautilus

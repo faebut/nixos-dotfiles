@@ -73,7 +73,7 @@
       background = [
         {
           monitor = "";
-          path = "~/.config/hypr/wallpapers/blockwavemoon.png";
+          path = "~/.config/hypr/wallpapers/ny-night.jpg";
           color = "rgba(25, 20, 20, 1.0)";
           blur_passes = 0;
           blur_size = 7;
@@ -179,11 +179,11 @@
 
       wallpaper = [
         {
-          monitor = "eDP-1";
-          path = "~/.config/hypr/wallpapers/sunken-tower.png";
+          monitor = "";
+          path = "~/.config/hypr/wallpapers/ny-night.jpg";
         }
         {
-          monitor = "DP-7";
+          monitor = "eDP-1";
           path = "~/.config/hypr/wallpapers/sunken-tower.png";
         }
       ];

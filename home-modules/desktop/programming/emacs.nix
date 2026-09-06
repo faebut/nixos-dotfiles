@@ -48,7 +48,7 @@
     nil
     nixd
     yaml-language-server
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     docker-compose-language-service
     graphql-language-service-cli
     marksman

@@ -333,6 +333,7 @@ hl.bind(mainMod .. " + SHIFT + V",  hl.dsp.exec_cmd("rofi -modi clipboard:~/.con
 hl.bind(mainMod .. " + B",          hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + C",          hl.dsp.exec_cmd("gnome-calculator"))
 hl.bind(mainMod .. " + SHIFT + I",  hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
+hl.bind(mainMod .. " + SHIFT + M",  hl.dsp.exec_cmd("~/.config/hypr/scripts/swap-monitors.sh"))
 
 -- Focus movement (vim-style)
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))

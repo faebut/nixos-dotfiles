@@ -396,7 +396,7 @@ hl.bind(mainMod .. " + SHIFT + x", hl.dsp.window.cycle_next())
 hl.bind(mainMod .. " + CTRL + SHIFT + x", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + CTRL + SHIFT + d", hl.dsp.layout("swapsplit"))
 hl.bind(mainMod .. " + CTRL + SHIFT + b", hl.dsp.layout("movetoroot"))
-hl.bind(mainMod .. " + CTRL + SHIFT + m", hl.dsp.exec_cmd("~/.config/hypr/scripts/swap-monitors.sh"))
+hl.bind(mainMod .. " + CTRL + SHIFT + M", hl.dsp.exec_cmd("bash " .. os.getenv("HOME") .. "/.config/hypr/scripts/swap-monitors.sh"))
 
 -- Switch workspaces 1-9
 for i = 1, 9 do

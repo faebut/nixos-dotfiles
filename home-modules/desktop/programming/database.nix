@@ -5,11 +5,11 @@
 }: let
   luna-modeler = pkgs.appimageTools.wrapType2 {
     pname = "luna-modeler";
-    version = "14.0.0";
+    version = "14.0.1";
     src = pkgs.fetchurl {
-      url = "https://www.datensen.com/downloads/Luna%20Modeler-14.0.0-x86_64.AppImage";
-      name = "luna-modeler-14.0.0.AppImage";
-      hash = "sha256-kYGw3AKzyR6HngHA6i9apR+EnCOMXzL9iFTvwEovGGg=";
+      url = "https://www.datensen.com/downloads/Luna%20Modeler-14.0.1-x86_64.AppImage";
+      name = "luna-modeler-14.0.1.AppImage";
+      hash = "sha256-/IcoFXdOcr7fzomeYuDlVJRbu5mF88jXl6I7qbz4LZ0=";
     };
     extraPkgs = pkgs:
       with pkgs; [
@@ -18,11 +18,11 @@
     extraInstallCommands = let
       contents = pkgs.appimageTools.extractType2 {
         pname = "luna-modeler";
-        version = "14.0.0";
+        version = "14.0.1";
         src = pkgs.fetchurl {
-          url = "https://www.datensen.com/downloads/Luna%20Modeler-14.0.0-x86_64.AppImage";
-          name = "luna-modeler-14.0.0.AppImage";
-          hash = "sha256-kYGw3AKzyR6HngHA6i9apR+EnCOMXzL9iFTvwEovGGg=";
+          url = "https://www.datensen.com/downloads/Luna%20Modeler-14.0.1-x86_64.AppImage";
+          name = "luna-modeler-14.0.1.AppImage";
+          hash = "sha256-/IcoFXdOcr7fzomeYuDlVJRbu5mF88jXl6I7qbz4LZ0=";
         };
       };
     in ''

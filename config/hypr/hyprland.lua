@@ -78,7 +78,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("~/.config/waybar/launch.sh")
 	hl.exec_cmd("pypr")
 	hl.exec_cmd("nm-applet --indicator")
-	hl.exec_cmd("[workspace 9 silent; monitor eDP-1] sleep 5 & " .. mail)
+	hl.exec_cmd("[workspace 9 silent; monitor eDP-1] sleep 10 & " .. mail)
 	hl.exec_cmd("[workspace 2 silent; monitor eDP-1] " .. browser)
 	hl.exec_cmd("[workspace 1; monitor eDP-1] " .. terminal)
 	hl.exec_cmd("ferdium")
@@ -396,7 +396,10 @@ hl.bind(mainMod .. " + SHIFT + x", hl.dsp.window.cycle_next())
 hl.bind(mainMod .. " + CTRL + SHIFT + x", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + CTRL + SHIFT + d", hl.dsp.layout("swapsplit"))
 hl.bind(mainMod .. " + CTRL + SHIFT + b", hl.dsp.layout("movetoroot"))
-hl.bind(mainMod .. " + CTRL + SHIFT + M", hl.dsp.exec_cmd("bash " .. os.getenv("HOME") .. "/.config/hypr/scripts/swap-monitors.sh"))
+hl.bind(
+	mainMod .. " + CTRL + SHIFT + M",
+	hl.dsp.exec_cmd("bash " .. os.getenv("HOME") .. "/.config/hypr/scripts/swap-monitors.sh")
+)
 
 -- Switch workspaces 1-9
 for i = 1, 9 do

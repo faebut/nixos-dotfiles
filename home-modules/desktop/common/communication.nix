@@ -5,7 +5,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    jitsi-meet-electron # jitsi meet client
     slack # slack
   ]
   ++ (with unstablePkgs; [

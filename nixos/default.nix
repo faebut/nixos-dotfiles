@@ -226,6 +226,13 @@
   # default installed fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.meslo-lg
+    nerd-fonts.monaspace
+    nerd-fonts.hack
+    nerd-fonts.geist-mono
+    nerd-fonts.iosevka
     font-awesome
     noto-fonts
   ];
@@ -234,7 +241,16 @@
   nixpkgs.config.permittedInsecurePackages = [
   ];
 
-  nixpkgs.overlays = [inputs.affinity-nix.overlays.default];
+  nixpkgs.overlays = [
+    (_final: prev: {
+      affinity-v3 =
+        (import inputs.affinity-nix.inputs.nixpkgs {
+          localSystem = prev.stdenv.hostPlatform.system;
+          config.allowUnfree = true;
+          overlays = [inputs.affinity-nix.overlays.default];
+        }).affinity-v3;
+    })
+  ];
 
   nix.settings = {
     experimental-features = [

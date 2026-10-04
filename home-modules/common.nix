@@ -14,7 +14,7 @@
     setSessionVariables = true;
   };
 
-  home.sessionPath = [ "$HOME/.config/emacs/bin" ];
+  home.sessionPath = ["$HOME/.config/emacs/bin"];
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -53,6 +53,7 @@
       gitlog = "git log --graph --all --decorate";
       md2pdf = ''for file in *.md; do pandoc "$file" -o "''${file%.md}.pdf" --template=$HOME/Templates/eisvogel.tex; done'';
       gocoverage = "go test -coverprofile=.cover.out && go tool cover -html=.cover.out -o coverage.html && zen coverage.html && sleep 1 && rm .cover.out coverage.html";
+      cat = "bat";
     };
 
     history = {
@@ -106,6 +107,7 @@
       ripgrep # recursively searches directories for a regex pattern
       jq # A lightweight and flexible command-line JSON processor
       fzf # A command-line fuzzy finder
+      bat # cat replacement
 
       # Treesitter CLI for nvim parser compilation
       tree-sitter
@@ -197,8 +199,6 @@
     ++ (with unstablePkgs; [
       # crush
     ]);
-
-
 
   # basic configuration of git, please change to your own
   programs.git = {

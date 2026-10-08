@@ -108,6 +108,8 @@
       jq # A lightweight and flexible command-line JSON processor
       fzf # A command-line fuzzy finder
       bat # cat replacement
+      libqalculate # qalc
+      qalculate-gtk # calculator gui app
 
       # Treesitter CLI for nvim parser compilation
       tree-sitter

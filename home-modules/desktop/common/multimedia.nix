@@ -7,8 +7,7 @@
   home.packages = with pkgs; [
     obs-studio # obs live streaming
     audacity # audio editor
-    mplayer # video player
-    vlc # video player
+    mpv # new mplayer fork
     transmission_4-gtk # torrent client
     proton-vpn # proton vpn for protection
   ];

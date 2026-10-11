@@ -182,7 +182,6 @@ hl.window_rule({
 hl.window_rule({ name = "quickgui", match = { class = "^(quickgui)$" }, float = true })
 hl.window_rule({ name = "amm_tool", match = { class = "^(amm_tool-dev-linux-amd64)$" }, float = true })
 hl.window_rule({ name = "totem", match = { class = "^(org.gnome.Totem)$" }, float = true })
-hl.window_rule({ name = "mplayer", match = { class = "^(MPlayer)$" }, float = true })
 hl.window_rule({ name = "qr-rechnung", match = { class = "^(QR-Rechnung)$" }, float = true })
 hl.window_rule({ name = "nm-conn", match = { class = "^(nm-connection-editor)$" }, float = true })
 hl.window_rule({ name = "qalculate", match = { title = "^(Qalculate!)$" }, float = true })
@@ -196,6 +195,13 @@ hl.window_rule({
 	match = { title = "^(update-sys)$" },
 	float = true,
 	size = "40% 55%",
+})
+
+hl.window_rule({
+	name = "mpv",
+	match = { class = "^(mpv)$" },
+	float = true,
+	opacity = "1.0 override 1.0 override",
 })
 
 hl.window_rule({

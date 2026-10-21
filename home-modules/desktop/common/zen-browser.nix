@@ -68,7 +68,9 @@ in {
     # wrap zen into firefox
     (
       pkgs.wrapFirefox
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
+      (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped.override {
+        hash = "sha256-uyBF0+IWVNQP6EElAJLurf0sH8gx7vtQkiJ3PIvcoUk=";
+      })
       {
         extraPrefs = lib.concatLines (
           lib.mapAttrsToList (

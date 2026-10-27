@@ -40,7 +40,7 @@ local mainMod = "SUPER"
 -- -------------------------
 hl.monitor({
 	output = "DP-6",
-	mode = "3840x2560@60",
+	mode = "preferred",
 	position = "1600x-380",
 	scale = 1.60,
 })

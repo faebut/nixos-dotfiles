@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 if [[ $(virsh -c qemu:///system list | awk '($2 == "Windows11") { print $3}') != 'running' ]]
 then
 virsh --connect qemu:///system start Windows11

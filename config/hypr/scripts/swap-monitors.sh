@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 external=$(hyprctl monitors -j | jq -r '.[].name' | grep -v '^eDP-1$' | head -1)
 

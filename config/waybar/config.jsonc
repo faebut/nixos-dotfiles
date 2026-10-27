@@ -52,7 +52,8 @@
   },
   "custom/wl-mirror": {
     "format": "{} 󰍺 ",
-    "on-click": "~/.config/rofi/scripts/wl-present.sh"
+    // "on-click": "~/.config/rofi/scripts/wl-present.sh",
+    "on-click": "~/.config/waybar/scripts/monitors.sh"
   },
   "custom/thunderbird": {
     "format": "󰺻 {}",

@@ -182,10 +182,6 @@
           monitor = "";
           path = "~/.config/hypr/wallpapers/ny-night.jpg";
         }
-        {
-          monitor = "eDP-1";
-          path = "~/.config/hypr/wallpapers/sunken-tower.png";
-        }
       ];
     };
   };

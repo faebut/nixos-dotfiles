@@ -14,8 +14,8 @@
     version = "0.1.0";
 
     src = pkgs.fetchurl {
-      url = "https://github.com/catppuccin/thunderbird/raw/main/themes/mocha/mocha-lavender.xpi";
-      sha256 = "0mpqgh4bafx0w806hmsgy0js38z2a8sxn6y6sdzmnspzlb7a89xg";
+      url = "https://github.com/catppuccin/thunderbird/raw/575ab278460137dba10c1a23d00af0bc583fe509/themes/mocha/mocha-lavender.xpi";
+      hash = "sha256-Q6/jdJE0gnWoTFVR34CUkKZDp9IG66Y8+fAcwr7j5fI=";
     };
 
     preferLocalBuild = true;

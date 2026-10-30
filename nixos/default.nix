@@ -233,6 +233,7 @@
     nerd-fonts.hack
     nerd-fonts.geist-mono
     nerd-fonts.iosevka
+    maple-mono.NF
     font-awesome
     noto-fonts
   ];

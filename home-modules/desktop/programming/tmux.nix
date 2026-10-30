@@ -12,7 +12,7 @@ in
     shortcut = "s"; # change prefix to ctrl+s
     mouse = true;
     focusEvents = true;
-    terminal = "screen-256color"; # set colors
+    terminal = "tmux-256color"; # set colors
     extraConfig = ''
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf

@@ -73,7 +73,7 @@
       background = [
         {
           monitor = "";
-          path = "~/.config/hypr/wallpapers/ny-night.jpg";
+          path = "~/.config/hypr/wallpapers/to-night.png";
           color = "rgba(25, 20, 20, 1.0)";
           blur_passes = 0;
           blur_size = 7;
@@ -180,7 +180,7 @@
       wallpaper = [
         {
           monitor = "";
-          path = "~/.config/hypr/wallpapers/ny-night.jpg";
+          path = "${config.home.homeDirectory}/.config/hypr/wallpapers/to-night.png";
         }
       ];
     };

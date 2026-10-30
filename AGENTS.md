@@ -324,7 +324,7 @@ shellAliases = {
 
 **Tools**:
 - Compositor: Hyprland
-- Bar: Waybar (themes: rose-pine, catppuccin)
+- Bar: Waybar (theme: catppuccin-mocha)
 - Launcher: Rofi
 - Notifications: SwayNC
 - Lock: Hyprlock (with fingerprint support)

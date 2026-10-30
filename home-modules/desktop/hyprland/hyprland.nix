@@ -228,6 +228,5 @@
     ".config/hypr/scripts".source = ../../../config/hypr/scripts;
     ".config/hypr/themes".source = ../../../config/hypr/themes;
     ".config/hypr/wallpapers".source = ../../../config/hypr/wallpapers;
-    ".config/hypr/waybar".source = ../../../config/hypr/waybar;
   };
 }

@@ -33,7 +33,6 @@
     "battery",
     "clock",
     "custom/notifications"
-    // "custom/powermenu"
   ],
   "tray": {
     "icon-size": 16,
@@ -87,10 +86,6 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
-  "custom/powermenu": {
-    "format": "{}  ",
-    "on-click": "~/.config/rofi/scripts/power-menu.sh"
-  },
   "custom/outlook": {
     "format": "{} 󰺻 ",
     "on-click": "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --app=https://outlook.office.com/mail/"
@@ -106,14 +101,6 @@
   "custom/windows": {
     "format": "{}  ",
     "on-click": "~/.config/waybar/scripts/startwm.sh"
-  },
-  "custom/emoji": {
-    "format": "{} 󰞅 ",
-    "on-click": "rofi -modi emoji -show emoji"
-  },
-  "custom/calc": {
-    "format": "{}  ",
-    "on-click": "rofi -modi calc -show calc"
   },
   "bluetooth": {
     "format": "",

@@ -27,7 +27,10 @@
         }
       ];
     };
-    options.disable_auto_summarize = false;
+    options = {
+      disable_auto_summarize = false;
+      tui.active_theme = "tokyo-night";
+    };
   };
 in {
   imports = [
@@ -53,4 +56,5 @@ in {
   ];
 
   xdg.configFile."crush/crush.json".text = builtins.toJSON crushSettings;
+  xdg.configFile."crush/themes/tokyo-night.json".source = ../../../config/crush/themes/tokyo-night.json;
 }

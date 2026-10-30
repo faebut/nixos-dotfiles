@@ -224,7 +224,7 @@
   # INFO: link config files individually to allow hyprsunset to generate its config
   home.file = {
     ".config/hypr/hyprtheme.conf".source = ../../../config/hypr/hyprtheme.conf;
-    ".config/hypr/pyprland.json".source = ../../../config/hypr/pyprland.json;
+    ".config/pypr/config.toml".source = ../../../config/pypr/config.toml;
     ".config/hypr/scripts".source = ../../../config/hypr/scripts;
     ".config/hypr/themes".source = ../../../config/hypr/themes;
     ".config/hypr/wallpapers".source = ../../../config/hypr/wallpapers;

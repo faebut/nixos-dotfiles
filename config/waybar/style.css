@@ -1,6 +1,7 @@
 /* import theme */
 /* @import "./themes/rose-pine.css"; */
-@import "./themes/catppuccin-mocha.css";
+/* @import "./themes/catppuccin-mocha.css"; */
+@import "./themes/tokyonight-night.css";
 
 * {
   border: none;
@@ -11,7 +12,7 @@
 }
 
 window#waybar {
-  background: @base;
+  background: alpha(@base, 0.5);
   opacity: 1;
   color: @text;
   border-width: 1px;

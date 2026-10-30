@@ -2,13 +2,14 @@ return {
     "folke/tokyonight.nvim",
     tag = "stable",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
     opts = {},
     config = function()
         local tokyonight = require("tokyonight")
         local util = require("tokyonight.util")
         tokyonight.setup({
+            style = "night",
             styles = {
                 -- See :help nvim_set_hl
                 comments = { italic = true },

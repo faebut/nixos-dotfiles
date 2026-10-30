@@ -62,5 +62,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Themes:
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("tokyonight-night")
 -- vim.opt.background = "light" -- light, dark

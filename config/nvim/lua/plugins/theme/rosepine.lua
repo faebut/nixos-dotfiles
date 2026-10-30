@@ -3,7 +3,7 @@ return {
   name = "rose-pine",
   branch = "main",
   lazy = false,
-  enabled = true,
+  enabled = false,
   priority = 1000,
   opts = {},
   config = function()

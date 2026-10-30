@@ -13,7 +13,10 @@ return {
 			styles = {
 				-- See :help nvim_set_hl
 				comments = { italic = true },
-				-- functions = { underdotted = true },
+				-- functions = {
+				-- 	italic = true,
+				-- 	bold = true,
+				-- },
 			},
 			on_colors = function(colors)
 				-- Brighten up comments a bit

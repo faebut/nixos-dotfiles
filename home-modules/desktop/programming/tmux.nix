@@ -41,24 +41,24 @@ in
       # Update environment variables from shell
       set-option -g update-environment "DOCKER_HOST"
 
-      # One Dark Darker theme
-      set -g status-style "bg=#1f2329,fg=#a0a8b7"
-      set -g status-left "#[bg=#4fa6ed,fg=#1f2329,bold] #S #[bg=#1f2329] "
-      set -g status-right "#[fg=#535965]%d.%m.%y #[fg=#a0a8b7]%H:%M "
+      # Tokyo Night theme
+      set -g status-style "bg=#16161e,fg=#a9b1d6"
+      set -g status-left "#[bg=#7aa2f7,fg=#16161e,bold] #S #[bg=#16161e] "
+      set -g status-right "#[fg=#545c7e]%d.%m.%y #[fg=#a9b1d6]%H:%M "
       set -g status-left-length 30
       set -g status-right-length 30
 
-      set -g window-status-format "#[fg=#535965] #I #W "
-      set -g window-status-current-format "#[bg=#282c34,fg=#4fa6ed,bold] #I #W "
+      set -g window-status-format "#[fg=#545c7e] #I #W "
+      set -g window-status-current-format "#[bg=#292e42,fg=#7aa2f7,bold] #I #W "
       set -g window-status-separator ""
 
-      set -g pane-border-style "fg=#30363f"
-      set -g pane-active-border-style "fg=#4fa6ed"
+      set -g pane-border-style "fg=#3b4261"
+      set -g pane-active-border-style "fg=#7aa2f7"
 
-      set -g message-style "bg=#282c34,fg=#a0a8b7"
-      set -g message-command-style "bg=#282c34,fg=#a0a8b7"
+      set -g message-style "bg=#292e42,fg=#a9b1d6"
+      set -g message-command-style "bg=#292e42,fg=#a9b1d6"
 
-      set -g mode-style "bg=#30363f,fg=#a0a8b7"
+      set -g mode-style "bg=#283457,fg=#c0caf5"
     '';
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator

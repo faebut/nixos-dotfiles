@@ -59,11 +59,11 @@ return {
 				mode = { "n", "v" },
 			},
 			{
-				"<leader>dn",
+				"<leader>nd",
 				function()
 					Snacks.notifier.hide()
 				end,
-				desc = "[D]ismiss All [N]otifications",
+				desc = "[N]otifications [D]ismiss All",
 			},
 			{
 				"<leader>nh",

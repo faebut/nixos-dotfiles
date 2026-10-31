@@ -290,6 +290,11 @@
   home.file.".config/nvim/ftdetect".source = ../config/nvim/ftdetect;
   home.file.".config/nvim/snippets".source = ../config/nvim/snippets;
 
+  # Nix store files all have mtime 1970, so Neovim's bytecode cache can serve stale code after a rebuild
+  home.activation.clearNvimLuaCache = config.lib.dag.entryAfter ["linkGeneration"] ''
+    $DRY_RUN_CMD rm -rf "${config.home.homeDirectory}/.cache/nvim/luac"
+  '';
+
   home.file.".config/waybar".source = ../config/waybar;
   # home.file.".config/swaync".source = ../config/swaync;
   home.file.".config/rofi".source = ../config/rofi;

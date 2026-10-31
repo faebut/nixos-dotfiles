@@ -20,6 +20,8 @@
     EDITOR = "nvim";
     SUDO_EDITOR = "nvim";
     LIBVIRT_DEFAULT_URI = "qemu:///system";
+    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    MANROFFOPT = "-c";
     XDG_DATA_DIRS = "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
   };
 
@@ -67,6 +69,33 @@
     enableZshIntegration = true;
   };
 
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "base16-256";
+      style = "numbers,changes,header";
+      italic-text = "always";
+      pager = "less -FR";
+      map-syntax = [
+        "*.conf:INI"
+        ".ignore:Git Ignore"
+        "flake.lock:JSON"
+      ];
+    };
+    extraPackages = with pkgs.bat-extras; [
+      batman
+      batgrep
+      batdiff
+      batwatch
+    ];
+    themes = {
+      tokyonight_night = {
+        src = pkgs.vimPlugins.tokyonight-nvim.src;
+        file = "extras/sublime/tokyonight_night.tmTheme";
+      };
+    };
+  };
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
@@ -107,7 +136,6 @@
       ripgrep # recursively searches directories for a regex pattern
       jq # A lightweight and flexible command-line JSON processor
       fzf # A command-line fuzzy finder
-      bat # cat replacement
       libqalculate # qalc
       qalculate-gtk # calculator gui app
 

@@ -488,7 +488,7 @@ nixos-rebuild dry-activate --flake .#
 **Current state**:
 - On `main` branch
 - Modified: flake.lock (likely from recent update)
-- User: Fabian Trost <ftrost@proton.me>
+- User: faebut <51710667+faebut@users.noreply.github.com>
 - GPG signing enabled by default
 
 **Commit conventions**:

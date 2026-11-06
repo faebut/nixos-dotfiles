@@ -239,8 +239,8 @@
     };
     settings = {
       user = {
-        name = "Fabian Trost";
-        email = "ftrost@proton.me";
+        name = "faebut";
+        email = "51710667+faebut@users.noreply.github.com";
       };
       init.defaultBranch = "main";
       gpg.program = "gpg";

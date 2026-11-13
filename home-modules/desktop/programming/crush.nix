@@ -55,6 +55,9 @@ in {
     unstablePkgs.crush
   ];
 
-  xdg.configFile."crush/crush.json".text = builtins.toJSON crushSettings;
+  xdg.configFile."crush/crush.json" = {
+    text = builtins.toJSON crushSettings;
+    force = true;
+  };
   xdg.configFile."crush/themes/tokyo-night.json".source = ../../../config/crush/themes/tokyo-night.json;
 }

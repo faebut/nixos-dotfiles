@@ -69,7 +69,7 @@ in {
     (
       pkgs.wrapFirefox
       (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped.override {
-        hash = "sha256-uoHdcK9w1kXy8KaS9/pFEPgZKQq/2NjmAnPT1aYNBTY=";
+        hash = "sha256-Mj8mguc+OCR6UfvMdeVijtK7m0BNsAz5zxavMpqRb64=";
       })
       {
         extraPrefs = lib.concatLines (

@@ -1,5 +1,6 @@
 {
   pkgs,
+  unstablePkgs,
   ...
 }: {
   imports = [
@@ -34,7 +35,7 @@
     # xdg-desktop-portal-hyprland # desktop portal
     hyprpolkitagent # polkit
     rofi # execute stuff
-    waybar # top bar
+    unstablePkgs.waybar # top bar
     libnotify # send notifications
     swaynotificationcenter # show notifications
     brightnessctl # control brightness

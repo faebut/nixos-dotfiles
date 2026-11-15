@@ -159,7 +159,6 @@
 
       # window manager
       rofi
-      waybar
       hyprpaper
       pamixer # control volume/faebut/nix-secrets/src/branch/main/
       libnotify # send desktop notifications
@@ -228,6 +227,7 @@
     # add unstable packages
     ++ (with unstablePkgs; [
       # crush
+      waybar
     ]);
 
   # basic configuration of git, please change to your own

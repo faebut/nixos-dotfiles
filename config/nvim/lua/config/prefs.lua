@@ -23,7 +23,6 @@ vim.lsp.enable({
 	"templ",
 	"lua_ls",
 	"nixd",
-	"marksman",
 	"sqls",
 	"htmx",
 	"gopls",

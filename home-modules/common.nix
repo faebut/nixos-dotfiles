@@ -205,7 +205,6 @@
       stylua # lua formatter
       alejandra # lua formatter
       # nixfmt-rfc-style # nix formatter
-      marksman
       postgres-language-server # postgres language server
       sqls # sql language server
       pgformatter # sql formatter

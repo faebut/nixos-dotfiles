@@ -5,6 +5,7 @@
     ./thunderbird.nix
     ./communication.nix
     ./graphic.nix
+    ./labelprinter.nix
     ./cloud.nix
     ./multimedia.nix
     ./java.nix

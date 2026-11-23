@@ -1,6 +1,11 @@
 # md2pdf: Compact sans-serif notes, small margins, no title page
 to: pdf
 pdf-engine: pdflatex
+filters:
+  - ${.}/../filters/table-wrap.lua
+metadata:
+  table-line-chars: 114
+  table-code-weight: 1.21
 variables:
   documentclass: scrartcl
   classoption:

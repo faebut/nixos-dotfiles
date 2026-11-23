@@ -2,6 +2,11 @@
 to: pdf
 template: eisvogel
 pdf-engine: pdflatex
+filters:
+  - ${.}/../filters/table-wrap.lua
+metadata:
+  table-line-chars: 95
+  table-code-weight: 1.19
 variables:
   papersize: a4
   fontfamily: sourcesanspro

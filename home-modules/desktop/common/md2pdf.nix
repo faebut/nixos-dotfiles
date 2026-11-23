@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   pandocData = ../../../config/pandoc;
 
   md2pdf = pkgs.writeShellApplication {
@@ -14,6 +18,7 @@
     text = ''
       datadir="''${MD2PDF_DATA_DIR:-${pandocData}}"
       default_template="''${MD2PDF_TEMPLATE:-eisvogel}"
+      export TEXINPUTS="$datadir/assets//:''${TEXINPUTS:-}"
 
       usage() {
         cat <<EOF
@@ -167,4 +172,6 @@ in {
   home.packages = [md2pdf];
 
   xdg.dataFile."pandoc".source = pandocData;
+
+  home.sessionVariables.TEXINPUTS = "${config.xdg.dataHome}/pandoc/assets//:";
 }

@@ -1,6 +1,11 @@
 # md2pdf: Clean serif article (pandoc default template, Libertinus)
 to: pdf
 pdf-engine: pdflatex
+filters:
+  - ${.}/../filters/table-wrap.lua
+metadata:
+  table-line-chars: 96
+  table-code-weight: 1.27
 variables:
   documentclass: scrartcl
   papersize: a4

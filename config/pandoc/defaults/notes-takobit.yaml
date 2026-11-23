@@ -1,0 +1,33 @@
+# md2pdf: Notes with takobit logo header and Tokyo Night code blocks
+to: pdf
+pdf-engine: pdflatex
+highlight-style: ${.}/../themes/tokyonight.theme
+filters:
+  - ${.}/../filters/plain-code-highlight.lua
+  - ${.}/../filters/table-wrap.lua
+include-in-header:
+  - ${.}/../includes/takobit-header.tex
+metadata:
+  table-line-chars: 114
+  table-code-weight: 1.21
+variables:
+  documentclass: scrartcl
+  classoption:
+    - parskip=half
+  papersize: a4
+  fontsize: 10pt
+  fontfamily: sourcesanspro
+  fontfamilyoptions:
+    - default
+  geometry:
+    - top=1.5cm
+    - bottom=1.8cm
+    - left=1.8cm
+    - right=1.8cm
+    - includehead
+    - includefoot
+    - headheight=1.1cm
+    - headsep=0.5cm
+  colorlinks: true
+  linkcolor: "teal"
+  urlcolor: "teal"

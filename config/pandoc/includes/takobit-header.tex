@@ -1,0 +1,19 @@
+\usepackage{graphicx}
+\usepackage[scale=0.88]{sourcecodepro}
+\usepackage[headsepline=0.4pt,footsepline=0.4pt]{scrlayer-scrpage}
+\clearpairofpagestyles
+\automark[section]{section}
+\ihead{\raisebox{-0.15\height}{\includegraphics[height=0.75cm]{takobit-logo-schwarz}}}
+\ohead{\small\headmark}
+\ofoot{\small\pagemark}
+\renewcommand*{\titlepagestyle}{scrheadings}
+\pagestyle{scrheadings}
+
+\usepackage[most]{tcolorbox}
+\ifdefined\Shaded
+  \renewenvironment{Shaded}{%
+    \begin{tcolorbox}[enhanced,breakable,colback=shadecolor,frame hidden,
+      boxrule=0pt,arc=3pt,left=8pt,right=8pt,top=6pt,bottom=6pt,
+      before skip=0.6\baselineskip,after skip=0.6\baselineskip]%
+  }{\end{tcolorbox}}
+\fi

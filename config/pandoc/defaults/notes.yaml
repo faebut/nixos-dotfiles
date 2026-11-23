@@ -1,0 +1,17 @@
+# md2pdf: Compact sans-serif notes, small margins, no title page
+to: pdf
+pdf-engine: pdflatex
+variables:
+  documentclass: scrartcl
+  classoption:
+    - parskip=half
+  papersize: a4
+  fontsize: 10pt
+  fontfamily: sourcesanspro
+  fontfamilyoptions:
+    - default
+  geometry:
+    - margin=1.8cm
+  colorlinks: true
+  linkcolor: "teal"
+  urlcolor: "teal"

@@ -1,0 +1,22 @@
+# md2pdf: Eisvogel report with colored title page, TOC and numbered sections
+to: pdf
+template: eisvogel
+pdf-engine: pdflatex
+number-sections: true
+table-of-contents: true
+toc-depth: 3
+variables:
+  papersize: a4
+  fontfamily: sourcesanspro
+  fontfamilyoptions:
+    - default
+  titlepage: true
+  titlepage-color: "1E3A5F"
+  titlepage-text-color: "FFFFFF"
+  titlepage-rule-color: "FFFFFF"
+  titlepage-rule-height: 2
+  toc-own-page: true
+  colorlinks: true
+  linkcolor: "blue"
+  urlcolor: "blue"
+  footnotes-pretty: true

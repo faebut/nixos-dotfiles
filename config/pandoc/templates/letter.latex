@@ -1,0 +1,122 @@
+%% md2pdf Swiss letter template (KOMA-Script scrlttr2)
+%%
+%% Front matter variables:
+%%   from:        name, address (list), phone, email, url
+%%   to:          recipient address (list of lines)
+%%   subject, place, date (defaults to today)
+%%   opening      (default: Sehr geehrte Damen und Herren)
+%%   closing      (default: Freundliche Grüsse)
+%%   signature    image file for the handwritten signature (optional)
+%%   yourref, myref, customer, invoice   reference line fields (optional)
+%%   encl, cc     lists (optional)
+%%   ps           postscript (optional)
+%%   lang         default de-CH; e.g. en-GB for English letters
+%%   window-left  true for German DIN window envelopes, default Swiss (right)
+%%   fontsize     default 11pt
+%%   serif        true for a serif font, default is TeX Gyre Heros (Helvetica)
+\documentclass[
+  version=last,
+  paper=a4,
+  fontsize=$if(fontsize)$$fontsize$$else$11pt$endif$,
+  parskip=half,
+  foldmarks=true,
+  enlargefirstpage=on,
+  fromalign=left,
+  fromrule=afteraddress,
+  refline=dateleft,
+  $if(window-left)$DIN$else$SN$endif$,
+]{scrlttr2}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[$if(babel-lang)$$babel-lang$$else$nswissgerman$endif$]{babel}
+$if(serif)$
+\usepackage{libertinus}
+$else$
+\usepackage{tgheros}
+\renewcommand*{\familydefault}{\sfdefault}
+$endif$
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{soul}
+\usepackage[hidelinks]{hyperref}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\pandocbounded}[1]{#1}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\setkomavar{fromname}{$from.name$}
+\setkomavar{fromaddress}{$for(from.address)$$it$$sep$\\$endfor$}
+$if(from.phone)$
+\setkomavar{fromphone}{$from.phone$}
+\KOMAoptions{fromphone=true}
+$endif$
+$if(from.email)$
+\setkomavar{fromemail}{$from.email$}
+\KOMAoptions{fromemail=true}
+$endif$
+$if(from.url)$
+\setkomavar{fromurl}{$from.url$}
+\KOMAoptions{fromurl=true}
+$endif$
+\setkomavar{backaddressseparator}{, }
+$if(place)$
+\setkomavar{place}{$place$}
+$endif$
+\setkomavar{date}{$if(date)$$date$$else$\today$endif$}
+$if(subject)$
+\setkomavar{subject}{$subject$}
+$endif$
+$if(yourref)$
+\setkomavar{yourref}{$yourref$}
+$endif$
+$if(myref)$
+\setkomavar{myref}{$myref$}
+$endif$
+$if(customer)$
+\setkomavar{customer}{$customer$}
+$endif$
+$if(invoice)$
+\setkomavar{invoice}{$invoice$}
+$endif$
+
+\renewcommand*{\raggedsignature}{\raggedright}
+$if(signature)$
+\setkomavar{signature}{\includegraphics[height=1.4cm]{$signature$}\\$from.name$}
+\makeatletter\@setplength{sigbeforevskip}{0.3em}\makeatother
+$else$
+\setkomavar{signature}{$from.name$}
+$endif$
+
+\begin{document}
+\begin{letter}{$for(to)$$it$$sep$\\$endfor$}
+\opening{$if(opening)$$opening$$else$Sehr geehrte Damen und Herren$endif$}
+
+$body$
+
+\closing{$if(closing)$$closing$$else$Freundliche Grüsse$endif$}
+$if(ps)$
+
+\ps $ps$
+$endif$
+$if(encl)$
+
+\encl{$for(encl)$$it$$sep$\\$endfor$}
+$endif$
+$if(cc)$
+
+\cc{$for(cc)$$it$$sep$\\$endfor$}
+$endif$
+\end{letter}
+\end{document}

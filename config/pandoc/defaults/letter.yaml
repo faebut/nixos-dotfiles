@@ -1,0 +1,4 @@
+# md2pdf: Swiss letter (KOMA scrlttr2, window right); needs from/to in front matter
+to: pdf
+template: letter
+pdf-engine: pdflatex

@@ -1,0 +1,15 @@
+# md2pdf: Clean serif article (pandoc default template, Libertinus)
+to: pdf
+pdf-engine: pdflatex
+variables:
+  documentclass: scrartcl
+  papersize: a4
+  fontsize: 11pt
+  fontfamily: libertinus
+  geometry:
+    - margin=2.5cm
+  linestretch: 1.15
+  colorlinks: true
+  linkcolor: "NavyBlue"
+  urlcolor: "NavyBlue"
+  citecolor: "NavyBlue"

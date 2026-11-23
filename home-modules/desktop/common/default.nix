@@ -6,6 +6,7 @@
     ./communication.nix
     ./graphic.nix
     ./labelprinter.nix
+    ./md2pdf.nix
     ./cloud.nix
     ./multimedia.nix
     ./java.nix

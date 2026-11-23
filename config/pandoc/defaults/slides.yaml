@@ -1,0 +1,10 @@
+# md2pdf: Beamer slides (Metropolis, 16:9); one slide per ## heading
+to: beamer
+pdf-engine: pdflatex
+slide-level: 2
+variables:
+  theme: metropolis
+  aspectratio: 169
+  themeoptions:
+    - progressbar=frametitle
+    - numbering=fraction

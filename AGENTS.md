@@ -298,6 +298,13 @@ shellAliases = {
 };
 ```
 
+**md2pdf** (home-modules/desktop/common/md2pdf.nix):
+- Bash + gum wrapper around pandoc: `md2pdf [-t TEMPLATE] [-o DIR] [FILE...] [-- PANDOC_ARGS]`
+- Templates are pandoc defaults files in `config/pandoc/defaults/*.yaml`; first line
+  `# md2pdf: <description>` is shown in the picker. LaTeX templates live in
+  `config/pandoc/templates/*.latex`. The dir is also linked to `~/.local/share/pandoc`.
+- To add a template: drop a new `defaults/<name>.yaml` (optionally with a `templates/<name>.latex`).
+
 **Shell tools in use**:
 - zsh with autosuggestions and syntax highlighting
 - starship prompt

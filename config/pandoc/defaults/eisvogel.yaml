@@ -1,0 +1,9 @@
+# md2pdf: Eisvogel, plain (like the old md2pdf alias)
+to: pdf
+template: eisvogel
+pdf-engine: pdflatex
+variables:
+  papersize: a4
+  fontfamily: sourcesanspro
+  fontfamilyoptions:
+    - default

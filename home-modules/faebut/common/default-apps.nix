@@ -14,7 +14,7 @@
       "message/rfc822" = ["thunderbird.desktop"];
       
       # Documents - PDF
-      "application/pdf" = ["org.gnome.Papers.desktop"];
+      "application/pdf" = ["ai.storyteller.pdfcraft.desktop" "org.gnome.Papers.desktop"];
       "application/x-bzpdf" = ["org.gnome.Papers.desktop"];
       "application/x-ext-pdf" = ["org.gnome.Papers.desktop"];
       "application/x-gzpdf" = ["org.gnome.Papers.desktop"];

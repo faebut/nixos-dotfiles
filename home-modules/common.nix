@@ -227,6 +227,7 @@
     ++ (with unstablePkgs; [
       # crush
       waybar
+      pdfcraft
     ]);
 
   # basic configuration of git, please change to your own

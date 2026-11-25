@@ -36,6 +36,12 @@ return {
 		end,
 	},
 	{
+		"nvim-orgmode/org-bullets.nvim",
+		dependencies = { "nvim-orgmode/orgmode" },
+		ft = { "org" },
+		opts = {},
+	},
+	{
 		"nvim-orgmode/telescope-orgmode.nvim",
 		dependencies = {
 			"nvim-orgmode/orgmode",

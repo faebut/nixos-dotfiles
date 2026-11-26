@@ -2,6 +2,7 @@
   imports = [
     # ./firefox.nix  # Disabled - using Zen Browser instead
     ./zen-browser.nix
+    ./ladybird.nix
     ./thunderbird.nix
     ./communication.nix
     ./graphic.nix
